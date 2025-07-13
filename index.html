@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lounge Asia – Brisbane’s East Asian Community</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles for UI/UX Enhancements -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #111827; /* Darker base background */
+        }
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+        /* Active language button style */
+        .lang-btn.active {
+            color: #FBBF24; /* gold color */
+            text-decoration: underline;
+        }
+
+        /* --- Scroll Animation --- */
+        .reveal {
+            position: relative;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: 1s all ease;
+        }
+        .reveal.active {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* --- Enhanced Button & Card Styles --- */
+        .btn-glow {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px rgba(251, 191, 36, 0); /* Initial transparent glow */
+        }
+        .btn-glow:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(251, 191, 36, 0.3); /* Gold glow on hover */
+        }
+        .card-glow {
+            transition: all 0.3s ease;
+        }
+        .card-glow:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+        .gallery-image-hover {
+            transition: transform 0.4s ease;
+        }
+        .gallery-image-hover:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- Gallery Image Aspect Ratio Fix --- */
+        .gallery-item {
+            aspect-ratio: 1 / 1; /* Enforce a square aspect ratio */
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- ===== Header ===== -->
+    <header class="bg-gray-900/70 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 border-b border-gray-700/50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl font-bold text-white tracking-wider" data-lang-key="siteTitleHeader">Lounge Asia</a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center space-x-6">
+                <a href="#about" class="hover:text-yellow-300 transition-colors duration-300" data-lang-key="navAbout">About</a>
+                <a href="#event" class="hover:text-yellow-300 transition-colors duration-300" data-lang-key="navEvent">Event</a>
+                <a href="#gallery" class="hover:text-yellow-300 transition-colors duration-300" data-lang-key="navGallery">Gallery</a>
+                <a href="#contact" class="hover:text-yellow-300 transition-colors duration-300" data-lang-key="navContact">Contact</a>
+                
+                <!-- Language Switcher -->
+                <div class="flex space-x-2 text-sm">
+                    <button onclick="changeLanguage('en')" class="lang-btn active">EN</button>
+                    <span>|</span>
+                    <button onclick="changeLanguage('ja')" class="lang-btn">日本語</button>
+                    <span>|</span>
+                    <button onclick="changeLanguage('zh-TW')" class="lang-btn">繁體</button>
+                    <span>|</span>
+                    <button onclick="changeLanguage('zh-CN')" class="lang-btn">简体</button>
+                    <span>|</span>
+                    <button onclick="changeLanguage('ko')" class="lang-btn">한국어</button>
+                    <span>|</span>
+                    <button onclick="changeLanguage('sg')" class="lang-btn">SG</button>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-white focus:outline-none">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95 px-6 pt-2 pb-4">
+            <a href="#about" class="block py-2 hover:text-yellow-300 transition" data-lang-key="navAbout">About</a>
+            <a href="#event" class="block py-2 hover:text-yellow-300 transition" data-lang-key="navEvent">Event</a>
+            <a href="#gallery" class="block py-2 hover:text-yellow-300 transition" data-lang-key="navGallery">Gallery</a>
+            <a href="#contact" class="block py-2 hover:text-yellow-300 transition" data-lang-key="navContact">Contact</a>
+            <div class="border-t border-gray-700 mt-4 pt-4">
+                <div class="flex flex-wrap gap-x-2 gap-y-2 text-sm">
+                    <button onclick="changeLanguage('en')" class="lang-btn active">EN</button>
+                    <button onclick="changeLanguage('ja')" class="lang-btn">日本語</button>
+                    <button onclick="changeLanguage('zh-TW')" class="lang-btn">繁體中文</button>
+                    <button onclick="changeLanguage('zh-CN')" class="lang-btn">简体中文</button>
+                    <button onclick="changeLanguage('ko')" class="lang-btn">한국어</button>
+                    <button onclick="changeLanguage('sg')" class="lang-btn">Singlish</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ===== Hero Section ===== -->
+        <section class="min-h-screen flex items-center justify-center bg-cover bg-center bg-no-repeat" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.ibb.co/BHC9QM5p/IMG-1059.jpg');">
+            <div class="text-center text-white p-6">
+                <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-4 reveal" data-lang-key="heroTitle">Lounge Asia</h1>
+                <p class="text-lg md:text-2xl mb-8 reveal" style="transition-delay: 200ms;" data-lang-key="heroSubtitle">Your East Asian Community in Brisbane</p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4 reveal" style="transition-delay: 400ms;">
+                    <a href="https://www.facebook.com/profile.php?id=61575030717215" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-full btn-glow" data-lang-key="heroBtnFacebook">Check on Facebook</a>
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="bg-gradient-to-r from-pink-500 to-orange-400 hover:from-pink-600 hover:to-orange-500 text-white font-bold py-3 px-8 rounded-full btn-glow" data-lang-key="heroBtnInstagram">Follow on Instagram</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== About Section ===== -->
+        <section id="about" class="py-24 bg-gray-800/50">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4 reveal" data-lang-key="aboutTitle">About Us</h2>
+                    <p class="text-lg text-gray-300 mb-12 reveal" style="transition-delay: 200ms;" data-lang-key="aboutText">Lounge Asia is a casual networking event where people with roots in Asia can gather and chat in Brisbane. It's a warm space where anyone can feel safe and be themselves, beyond nationality or language.</p>
+                    
+                    <h3 class="text-3xl md:text-4xl font-bold mt-16 mb-4 reveal" data-lang-key="missionTitle">Our Mission</h3>
+                    <p class="text-lg text-gray-300 reveal" style="transition-delay: 200ms;" data-lang-key="missionText">Our goal isn't just to hold events. It's to nurture connections and deepen the bonds of the East Asian community in Brisbane. Through these connections, we want to make your daily life here more enjoyable and comfortable. We're here to help create opportunities that enrich your life, from meeting new friends to finding business opportunities and a place where you feel you belong.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Regular Event Section ===== -->
+        <section id="event" class="py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 reveal" data-lang-key="eventTitle">Our Monthly Meetup</h2>
+                <div class="max-w-3xl mx-auto bg-gray-800 rounded-xl shadow-2xl p-8 reveal" style="transition-delay: 200ms;">
+                    <p class="text-xl text-gray-300 mb-6" data-lang-key="eventDescription">
+                        Lounge Asia is held regularly! It's a great chance to casually meet new people. Join us on the 4th Tuesday of every month.
+                    </p>
+                    <ul class="space-y-4 text-lg text-left inline-block mx-auto">
+                         <li class="flex items-center">
+                            <span class="text-2xl mr-4">🗓️</span>
+                            <div data-lang-key="eventSchedule"><strong>When:</strong> Every 4th Tuesday of the month</div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-2xl mr-4">⏰</span>
+                            <div data-lang-key="eventTime"><strong>Time:</strong> 6:00 PM onwards</div>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-2xl mr-4">📍</span>
+                            <div data-lang-key="eventVenue"><strong>Where:</strong> Criterion Tavern, Brisbane City</div>
+                        </li>
+                    </ul>
+                    <div class="mt-8">
+                        <p class="mb-4" data-lang-key="eventRsvpAction">No booking required, just come along! Check our socials for the latest updates.</p>
+                        <div class="flex flex-col sm:flex-row justify-center gap-4">
+                            <a href="https://www.facebook.com/profile.php?id=61575030717215" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-full btn-glow" data-lang-key="eventBtnFacebook">Check on Facebook</a>
+                            <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="bg-gradient-to-r from-pink-500 to-orange-400 hover:from-pink-600 hover:to-orange-500 text-white font-bold py-3 px-8 rounded-full btn-glow" data-lang-key="eventBtnInstagram">Follow on Instagram</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Gallery Section ===== -->
+        <section id="gallery" class="py-24 bg-gray-800/50">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 reveal" data-lang-key="galleryTitle">Our Moments</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                    <!-- Image 1 -->
+                    <div class="reveal rounded-xl overflow-hidden card-glow gallery-item">
+                        <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="block group h-full">
+                            <img src="https://i.ibb.co/jZ6WmXWy/D24-E3392-AF0-A-41-E9-8-ED8-FD2-D3-E90-C78-C.png" alt="Friends at Lounge Asia event" class="w-full h-full object-cover gallery-image-hover" onerror="this.onerror=null;this.src='https://placehold.co/600x600/1F2937/FFFFFF?text=Lounge+Asia';">
+                        </a>
+                    </div>
+                    <!-- Image 2 -->
+                    <div class="reveal rounded-xl overflow-hidden card-glow gallery-item" style="transition-delay: 200ms;">
+                        <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="block group h-full">
+                            <img src="https://i.ibb.co/bRCy3H6J/IMG-1054.jpg" alt="The lively atmosphere at Lounge Asia" class="w-full h-full object-cover gallery-image-hover" onerror="this.onerror=null;this.src='https://placehold.co/600x600/1F2937/FFFFFF?text=Lounge+Asia';">
+                        </a>
+                    </div>
+                    <!-- Image 3 -->
+                    <div class="reveal rounded-xl overflow-hidden card-glow gallery-item" style="transition-delay: 400ms;">
+                        <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="block group h-full">
+                            <img src="https://i.ibb.co/PzJNgtjK/IMG-1060.jpg" alt="People networking at Lounge Asia" class="w-full h-full object-cover gallery-image-hover" onerror="this.onerror=null;this.src='https://placehold.co/600x600/1F2937/FFFFFF?text=Lounge+Asia';">
+                        </a>
+                    </div>
+                </div>
+                 <div class="text-center mt-12 reveal">
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full btn-glow" data-lang-key="galleryBtnFollow">Follow us for more!</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Testimonials Section ===== -->
+        <section id="testimonials" class="py-24">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 reveal" data-lang-key="testimonialsTitle">What Our Friends Say</h2>
+                <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="bg-gray-800 p-8 rounded-xl relative reveal card-glow">
+                        <span class="absolute top-4 left-4 text-7xl text-yellow-400 opacity-10">“</span>
+                        <p class="text-lg italic text-gray-300 z-10 relative" data-lang-key="testimonial1">I came alone and left with 10 new friends. The atmosphere is so friendly and open!</p>
+                    </div>
+                    <div class="bg-gray-800 p-8 rounded-xl relative reveal card-glow" style="transition-delay: 200ms;">
+                        <span class="absolute top-4 left-4 text-7xl text-yellow-400 opacity-10">“</span>
+                        <p class="text-lg italic text-gray-300 z-10 relative" data-lang-key="testimonial2">A unique place where language barriers disappear. I could finally practice my Korean with native speakers.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Collaboration/Sponsor Section ===== -->
+        <section id="collaborate" class="py-24 bg-gray-800/50 text-center">
+            <div class="container mx-auto px-6 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6" data-lang-key="collabTitle">Let's Create a Movement Together!</h2>
+                <div class="max-w-3xl mx-auto text-left space-y-6 text-gray-300">
+                    <p data-lang-key="collabIntro">Lounge Asia is always looking for passionate individuals, companies, and organizations to help us energize the East Asian community in Brisbane. Our activities thrive on your support.</p>
+                    <div>
+                        <h4 class="font-semibold text-lg text-yellow-400" data-lang-key="collabInfluencersTitle">To Influencers & Creators:</h4>
+                        <p data-lang-key="collabInfluencersText">Interested in covering our event? We welcome those who can help us expand our community through their platform. We can invite you to our events, so please feel free to get in touch.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-lg text-yellow-400" data-lang-key="collabVenuesTitle">To Venue, Restaurant & Cafe Owners:</h4>
+                        <p data-lang-key="collabVenuesText">Lounge Asia is always seeking new places to meet. Are you interested in hosting an event at a unique location like a BBQ spot, a restaurant, or a cafe? We'd love to hear from venue partners.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold text-lg text-yellow-400" data-lang-key="collabSponsorsTitle">To Performers, DJs & Sponsors:</h4>
+                        <p data-lang-key="collabSponsorsText">We are open to all forms of collaboration, from cultural performances and DJ sets that light up our events, to drink and food sponsorships that delight our attendees.</p>
+                    </div>
+                    <p class="font-bold text-center text-xl text-white pt-4" data-lang-key="collabCallToAction">Let's work together to make the East Asian community in Brisbane even more exciting and welcoming!</p>
+                </div>
+                <div class="mt-8">
+                     <a href="#contact" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full btn-glow" data-lang-key="collabBtnContact">Contact Us</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Contact Section ===== -->
+        <section id="contact" class="py-24">
+            <div class="container mx-auto px-6 text-center reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-lang-key="contactTitle">Get In Touch</h2>
+                <p class="max-w-xl mx-auto text-gray-300 mb-8" data-lang-key="contactText">
+                    Have questions or want to collaborate? Send us an email! Click the button below to open your email client.
+                </p>
+                <a href="mailto:lounge.brisbane@gmail.com" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-10 rounded-full btn-glow" data-lang-key="contactBtn">
+                    Send an Email
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== Footer ===== -->
+    <footer class="bg-gray-900 border-t border-gray-700/50 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <div class="flex justify-center space-x-6 mb-4">
+                <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="hover:text-white transition-colors duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 012.153 2.153c.247.636.398 1.363.444 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.046 1.064-.197 1.791-.444 2.427a4.902 4.902 0 01-2.153 2.153c-.636.247-1.363.398-2.427.444-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-2.153-2.153c-.247-.636-.398-1.363-.444-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.046-1.064.197-1.791.444-2.427a4.902 4.902 0 012.153-2.153c.636-.247 1.363.398 2.427.444C9.531 2.013 9.885 2 12.315 2zM12 7a5 5 0 100 10 5 5 0 000-10zm0-2a7 7 0 110 14 7 7 0 010-14zm6.406-1.11a1.423 1.423 0 100 2.846 1.423 1.423 0 000-2.846z" clip-rule="evenodd" /></svg>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61575030717215" target="_blank" class="hover:text-white transition-colors duration-300">
+                    <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" /></svg>
+                </a>
+            </div>
+            <p class="mb-2" data-lang-key="footerOrganizer">Organizer: Brisbane Japanese Bridge</p>
+            <p>&copy; 2025 Lounge Asia</p>
+        </div>
+    </footer>
+
+    <script>
+        // ===== Language Data =====
+        const translations = {
+            en: {
+                siteTitleHeader: "Lounge Asia",
+                navAbout: "About",
+                navEvent: "Event",
+                navGallery: "Gallery",
+                navContact: "Contact",
+                heroTitle: "Lounge Asia",
+                heroSubtitle: "Your East Asian Community in Brisbane",
+                heroBtnFacebook: "Check on Facebook",
+                heroBtnInstagram: "Follow on Instagram",
+                aboutTitle: "About Us",
+                aboutText: "Lounge Asia is a casual networking event where people with roots in Asia can gather and chat in Brisbane. It's a warm space where anyone can feel safe and be themselves, beyond nationality or language.",
+                missionTitle: "Our Mission",
+                missionText: "Our goal isn't just to hold events. It's to nurture connections and deepen the bonds of the East Asian community in Brisbane. Through these connections, we want to make your daily life here more enjoyable and comfortable. We're here to help create opportunities that enrich your life, from meeting new friends to finding business opportunities and a place where you feel you belong.",
+                eventTitle: "Our Monthly Meetup",
+                eventDescription: "Lounge Asia is held regularly! It's a great chance to casually meet new people. Join us on the 4th Tuesday of every month.",
+                eventSchedule: "<strong>When:</strong> Every 4th Tuesday of the month",
+                eventTime: "<strong>Time:</strong> 6:00 PM onwards",
+                eventVenue: "<strong>Where:</strong> Criterion Tavern, Brisbane City",
+                eventRsvpAction: "No booking required, just come along! Check our socials for the latest updates.",
+                eventBtnFacebook: "Check on Facebook",
+                eventBtnInstagram: "Follow on Instagram",
+                galleryTitle: "Our Moments",
+                galleryBtnFollow: "Follow us for more!",
+                testimonialsTitle: "What Our Friends Say",
+                testimonial1: "I came alone and left with 10 new friends. The atmosphere is so friendly and open!",
+                testimonial2: "A unique place where language barriers disappear. I could finally practice my Korean with native speakers.",
+                collabTitle: "Let's Create a Movement Together!",
+                collabIntro: "Lounge Asia is always looking for passionate individuals, companies, and organizations to help us energize the East Asian community in Brisbane. Our activities thrive on your support.",
+                collabInfluencersTitle: "To Influencers & Creators:",
+                collabInfluencersText: "Interested in covering our event? We welcome those who can help us expand our community through their platform. We can invite you to our events, so please feel free to get in touch.",
+                collabVenuesTitle: "To Venue, Restaurant & Cafe Owners:",
+                collabVenuesText: "Lounge Asia is always seeking new places to meet. Are you interested in hosting an event at a unique location like a BBQ spot, a restaurant, or a cafe? We'd love to hear from venue partners.",
+                collabSponsorsTitle: "To Performers, DJs & Sponsors:",
+                collabSponsorsText: "We are open to all forms of collaboration, from cultural performances and DJ sets that light up our events, to drink and food sponsorships that delight our attendees.",
+                collabCallToAction: "Let's work together to make the East Asian community in Brisbane even more exciting and welcoming!",
+                collabBtnContact: "Contact Us",
+                contactTitle: "Get In Touch",
+                contactText: "Have questions or want to collaborate? Send us an email! Click the button below to open your email client.",
+                contactBtn: "Send an Email",
+                footerOrganizer: "Organizer: Brisbane Japanese Bridge"
+            },
+            ja: {
+                siteTitleHeader: "ラウンジ・アジア",
+                navAbout: "概要",
+                navEvent: "イベント",
+                navGallery: "ギャラリー",
+                navContact: "連絡先",
+                heroTitle: "Lounge Asia",
+                heroSubtitle: "ブリスベンで繋がる、東アジアコミュニティ",
+                heroBtnFacebook: "Facebookで確認",
+                heroBtnInstagram: "Instagramでフォロー",
+                aboutTitle: "私たちについて",
+                aboutText: "Lounge Asiaは、ブリスベンに住むアジアにルーツを持つ人々が、気軽に集い、語り合えるカジュアルな交流イベントです。国籍や言語の壁を越えて、誰もが安心して自分らしくいられる。そんな温かい空間を提供しています。",
+                missionTitle: "私たちの目的",
+                missionText: "私たちのゴールは、単にイベントを開催することではありません。ブリスベンという地で、人と人との「繋がり」を育み、東アジアコミュニティの輪を深めること。そして、その繋がりを通じて、あなたのブリスベンでの毎日が、もっと楽しく、もっと住みやすいものになること。それが、Lounge Asiaが最も大切にしているミッションです。私たちは、新しい友人との出会いや、ビジネスチャンス、心安らぐ居場所作りなど、あなたの生活を豊かにする「きっかけ」を創造するお手伝いをします。",
+                eventTitle: "月例ミートアップ",
+                eventDescription: "Lounge Asiaは定期開催！気軽に新しい人と出会えるチャンスです。毎月第4火曜日に開催しています。",
+                eventSchedule: "<strong>日時:</strong> 毎月第4火曜日",
+                eventTime: "<strong>時間:</strong> 午後6時から",
+                eventVenue: "<strong>場所:</strong> Criterion Tavern, Brisbane City",
+                eventRsvpAction: "予約は不要です、お気軽にどうぞ！最新情報はSNSをチェックしてください。",
+                eventBtnFacebook: "Facebookで確認",
+                eventBtnInstagram: "Instagramをフォロー",
+                galleryTitle: "私たちの瞬間",
+                galleryBtnFollow: "もっと見るにはフォロー",
+                testimonialsTitle: "参加者の声",
+                testimonial1: "一人で来ましたが、10人の新しい友達ができました。とてもフレンドリーでオープンな雰囲気です！",
+                testimonial2: "言葉の壁がなくなるユニークな場所。やっとネイティブスピーカーと韓国語を練習できました。",
+                collabTitle: "一緒にムーブメントを創りませんか？",
+                collabIntro: "Lounge Asiaは、ブリスベンの東アジアコミュニティを共に盛り上げてくれる、情熱的な個人・企業・団体を常に探しています。私たちの活動は、皆様の協力があってこそ成り立っています。",
+                collabInfluencersTitle: "インフルエンサー・クリエイターの皆様へ:",
+                collabInfluencersText: "私たちのイベントを取材・紹介してみませんか？ あなたの発信力を通じて、コミュニティの輪をさらに広げるお手伝いをしていただける方を歓迎します。イベントへのご招待も可能ですので、お気軽にご連絡ください。",
+                collabVenuesTitle: "会場・レストラン・カフェのオーナー様へ:",
+                collabVenuesText: "Lounge Asiaは、新しい出会いの場を常に探しています。定例のバーだけでなく、BBQや各国料理のレストラン、カフェなど、ユニークな場所でのイベント開催に興味はありませんか？ 会場をご提供いただけるパートナー様からのご連絡を心よりお待ちしております。",
+                collabSponsorsTitle: "パフォーマー・DJ・スポンサーの皆様へ:",
+                collabSponsorsText: "イベントを彩る文化的なパフォーマンス、会場を盛り上げるDJプレイ、参加者が喜ぶドリンクやフードのスポンサーシップなど、あらゆる形でのコラボレーションが可能です。",
+                collabCallToAction: "さあ、一緒にブリスベンの東アジアコミュニティを、もっと面白く、もっと温かい場所にしていきましょう！",
+                collabBtnContact: "お問い合わせ",
+                contactTitle: "お問い合わせ",
+                contactText: "ご質問やコラボのご相談は、Eメールでお気軽にご連絡ください。下のボタンをクリックすると、お使いのメールソフトが起動します。",
+                contactBtn: "Eメールを送信",
+                footerOrganizer: "主催: Brisbane Japanese Bridge"
+            },
+            'zh-TW': {
+                siteTitleHeader: "亞洲沙龍",
+                navAbout: "關於我們",
+                navEvent: "活動",
+                navGallery: "精彩瞬間",
+                navContact: "聯絡我們",
+                heroTitle: "Lounge Asia",
+                heroSubtitle: "您在布里斯本的東亞社群",
+                heroBtnFacebook: "在 Facebook 上查看",
+                heroBtnInstagram: "在 Instagram 上追蹤",
+                aboutTitle: "關於我們",
+                aboutText: "Lounge Asia 是一個讓有亞洲背景的人們在布里斯本輕鬆聚會、暢談的休閒交流活動。這是一個溫暖的空間，無論國籍或語言，任何人都可以安心地做自己。",
+                missionTitle: "我們的使命",
+                missionText: "我們的目標不僅僅是舉辦活動，更重要的是在布里斯本這片土地上，培養人與人之間的「連結」，加深東亞社群的凝聚力。我們希望透過這些連結，讓您在這裡的每一天都更加愉快、更加舒適。我們致力於為您創造豐富生活的「契機」，無論是結交新朋友、尋找商業機會，還是找到一個讓您心安的歸屬之地。",
+                eventTitle: "我們的每月聚會",
+                eventDescription: "Lounge Asia 定期舉行！這是一個輕鬆認識新朋友的好機會。我們每個月的第四個星期二見。",
+                eventSchedule: "<strong>時間:</strong> 每月第四個星期二",
+                eventTime: "<strong>時刻:</strong> 晚上6點開始",
+                eventVenue: "<strong>地點:</strong> Criterion Tavern, Brisbane City",
+                eventRsvpAction: "無需預約，直接來吧！請在我們的社交媒體上查看最新消息。",
+                eventBtnFacebook: "在 Facebook 上查看",
+                eventBtnInstagram: "在 Instagram 上追蹤",
+                galleryTitle: "我們的時刻",
+                galleryBtnFollow: "追蹤我們看更多！",
+                testimonialsTitle: "聽聽朋友們怎麼說",
+                testimonial1: "我一個人來，離開時交了10個新朋友。這裡的氣氛非常友好和開放！",
+                testimonial2: "一個語言障礙消失的獨特地方。我終於可以和母語人士練習我的韓語了。",
+                collabTitle: "一同創造新浪潮！",
+                collabIntro: "Lounge Asia 一直在尋找熱情的個人、公司和團體，與我們一起為布里斯本的東亞社群注入活力。我們的活動因您的支持而茁壯。",
+                collabInfluencersTitle: "致網紅與創作者：",
+                collabInfluencersText: "有興趣報導我們的活動嗎？我們歡迎您透過您的影響力，幫助我們擴大社群的影響範圍。我們可以邀請您參加活動，請隨時與我們聯繫。",
+                collabVenuesTitle: "致場地、餐廳和咖啡店主：",
+                collabVenuesText: "Lounge Asia 總是在尋找新的聚會地點。您是否有興趣在獨特的場所（如燒烤區、餐廳或咖啡店）舉辦活動？我們非常期待場地合作夥伴的來信。",
+                collabSponsorsTitle: "致表演者、DJ與贊助商：",
+                collabSponsorsText: "我們對所有形式的合作都持開放態度，從為活動增添色彩的文化表演、點燃現場氣氛的DJ表演，到讓與會者開心的飲品和食品贊助。",
+                collabCallToAction: "讓我們一起努力，使布里斯本的東亞社群變得更加精彩和溫暖！",
+                collabBtnContact: "聯絡我們",
+                contactTitle: "聯絡我們",
+                contactText: "有任何問題或想合作嗎？請發送電子郵件給我們！點擊下面的按鈕即可打開您的電子郵件客戶端。",
+                contactBtn: "發送電子郵件",
+                footerOrganizer: "主辦單位：Brisbane Japanese Bridge"
+            },
+            'zh-CN': {
+                siteTitleHeader: "亚洲沙龙",
+                navAbout: "关于我们",
+                navEvent: "活动",
+                navGallery: "精彩瞬间",
+                navContact: "联系我们",
+                heroTitle: "Lounge Asia",
+                heroSubtitle: "您在布里斯班的东亚社群",
+                heroBtnFacebook: "在 Facebook 上查看",
+                heroBtnInstagram: "在 Instagram 上关注",
+                aboutTitle: "关于我们",
+                aboutText: "Lounge Asia 是一个让有亚洲背景的人们在布里斯班轻松聚会、畅谈的休闲交流活动。这是一个温暖的空间，无论国籍或语言，任何人都可以安心地做自己。",
+                missionTitle: "我们的使命",
+                missionText: "我们的目标不仅仅是举办活动，更重要的是在布里斯班这片土地上，培养人与人之间的“链接”，加深东亚社群的凝聚力。我们希望通过这些链接，让您在这里的每一天都更加愉快、更加舒适。我们致力于为您创造丰富生活的“契机”，无论是结交新朋友、寻找商业机会，还是找到一个让您心安的归属之地。",
+                eventTitle: "我们的每月聚会",
+                eventDescription: "Lounge Asia 定期举行！这是一个轻松认识新朋友的好机会。我们每个月的第四个星期二见。",
+                eventSchedule: "<strong>时间:</strong> 每月第四个星期二",
+                eventTime: "<strong>时刻:</strong> 晚上6点开始",
+                eventVenue: "<strong>地点:</strong> Criterion Tavern, Brisbane City",
+                eventRsvpAction: "无需预约，直接来吧！请在我们的社交媒体上查看最新消息。",
+                eventBtnFacebook: "在 Facebook 上查看",
+                eventBtnInstagram: "在 Instagram 上关注",
+                galleryTitle: "我们的时刻",
+                galleryBtnFollow: "关注我们看更多！",
+                testimonialsTitle: "听听朋友们怎么说",
+                testimonial1: "我一个人来，离开时交了10个新朋友。这里的气氛非常友好和开放！",
+                testimonial2: "一个语言障碍消失的独特地方。我终于可以和母语人士练习我的韩语了。",
+                collabTitle: "一同创造新浪潮！",
+                collabIntro: "Lounge Asia 一直在寻找热情的个人、公司和团体，与我们一起为布里斯班的东亚社群注入活力。我们的活动因您的支持而茁壮。",
+                collabInfluencersTitle: "致网红与创作者：",
+                collabInfluencersText: "有兴趣报道我们的活动吗？我们欢迎您通过您的影响力，帮助我们扩大社群的影响范围。我们可以邀请您参加活动，请随时与我们联系。",
+                collabVenuesTitle: "致场地、餐厅和咖啡店主：",
+                collabVenuesText: "Lounge Asia 总是在寻找新的聚会地点。您是否有兴趣在独特的场所（如烧烤区、餐厅或咖啡店）举办活动？我们非常期待场地合作伙伴的来信。",
+                collabSponsorsTitle: "致表演者、DJ与赞助商：",
+                collabSponsorsText: "我们对所有形式的合作都持开放态度，从为活动增添色彩的文化表演、点燃现场气氛的DJ表演，到让与会者开心的饮品和食品赞助。",
+                collabCallToAction: "让我们一起努力，使布里斯班的东亚社群变得更加精彩和温暖！",
+                collabBtnContact: "联系我们",
+                contactTitle: "联系我们",
+                contactText: "有任何问题或想合作吗？请发送电子邮件给我们！点击下面的按钮即可打开您的电子邮件客户端。",
+                contactBtn: "发送电子邮件",
+                footerOrganizer: "主办单位：Brisbane Japanese Bridge"
+            },
+            ko: {
+                siteTitleHeader: "라운지 아시아",
+                navAbout: "소개",
+                navEvent: "이벤트",
+                navGallery: "갤러리",
+                navContact: "문의",
+                heroTitle: "Lounge Asia",
+                heroSubtitle: "브리즈번에서 만나는 동아시아 커뮤니티",
+                heroBtnFacebook: "Facebook에서 확인",
+                heroBtnInstagram: "Instagram에서 팔로우",
+                aboutTitle: "저희에 대해",
+                aboutText: "Lounge Asia는 아시아에 뿌리를 둔 사람들이 브리즈번에서 편안하게 모여 이야기를 나눌 수 있는 캐주얼 네트워킹 이벤트입니다. 국적이나 언어의 장벽을 넘어 누구나 안심하고 자신답게 있을 수 있는 따뜻한 공간을 제공합니다.",
+                missionTitle: "저희의 목표",
+                missionText: "저희의 목표는 단순히 이벤트를 여는 것이 아닙니다. 브리즈번이라는 땅에서 사람과 사람 사이의 '연결'을 키우고 동아시아 커뮤니티의 유대를 깊게 하는 것입니다. 그리고 그 연결을 통해 여러분의 브리즈번에서의 하루하루가 더 즐겁고 살기 좋은 곳이 되기를 바랍니다. 저희는 새로운 친구와의 만남, 비즈니스 기회, 마음 편히 쉴 수 있는 공간 마련 등 여러분의 삶을 풍요롭게 할 '계기'를 만드는 데 도움을 드리고자 합니다.",
+                eventTitle: "월간 정기 모임",
+                eventDescription: "Lounge Asia는 정기적으로 열립니다! 부담 없이 새로운 사람들을 만날 좋은 기회입니다. 매월 넷째 주 화요일에 만나요.",
+                eventSchedule: "<strong>일시:</strong> 매월 넷째 주 화요일",
+                eventTime: "<strong>시간:</strong> 오후 6시부터",
+                eventVenue: "<strong>장소:</strong> Criterion Tavern, Brisbane City",
+                eventRsvpAction: "예약은 필요 없습니다. 그냥 오세요! 최신 정보는 소셜 미디어를 확인하세요.",
+                eventBtnFacebook: "Facebook에서 확인",
+                eventBtnInstagram: "Instagram 팔로우",
+                galleryTitle: "우리의 순간들",
+                galleryBtnFollow: "더 보려면 팔로우하세요!",
+                testimonialsTitle: "친구들의 이야기",
+                testimonial1: "혼자 왔다가 10명의 새 친구를 사귀고 떠났어요. 분위기가 정말 친절하고 개방적이에요!",
+                testimonial2: "언어 장벽이 사라지는 특별한 곳. 드디어 원어민과 한국어를 연습할 수 있었어요.",
+                collabTitle: "함께 새로운 흐름을 만들어요!",
+                collabIntro: "Lounge Asia는 브리즈번의 동아시아 커뮤니티에 활기를 불어넣을 열정적인 개인, 기업, 단체를 항상 찾고 있습니다. 저희 활동은 여러분의 지원 덕분에 번창합니다.",
+                collabInfluencersTitle: "인플루언서 및 크리에이터 여러분께:",
+                collabInfluencersText: "저희 이벤트를 취재하거나 소개해 주실 의향이 있으신가요? 여러분의 플랫폼을 통해 커뮤니티를 확장하는 데 도움을 주실 분들을 환영합니다. 이벤트에 초대해 드릴 수 있으니 언제든지 연락 주세요.",
+                collabVenuesTitle: "장소, 레스토랑, 카페 오너분들께:",
+                collabVenuesText: "Lounge Asia는 항상 새로운 만남의 장소를 찾고 있습니다. 바비큐장, 레스토랑, 카페 등 독특한 장소에서 이벤트를 개최하는 데 관심이 있으신가요? 장소 파트너분들의 연락을 기다립니다.",
+                collabSponsorsTitle: "공연자, DJ, 스폰서 여러분께:",
+                collabSponsorsText: "문화 공연, 분위기를 띄우는 DJ 공연부터 참석자들을 즐겁게 할 음료 및 음식 후원까지 모든 형태의 협업을 환영합니다.",
+                collabCallToAction: "함께 브리즈번의 동아시아 커뮤니티를 더욱 흥미롭고 따뜻한 곳으로 만들어 갑시다!",
+                collabBtnContact: "문의하기",
+                contactTitle: "문의하기",
+                contactText: "질문이 있거나 협업을 원하시나요? 이메일을 보내주세요! 아래 버튼을 클릭하면 이메일 클라이언트가 열립니다.",
+                contactBtn: "이메일 보내기",
+                footerOrganizer: "주최: Brisbane Japanese Bridge"
+            },
+            sg: {
+                siteTitleHeader: "Lounge Asia",
+                navAbout: "About Us Lah",
+                navEvent: "Event",
+                navGallery: "Gallery",
+                navContact: "Contact Us",
+                heroTitle: "Lounge Asia",
+                heroSubtitle: "Your East Asian Community in Brisbane, lah",
+                heroBtnFacebook: "Check on Facebook one!",
+                heroBtnInstagram: "Follow on Instagram can?",
+                aboutTitle: "About Us Lah",
+                aboutText: "Lounge Asia is a casual networking event for people with Asian roots to gather and chit-chat in Brisbane. It's a warm space where anyone can feel safe and just be themselves, no matter where you from or what language you speak.",
+                missionTitle: "Our Mission",
+                missionText: "Our goal is not just to hold events, you know. It's to build connections and make the East Asian community in Brisbane stronger. Through these connections, we want to make your daily life here more shiok and easy-going. We are here to help create chances that make your life better, from meeting new kakis to finding business opportunities and a place where you feel you belong.",
+                eventTitle: "Our Monthly Meetup",
+                eventDescription: "Lounge Asia got regular event! Good chance to meet new people, very chill. Join us every 4th Tuesday of the month.",
+                eventSchedule: "<strong>When:</strong> Every 4th Tuesday of the month",
+                eventTime: "<strong>Time:</strong> 6:00 PM onwards",
+                eventVenue: "<strong>Where:</strong> Criterion Tavern, Brisbane City",
+                eventRsvpAction: "No need book, just come only! Check our socials for latest news.",
+                eventBtnFacebook: "Check on Facebook",
+                eventBtnInstagram: "Follow on Instagram",
+                galleryTitle: "Our Moments",
+                galleryBtnFollow: "Follow us for more lah!",
+                testimonialsTitle: "What Our Friends Say",
+                testimonial1: "I came alone then left with 10 new friends. The vibe so friendly and open, damn good!",
+                testimonial2: "A unique place where no need to worry about language. I could finally practice my Korean with real people.",
+                collabTitle: "Let's Start a Movement Together!",
+                collabIntro: "Lounge Asia is always looking for passionate people, companies, and groups to help us make the East Asian community in Brisbane more happening. Our activities can only succeed with your support.",
+                collabInfluencersTitle: "To Influencers & Creators:",
+                collabInfluencersText: "Want to feature our event? We welcome anyone who can help us grow our community with their platform. We can invite you to our events, so just let us know.",
+                collabVenuesTitle: "To Venue, Restaurant & Cafe Owners:",
+                collabVenuesText: "Lounge Asia is always looking for new places to lepak. Interested in hosting an event at a unique spot like a BBQ place, a restaurant, or a cafe? We would love to hear from venue partners.",
+                collabSponsorsTitle: "To Performers, DJs & Sponsors:",
+                collabSponsorsText: "We are open to all kinds of collaboration, from cultural performances and DJ sets that make our events lively, to drink and food sponsorships that make our attendees happy.",
+                collabCallToAction: "Come, let's work together to make the East Asian community in Brisbane more exciting and welcoming!",
+                collabBtnContact: "Contact Us",
+                contactTitle: "Get In Touch",
+                contactText: "Got questions or want to collaborate? Send us an email! Click the button below to open your email client.",
+                contactBtn: "Send an Email",
+                footerOrganizer: "Organizer: Brisbane Japanese Bridge"
+            }
+        };
+
+        // ===== Language Switcher Logic =====
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll('[data-lang-key]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-lang-key');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+            
+            // Update active button style
+            document.querySelectorAll('.lang-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll(`.lang-btn`).forEach(btn => {
+                if (btn.textContent.toLowerCase().startsWith(lang) || (btn.textContent === '繁體' && lang === 'zh-TW') || (btn.textContent === '简体' && lang === 'zh-CN') || (btn.textContent === '日本語' && lang === 'ja') || (btn.textContent === '한국어' && lang === 'ko')) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        // ===== Mobile Menu Logic =====
+        function setupMobileMenu() {
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+        }
+
+        // ===== Scroll Animation Logic =====
+        function setupScrollAnimation() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            });
+
+            const revealElements = document.querySelectorAll('.reveal');
+            revealElements.forEach((el) => observer.observe(el));
+        }
+
+        // ===== Run scripts on page load =====
+        document.addEventListener('DOMContentLoaded', function () {
+            setupMobileMenu();
+            setupScrollAnimation();
+            changeLanguage('en'); // Set default language
+        });
+    </script>
+
+</body>
+</html>
