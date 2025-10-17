@@ -26,16 +26,57 @@
     </header>
 
     <main class="pt-20">
-        <section class="py-24">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-3xl md:text-4xl font-bold mb-6">Speed Dating</h1>
-                <p class="text-gray-300 mb-8">オリジナルのページへ移動します。</p>
-                <a href="https://speeddating01.vercel.app/" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-10 rounded-full" target="_blank" rel="noopener">オリジナルを開く</a>
+        <section class="min-h-[50vh] flex items-center justify-center bg-cover bg-center" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1532634771-8b9fb99825c7?q=80&w=1800&auto=format&fit=crop');">
+            <div class="text-center px-6">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Lounge Asia Speed Dating</h1>
+                <p class="text-lg md:text-2xl text-gray-200">Meet new people in a safe, friendly way.</p>
+                <div class="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="https://forms.gle/6BsSEncxRtUtQqes8" target="_blank" rel="noopener" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full">Register now</a>
+                    <a href="/" class="border border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-gray-900 font-bold py-3 px-8 rounded-full">Back to Home</a>
+                </div>
             </div>
         </section>
-        <script>
-            window.location.replace('https://speeddating01.vercel.app/');
-        </script>
+
+        <section id="details" class="py-24">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Event details</h2>
+                <div class="bg-gray-800 rounded-xl p-8 space-y-4">
+                    <p>We host speed dating focused on the East Asian community in Brisbane. Have fun and feel safe while meeting new people.</p>
+                    <ul class="list-disc list-inside text-gray-300 space-y-2">
+                        <li>Who: Single adults 18+</li>
+                        <li>Format: Multiple short 1-on-1 sessions</li>
+                        <li>Venue: CBD area (details on the form)</li>
+                        <li>Date: See the form</li>
+                    </ul>
+                    <div class="pt-4">
+                        <a href="https://forms.gle/6BsSEncxRtUtQqes8" target="_blank" rel="noopener" class="inline-block bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-8 rounded-full">Register now</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="py-24 bg-gray-800/50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">FAQ</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="font-semibold text-xl mb-2">Can I join if I only speak English?</h3>
+                        <p class="text-gray-300">Yes. The event runs mainly in English. Speakers of other languages are welcome.</p>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-xl mb-2">Is it OK to come alone?</h3>
+                        <p class="text-gray-300">Yes. Many people come solo. Our staff will support you.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-24">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6">Contact</h2>
+                <a href="mailto:lounge.brisbane@gmail.com" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-10 rounded-full">Email us</a>
+            </div>
+        </section>
     </main>
 
     <footer class="bg-gray-900 border-t border-gray-700/50 py-8">
