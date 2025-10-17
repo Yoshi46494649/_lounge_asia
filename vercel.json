@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/speed-dating", "destination": "https://speeddating01.vercel.app/", "permanent": false },
+    { "source": "/speed-dating/(.*)", "destination": "https://speeddating01.vercel.app/$1", "permanent": false }
+  ]
+}
+
