@@ -1,0 +1,1 @@
+import{j as a,m as e}from"./framer-15ciWeSL.js";import{b as i}from"./animations-yflj5emo.js";const s=({children:s,className:t="",onClick:o,disabled:r=!1,type:l="button",...n})=>a.jsx(e.button,{type:l,onClick:o,disabled:r,className:`relative overflow-hidden ${t}`,variants:i,initial:"rest",whileHover:"hover",whileTap:"tap",...n,children:s});export{s as R};
