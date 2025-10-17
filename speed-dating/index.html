@@ -53,41 +53,26 @@
           const clickable = root.querySelectorAll('a, button');
           clickable.forEach(el => {
             if (isWaitlistText(el.textContent)) {
-              const a = document.createElement('a');
-              a.href = FORM_URL;
-              a.target = '_blank';
-              a.rel = 'noopener';
-              a.textContent = 'Register now';
-              // carry button styles if present
-              a.className = el.className || '';
-              if (!a.className) {
-                a.style.display = 'inline-block';
-                a.style.background = '#F59E0B';
-                a.style.color = '#111827';
-                a.style.fontWeight = '700';
-                a.style.padding = '12px 24px';
-                a.style.borderRadius = '9999px';
-                a.style.textDecoration = 'none';
+              el.textContent = 'Register now';
+              if (el.tagName.toLowerCase() === 'a') {
+                el.href = FORM_URL;
+                el.target = '_blank';
+                el.rel = 'noopener';
+              } else {
+                const a = document.createElement('a');
+                a.href = FORM_URL;
+                a.target = '_blank';
+                a.rel = 'noopener';
+                a.textContent = 'Register now';
+                a.className = el.className || '';
+                el.replaceWith(a);
               }
-              el.replaceWith(a);
-            }
-          });
-
-          // hide explanatory waitlist-only sections
-          const all = root.querySelectorAll('p, h2, h3, section, div');
-          all.forEach(node => {
-            const txt = (node.textContent || '').trim();
-            if (isWaitlistText(txt)) {
-              const section = node.closest('section') || node;
-              section.style.display = 'none';
             }
           });
         }
 
-        // observe SPA renders
         const obs = new MutationObserver(() => replaceCtas(document));
         obs.observe(document.documentElement, { childList: true, subtree: true });
-
         if (document.readyState === 'loading') {
           document.addEventListener('DOMContentLoaded', () => replaceCtas(document));
         } else {
