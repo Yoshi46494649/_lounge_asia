@@ -1,84 +1,423 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <base href="/speed-dating/">
-    <link rel="icon" type="image/svg+xml" href="./vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Asian Speed Dating Brisbane - Meet Brisbane's Asian Singles | Lounge Asia</title>
-    <meta name="description" content="Join Brisbane's premier Asian speed dating events. Meet like-minded singles in a safe, welcoming environment. Backed by Lounge Asia community." />
-    
-    <!-- Security Headers -->
-    <meta http-equiv="X-Content-Type-Options" content="nosniff">
-    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
-    
-    <!-- Performance optimizations -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-    
-    <!-- Critical CSS inlining would go here in production -->
+    <title>Speed Dating Asia &ndash; Finding Comfort and Romance | Lounge Asia</title>
+    <meta
+      name="description"
+      content="Meet Brisbane's Asian singles in a relaxed Lounge Asia setting. Register now for balanced pairings, ID-verified guests, and next-day matching results."
+    />
+    <link rel="icon" type="image/svg+xml" href="../vite.svg" />
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-      body { margin: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif; }
-      #root { min-height: 100vh; }
-      .loading { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+      body {
+        font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      }
+      .glass-card {
+        backdrop-filter: blur(16px);
+        background: rgba(255, 255, 255, 0.75);
+      }
+      .gradient-border {
+        position: relative;
+      }
+      .gradient-border::before {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        background: linear-gradient(135deg, rgba(236, 72, 153, 0.4), rgba(76, 29, 149, 0.4));
+        z-index: -1;
+      }
     </style>
-    <script type="module" crossorigin src="./assets/index-CwkGtFG5.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/vendor-CtPCxZU4.js">
-    <link rel="modulepreload" crossorigin href="./assets/framer-15ciWeSL.js">
-    <link rel="stylesheet" crossorigin href="./assets/index-ChK4zwlj.css">
   </head>
-  <body>
-    <div id="root"></div>
-    <script>
-      (function () {
-        const FORM_URL = 'https://forms.gle/6BsSEncxRtUtQqes8';
-        const WAITLIST_TEXTS = [
-          'Join Early Access Waitlist',
-          'Join the Waitlist',
-          'Get Early Access',
-          'Early access',
-          'Early Access'
-        ];
+  <body class="bg-slate-950 text-slate-100">
+    <header class="absolute inset-x-0 top-0 z-20">
+      <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <a href="/" class="text-lg font-semibold tracking-wide text-white">Lounge Asia</a>
+        <a
+          href="/"
+          class="rounded-full border border-white/30 px-4 py-1 text-sm font-medium text-white transition hover:border-white hover:bg-white/10"
+        >
+          Back to Home
+        </a>
+      </nav>
+    </header>
 
-        function isWaitlistText(text) {
-          if (!text) return false;
-          const t = text.trim().toLowerCase();
-          return WAITLIST_TEXTS.some(x => t.includes(x.toLowerCase()));
-        }
+    <!-- Hero -->
+    <section
+      class="relative min-h-screen overflow-hidden"
+      style="
+        background-image: linear-gradient(rgba(8, 11, 21, 0.6), rgba(8, 11, 21, 0.75)),
+          url('./images/1.png');
+        background-size: cover;
+        background-position: center;
+      "
+    >
+      <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-blue-500/25"></div>
+      <div class="mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center px-6 py-28 text-center sm:py-36">
+        <span class="mb-4 inline-flex items-center rounded-full border border-white/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-white/70 sm:text-sm">
+          Speed Dating Asia
+        </span>
+        <h1 class="text-pretty text-4xl font-semibold leading-tight text-white drop-shadow-sm sm:text-5xl md:text-6xl">
+          Finding Comfort and Romance in Brisbane
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg text-white/90 md:text-xl">
+          Meet Brisbane's Asian singles in one unforgettable evening. Lounge Asia curates genuine conversations,
+          balanced pairings, and a relaxed, safe atmosphere you can trust.
+        </p>
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+          <a
+            href="https://forms.gle/UjMRg2PRAC1yurm2A"
+            target="_blank"
+            rel="noopener"
+            class="w-full rounded-full bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-3 text-base font-semibold text-white shadow-lg shadow-pink-500/30 transition hover:from-pink-600 hover:to-purple-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-pink-300/40 sm:w-auto"
+          >
+            Register Now
+          </a>
+        </div>
+        <dl class="mt-10 grid w-full max-w-3xl grid-cols-1 gap-3 text-left text-sm text-white/80 sm:grid-cols-3 sm:text-center">
+          <div class="rounded-2xl bg-white/10 px-5 py-4 backdrop-blur-sm">
+            <dt class="text-xs uppercase tracking-widest text-white/60">Verified Guests</dt>
+            <dd class="mt-1 text-base font-semibold text-white">ID check at check-in</dd>
+          </div>
+          <div class="rounded-2xl bg-white/10 px-5 py-4 backdrop-blur-sm">
+            <dt class="text-xs uppercase tracking-widest text-white/60">Balanced Pairings</dt>
+            <dd class="mt-1 text-base font-semibold text-white">Equal seats for men &amp; women</dd>
+          </div>
+          <div class="rounded-2xl bg-white/10 px-5 py-4 backdrop-blur-sm">
+            <dt class="text-xs uppercase tracking-widest text-white/60">Match Results</dt>
+            <dd class="mt-1 text-base font-semibold text-white">Delivered next evening</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
 
-        function replaceCtas(root) {
-          const clickable = root.querySelectorAll('a, button');
-          clickable.forEach(el => {
-            if (isWaitlistText(el.textContent)) {
-              el.textContent = 'Register now';
-              if (el.tagName.toLowerCase() === 'a') {
-                el.href = FORM_URL;
-                el.target = '_blank';
-                el.rel = 'noopener';
-              } else {
-                const a = document.createElement('a');
-                a.href = FORM_URL;
-                a.target = '_blank';
-                a.rel = 'noopener';
-                a.textContent = 'Register now';
-                a.className = el.className || '';
-                el.replaceWith(a);
-              }
-            }
-          });
-        }
+    <!-- Highlights -->
+    <section id="special" class="bg-slate-950 py-20">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="mx-auto max-w-3xl text-center">
+          <h2 class="text-3xl font-bold text-white md:text-4xl">What Makes It Special</h2>
+          <p class="mt-4 text-lg text-slate-300 md:text-xl">
+            Genuine conversations, balanced pairings, and a relaxed, safe atmosphere &mdash; hosted by the
+            trusted Lounge Asia community.
+          </p>
+        </div>
+        <div class="mt-12 grid gap-4 sm:gap-6 md:grid-cols-2">
+          <article class="rounded-3xl border border-white/5 bg-slate-900/80 p-7 transition hover:border-pink-400/40">
+            <h3 class="text-xl font-semibold text-white">Authentic Connections</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              Built to bring together singles who share your culture, values, and communication style so
+              conversation flows naturally.
+            </p>
+          </article>
+          <article class="rounded-3xl border border-white/5 bg-slate-900/80 p-7 transition hover:border-pink-400/40">
+            <h3 class="text-xl font-semibold text-white">Asian-Focused Community</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              Meet people who understand your background, humour, and what really matters in a lasting
+              relationship.
+            </p>
+          </article>
+          <article class="rounded-3xl border border-white/5 bg-slate-900/80 p-7 transition hover:border-pink-400/40">
+            <h3 class="text-xl font-semibold text-white">Verified &amp; Balanced</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              Every participant is ID-verified and we secure equal numbers of men and women to keep each
+              round fair and respectful.
+            </p>
+          </article>
+          <article class="rounded-3xl border border-white/5 bg-slate-900/80 p-7 transition hover:border-pink-400/40">
+            <h3 class="text-xl font-semibold text-white">Instant Results</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              Submit your preferences digitally and receive your confirmed matches in your inbox the very
+              next evening.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
 
-        const obs = new MutationObserver(() => replaceCtas(document));
-        obs.observe(document.documentElement, { childList: true, subtree: true });
-        if (document.readyState === 'loading') {
-          document.addEventListener('DOMContentLoaded', () => replaceCtas(document));
-        } else {
-          replaceCtas(document);
-        }
-      })();
-    </script>
+    <!-- Steps -->
+    <section id="event" class="bg-slate-900/60 py-20">
+      <div class="mx-auto max-w-6xl px-6">
+        <div class="grid gap-12 md:grid-cols-[1.2fr_1fr] md:items-start">
+          <div>
+            <h2 class="text-3xl font-bold text-white md:text-4xl">How Matches Are Made &mdash; 3 Simple Steps</h2>
+            <p class="mt-4 text-base text-slate-300 md:text-lg">
+              Every detail is designed to feel effortless on mobile and in person, so you can focus on meaningful
+              conversations instead of logistics.
+            </p>
+            <ol class="mt-8 space-y-5">
+              <li class="rounded-3xl border border-white/10 bg-slate-900/70 p-6">
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-4">
+                  <span class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-purple-600 text-lg font-semibold text-white shadow-lg shadow-pink-500/20">
+                    1
+                  </span>
+                  <div>
+                    <h3 class="text-xl font-semibold text-white">Register</h3>
+                    <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                      Complete the short form &mdash; it takes less than a minute. You'll instantly receive a confirmation email
+                      plus a secure payment link to lock in your seat. Male participants are confirmed once payment is complete.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="rounded-3xl border border-white/10 bg-slate-900/70 p-6">
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-4">
+                  <span class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-purple-600 text-lg font-semibold text-white shadow-lg shadow-pink-500/20">
+                    2
+                  </span>
+                  <div>
+                    <h3 class="text-xl font-semibold text-white">Meet &amp; Connect</h3>
+                    <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                      On event day, enjoy a series of relaxed, 5-minute conversations with curated matches. Our hosts guide every
+                      rotation, keeping things calm, friendly, and on time.
+                    </p>
+                  </div>
+                </div>
+              </li>
+              <li class="rounded-3xl border border-white/10 bg-slate-900/70 p-6">
+                <div class="flex flex-col gap-2 sm:flex-row sm:items-start sm:gap-4">
+                  <span class="inline-flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-pink-500 to-purple-600 text-lg font-semibold text-white shadow-lg shadow-pink-500/20">
+                    3
+                  </span>
+                  <div>
+                    <h3 class="text-xl font-semibold text-white">Vote with Intention</h3>
+                    <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                      Submit your preferences digitally at the end of the night. Each guest can share 4 Likes and 1 Super Like &mdash;
+                      a deliberate system that keeps the experience fair and meaningful.
+                    </p>
+                    <p class="mt-2 text-sm leading-relaxed text-slate-300">
+                      When two guests choose each other, it is a match. You'll both receive your match's contact email the very
+                      next evening.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            </ol>
+          </div>
+          <aside class="glass-card gradient-border rounded-3xl border border-white/10 p-10 text-slate-900">
+            <h3 class="text-2xl font-semibold text-slate-900">Event Snapshot</h3>
+            <dl class="mt-6 space-y-6 text-sm text-slate-700">
+              <div>
+                <dt class="text-xs font-semibold uppercase tracking-widest text-slate-500">&#128467; Date &amp; Time</dt>
+                <dd class="mt-1 text-base font-medium text-slate-900">
+                  Every third Tuesday of the month &ndash; 6:30 PM start.
+                </dd>
+              </div>
+              <div>
+                <dt class="text-xs font-semibold uppercase tracking-widest text-slate-500">&#128205; Location</dt>
+                <dd class="mt-1 text-base font-medium text-slate-900 leading-relaxed">
+                  The Stock Exchange Hotel – Level 2<br />
+                  166 Charlotte St, Brisbane City QLD 4000.
+                </dd>
+              </div>
+              <div>
+                <dt class="text-xs font-semibold uppercase tracking-widest text-slate-500">&#128188; Dress Code</dt>
+                <dd class="mt-1 text-base font-medium text-slate-900">
+                  Smart casual &ndash; clean, confident, and comfortable (no sandals please).
+                </dd>
+              </div>
+              <div>
+                <dt class="text-xs font-semibold uppercase tracking-widest text-slate-500">&#128179; Investment</dt>
+                <dd class="mt-1 text-base font-medium text-slate-900 leading-relaxed">
+                  Secure your seat via the payment link sent after registration. Seats are limited each round,
+                  so early registration is highly recommended.
+                </dd>
+              </div>
+            </dl>
+            <a
+              href="https://forms.gle/UjMRg2PRAC1yurm2A"
+              target="_blank"
+              rel="noopener"
+              class="mt-10 inline-flex w-full items-center justify-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-base font-semibold text-slate-100 transition hover:bg-slate-800 focus:outline-none focus-visible:ring-4 focus-visible:ring-slate-400/40"
+            >
+              Join the Next Round
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7" />
+              </svg>
+            </a>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Story -->
+    <section class="bg-slate-950 py-20">
+      <div class="mx-auto max-w-5xl px-6">
+        <div class="grid gap-10 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+          <div class="order-2 md:order-1">
+            <span class="inline-flex items-center rounded-full border border-white/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-pink-200/80">
+              &#10084;&#65039; Our Story
+            </span>
+            <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">
+              Creating comfort before the first hello
+            </h2>
+            <p class="mt-5 text-base leading-relaxed text-slate-300 md:text-lg">
+              We created Speed Dating Asia because meeting someone who understands your background can feel impossible in a new city.
+              Lounge Asia changes that by centring comfort, respect, and genuine connection at every touchpoint.
+            </p>
+            <p class="mt-4 text-base leading-relaxed text-slate-300 md:text-lg">
+              Each round is hosted by friendly staff who get the culture &mdash; and the nerves. All you need to do is arrive,
+              relax, and enjoy the evening. We'll guide the flow, keep the vibes warm, and celebrate your wins.
+            </p>
+          </div>
+          <div class="order-1 md:order-2">
+            <img
+              src="./images/2.png"
+              alt="Guests connecting at Speed Dating Asia"
+              class="h-full w-full rounded-3xl border border-white/10 object-cover shadow-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="bg-slate-900/70 py-20">
+      <div class="mx-auto max-w-4xl px-6">
+        <h2 class="text-center text-3xl font-bold text-white md:text-4xl">
+          Frequently asked questions
+        </h2>
+        <p class="mx-auto mt-4 max-w-2xl text-center text-base text-slate-300 md:text-lg">
+          New to speed dating or joining us for the first time? Here is everything you need to know before you walk in.
+        </p>
+        <div class="mt-10 space-y-4">
+          <details class="group rounded-2xl border border-white/10 bg-slate-900/70 p-6 transition hover:border-pink-400/40">
+            <summary class="flex cursor-pointer items-center justify-between text-left text-lg font-semibold text-white">
+              <span>How does the evening work?</span>
+              <span class="ml-4 text-pink-200 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              After check-in with photo ID, you will receive your name card and seat. Men rotate every five minutes while women stay seated. Short pauses keep the pace comfortable, and our hosts guide you through each rotation.
+            </p>
+          </details>
+          <details class="group rounded-2xl border border-white/10 bg-slate-900/70 p-6 transition hover:border-pink-400/40">
+            <summary class="flex cursor-pointer items-center justify-between text-left text-lg font-semibold text-white">
+              <span>Why are votes limited?</span>
+              <span class="ml-4 text-pink-200 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              Each guest has four Likes and one Super Like. Limiting votes encourages intentional choices, keeps the playing field fair, and lets real chemistry stand out.
+            </p>
+          </details>
+          <details class="group rounded-2xl border border-white/10 bg-slate-900/70 p-6 transition hover:border-pink-400/40">
+            <summary class="flex cursor-pointer items-center justify-between text-left text-lg font-semibold text-white">
+              <span>What if I do not match with anyone?</span>
+              <span class="ml-4 text-pink-200 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              It happens, and that is okay. Many guests meet their match at a later round. We also keep match results private unless they are mutual, so the experience stays positive.
+            </p>
+          </details>
+          <details class="group rounded-2xl border border-white/10 bg-slate-900/70 p-6 transition hover:border-pink-400/40">
+            <summary class="flex cursor-pointer items-center justify-between text-left text-lg font-semibold text-white">
+              <span>When will I receive my results?</span>
+              <span class="ml-4 text-pink-200 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              We tally preferences digitally and email mutual matches to both participants the following evening.
+            </p>
+          </details>
+          <details class="group rounded-2xl border border-white/10 bg-slate-900/70 p-6 transition hover:border-pink-400/40">
+            <summary class="flex cursor-pointer items-center justify-between text-left text-lg font-semibold text-white">
+              <span>Can I bring friends?</span>
+              <span class="ml-4 text-pink-200 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              Absolutely. Just remind them to register individually so we can keep the numbers balanced.
+            </p>
+          </details>
+          <details class="group rounded-2xl border border-white/10 bg-slate-900/70 p-6 transition hover:border-pink-400/40">
+            <summary class="flex cursor-pointer items-center justify-between text-left text-lg font-semibold text-white">
+              <span>How do you keep the event safe?</span>
+              <span class="ml-4 text-pink-200 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              Every guest is ID-verified on arrival. No contact details are exchanged during the event, and our team is on-site to uphold a zero-tolerance policy for poor behaviour. Anyone who breaks the rules is removed without refund.
+            </p>
+          </details>
+          <details class="group rounded-2xl border border-white/10 bg-slate-900/70 p-6 transition hover:border-pink-400/40">
+            <summary class="flex cursor-pointer items-center justify-between text-left text-lg font-semibold text-white">
+              <span>Can I cancel my registration?</span>
+              <span class="ml-4 text-pink-200 transition group-open:rotate-45">+</span>
+            </summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              You can cancel before payment. Once payment is confirmed the seat is held exclusively for you and cannot be refunded because places are limited each round.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 py-20">
+      <div class="mx-auto max-w-5xl px-6">
+        <div class="grid gap-12 md:grid-cols-[1fr_0.9fr] md:items-center">
+          <div class="rounded-3xl border border-white/10 bg-slate-900/70 p-8 md:p-10">
+            <span class="inline-flex items-center rounded-full border border-white/15 px-4 py-1 text-xs font-semibold uppercase tracking-[0.25em] text-white/70">
+              &#10024; Ready to Meet Someone Special?
+            </span>
+            <h2 class="mt-4 text-3xl font-bold text-white md:text-4xl">
+              Register today and we will guide you from hello to match
+            </h2>
+            <p class="mt-4 text-base leading-relaxed text-slate-300 md:text-lg">
+              Fill in the registration form below and our team will get in touch with the next available round,
+              payment details, and the steps to confirm your place.
+            </p>
+            <p class="mt-4 text-base leading-relaxed text-slate-300 md:text-lg">
+              Seats are intentionally limited each session, so registering early means you will not miss out on the pairings you want.
+            </p>
+            <a
+              href="https://forms.gle/UjMRg2PRAC1yurm2A"
+              target="_blank"
+              rel="noopener"
+              class="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-pink-500 to-purple-600 px-8 py-3 text-base font-semibold text-white transition hover:from-pink-600 hover:to-purple-700 focus:outline-none focus-visible:ring-4 focus-visible:ring-pink-300/40"
+            >
+              Register Now
+              <svg class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-7-7 7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+          <div class="relative">
+            <div class="absolute -inset-4 -z-10 hidden rounded-3xl bg-pink-500/20 blur-3xl md:block"></div>
+            <img
+              src="./images/asia.jpg"
+              alt="Guests enjoying Lounge Asia speed dating"
+              class="h-full w-full rounded-3xl border border-white/10 object-cover shadow-xl"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bg-slate-950 py-10">
+      <div class="mx-auto flex max-w-5xl flex-col items-center gap-4 px-6 text-center text-sm text-slate-400">
+        <p class="text-base font-semibold text-white">Lounge Asia</p>
+        <p class="max-w-2xl text-sm text-slate-400">
+          Creating comfort, connection, and community for Brisbane's Asian professionals.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4 text-slate-300">
+          <a href="mailto:lounge.brisbane@gmail.com" class="inline-flex items-center gap-1 hover:text-white">
+            <span>&#128231;</span> <span>Email</span>
+          </a>
+          <span class="hidden sm:inline">•</span>
+          <a href="https://www.instagram.com/_lounge_asia/" target="_blank" rel="noopener" class="inline-flex items-center gap-1 hover:text-white">
+            <span>&#128248;</span> <span>Instagram</span>
+          </a>
+          <span class="hidden sm:inline">•</span>
+          <a
+            href="https://www.facebook.com/profile.php?id=61575030717215"
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-1 hover:text-white"
+          >
+            <span>&#128172;</span> <span>Facebook</span>
+          </a>
+        </div>
+        <p>© 2025 Lounge Asia. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>

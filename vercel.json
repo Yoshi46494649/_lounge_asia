@@ -2,6 +2,34 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": true,
-  "redirects": []
+  "redirects": [],
+  "headers": [
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public,max-age=31536000,immutable"
+        }
+      ]
+    },
+    {
+      "source": "/speed-dating/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public,max-age=31536000,immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public,max-age=3600"
+        }
+      ]
+    }
+  ]
 }
-

@@ -1,0 +1,12 @@
+node_modules/
+screenshots/
+.env
+.DS_Store
+Thumbs.db
+*.log
+dist/
+coverage/
+playwright-report/
+/npm-debug.log*
+/yarn-debug.log*
+/yarn-error.log*
