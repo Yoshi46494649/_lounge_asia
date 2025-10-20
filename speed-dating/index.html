@@ -30,6 +30,23 @@
         background: linear-gradient(135deg, rgba(236, 72, 153, 0.4), rgba(76, 29, 149, 0.4));
         z-index: -1;
       }
+      .hero-speed-dating {
+        background-image: linear-gradient(rgba(8, 11, 21, 0.6), rgba(8, 11, 21, 0.75)), url('./images/1.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+      @media (max-width: 768px) {
+        .hero-speed-dating {
+          background-position: 50% 28%;
+        }
+      }
+      @media (max-width: 480px) {
+        .hero-speed-dating {
+          background-position: 50% 35%;
+          background-size: 115%;
+        }
+      }
     </style>
   </head>
   <body class="bg-slate-950 text-slate-100">
@@ -46,15 +63,7 @@
     </header>
 
     <!-- Hero -->
-    <section
-      class="relative min-h-screen overflow-hidden"
-      style="
-        background-image: linear-gradient(rgba(8, 11, 21, 0.6), rgba(8, 11, 21, 0.75)),
-          url('./images/1.png');
-        background-size: cover;
-        background-position: center;
-      "
-    >
+    <section class="hero-speed-dating relative min-h-screen overflow-hidden">
       <div class="pointer-events-none absolute inset-0 bg-gradient-to-r from-pink-500/20 via-purple-500/20 to-blue-500/25"></div>
       <div class="mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center px-6 py-28 text-center sm:py-36">
         <span class="mb-4 inline-flex items-center rounded-full border border-white/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-white/70 sm:text-sm">
