@@ -19,32 +19,17 @@
 <body class="bg-gray-900 text-white">
 
     <!-- ===== Header ===== -->
-    <header class="bg-gray-900/70 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 border-b border-gray-700/50">
-        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+    <header class="fixed top-0 left-0 right-0 z-50 border-b border-gray-700/50 bg-gray-900/80 backdrop-blur-lg">
+        <div class="mx-auto flex w-full max-w-6xl items-center justify-between gap-6 px-6 py-4">
             <a href="#" class="text-xl font-bold text-white tracking-wider" data-lang-key="siteTitleHeader">Lounge Asia</a>
             
             <!-- Desktop Navigation -->
-            <nav class="hidden md:flex items-center space-x-6">
-                <a href="#about" class="hover:text-yellow-300 transition-colors duration-300" data-lang-key="navAbout">About</a>
-                <a href="#event" class="hover:text-yellow-300 transition-colors duration-300" data-lang-key="navEvent">Event</a>
-                <a href="#gallery" class="hover:text-yellow-300 transition-colors duration-300" data-lang-key="navGallery">Gallery</a>
-                <a href="/speed-dating/" class="hover:text-yellow-300 transition-colors duration-300">Speed Dating</a>
-                <a href="#contact" class="hover:text-yellow-300 transition-colors duration-300" data-lang-key="navContact">Contact</a>
-                
-                <!-- Language Switcher -->
-                <div class="flex space-x-2 text-sm">
-                    <button type="button" data-lang="en" class="lang-btn active" aria-pressed="true">EN</button>
-                    <span>|</span>
-                    <button type="button" data-lang="ja" class="lang-btn" aria-pressed="false">日本語</button>
-                    <span>|</span>
-                    <button type="button" data-lang="zh-TW" class="lang-btn" aria-pressed="false">繁體中文</button>
-                    <span>|</span>
-                    <button type="button" data-lang="zh-CN" class="lang-btn" aria-pressed="false">简体中文</button>
-                    <span>|</span>
-                    <button type="button" data-lang="ko" class="lang-btn" aria-pressed="false">한국어</button>
-                    <span>|</span>
-                    <button type="button" data-lang="sg" class="lang-btn" aria-pressed="false">SG</button>
-                </div>
+            <nav class="hidden items-center gap-6 text-sm font-semibold tracking-wide md:flex">
+                <a href="#about" class="transition-colors duration-300 hover:text-yellow-300" data-lang-key="navAbout">About</a>
+                <a href="#event" class="transition-colors duration-300 hover:text-yellow-300" data-lang-key="navEvent">Event</a>
+                <a href="#gallery" class="transition-colors duration-300 hover:text-yellow-300" data-lang-key="navGallery">Gallery</a>
+                <a href="/speed-dating/" class="transition-colors duration-300 hover:text-yellow-300">Speed Dating</a>
+                <a href="#contact" class="inline-flex items-center rounded-full border border-yellow-400 px-4 py-2 text-yellow-300 transition duration-300 hover:bg-yellow-400 hover:text-gray-900" data-lang-key="navContact">Contact</a>
             </nav>
 
             <!-- Mobile Menu Button -->
@@ -56,22 +41,12 @@
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-900/95 px-6 pt-2 pb-4">
-            <a href="#about" class="block py-2 hover:text-yellow-300 transition" data-lang-key="navAbout">About</a>
-            <a href="#event" class="block py-2 hover:text-yellow-300 transition" data-lang-key="navEvent">Event</a>
-            <a href="#gallery" class="block py-2 hover:text-yellow-300 transition" data-lang-key="navGallery">Gallery</a>
-            <a href="/speed-dating/" class="block py-2 hover:text-yellow-300 transition">Speed Dating</a>
-            <a href="#contact" class="block py-2 hover:text-yellow-300 transition" data-lang-key="navContact">Contact</a>
-            <div class="border-t border-gray-700 mt-4 pt-4">
-                <div class="flex flex-wrap gap-x-2 gap-y-2 text-sm">
-                    <button type="button" data-lang="en" class="lang-btn active" aria-pressed="true">EN</button>
-                    <button type="button" data-lang="ja" class="lang-btn" aria-pressed="false">日本語</button>
-                    <button type="button" data-lang="zh-TW" class="lang-btn" aria-pressed="false">繁體中文</button>
-                    <button type="button" data-lang="zh-CN" class="lang-btn" aria-pressed="false">简体中文</button>
-                    <button type="button" data-lang="ko" class="lang-btn" aria-pressed="false">한국어</button>
-                    <button type="button" data-lang="sg" class="lang-btn" aria-pressed="false">Singlish</button>
-                </div>
-            </div>
+        <div id="mobile-menu" class="hidden bg-gray-900/95 px-6 pt-2 pb-4 md:hidden">
+            <a href="#about" class="block py-2 transition hover:text-yellow-300" data-lang-key="navAbout">About</a>
+            <a href="#event" class="block py-2 transition hover:text-yellow-300" data-lang-key="navEvent">Event</a>
+            <a href="#gallery" class="block py-2 transition hover:text-yellow-300" data-lang-key="navGallery">Gallery</a>
+            <a href="/speed-dating/" class="block py-2 transition hover:text-yellow-300">Speed Dating</a>
+            <a href="#contact" class="mt-3 block rounded-full bg-yellow-400 py-2 text-center font-semibold text-gray-900 transition hover:bg-yellow-300" data-lang-key="navContact">Contact</a>
         </div>
     </header>
 
@@ -235,13 +210,15 @@
         <!-- ===== Contact Section ===== -->
         <section id="contact" class="py-24">
             <div class="container mx-auto px-6 text-center reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-lang-key="contactTitle">Get In Touch</h2>
-                <p class="max-w-xl mx-auto text-gray-300 mb-8" data-lang-key="contactText">
-                    Have questions or want to collaborate? Send us an email! Click the button below to open your email client.
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Get In Touch</h2>
+                <p class="mx-auto mb-6 max-w-xl text-gray-300">
+                    If you have any questions about the event, feel free to email us here.
                 </p>
-                <a href="mailto:lounge.brisbane@gmail.com" class="bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-bold py-3 px-10 rounded-full btn-glow" data-lang-key="contactBtn">
-                    Send an Email
-                </a>
+                <p class="text-2xl font-semibold text-yellow-300">
+                    <a href="mailto:lounge.brisbane@gmail.com" class="underline underline-offset-4 decoration-yellow-400 hover:text-yellow-200">
+                        lounge.brisbane@gmail.com
+                    </a>
+                </p>
             </div>
         </section>
 
