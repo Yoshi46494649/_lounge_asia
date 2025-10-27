@@ -50,7 +50,7 @@ export const useWaitlistSignup = (options: UseWaitlistSignupOptions = {}) => {
 
       try {
         const { error } = await supabase
-          .from("waitlist_signups")
+          .from("waitlist")
           .upsert(
             {
               email: trimmedEmail,
