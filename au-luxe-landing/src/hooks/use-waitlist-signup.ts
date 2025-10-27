@@ -51,17 +51,19 @@ export const useWaitlistSignup = (options: UseWaitlistSignupOptions = {}) => {
       try {
         const { error } = await supabase
           .from("waitlist")
-          .upsert(
-            {
-              email: trimmedEmail,
-              source,
-              context: context ?? null,
-              submitted_at: new Date().toISOString(),
-            },
-            { onConflict: "email" },
+          .insert(
+            [
+              {
+                email: trimmedEmail,
+                source,
+                context: context ?? null,
+                submitted_at: new Date().toISOString(),
+              },
+            ],
+            { ignoreDuplicates: true },
           );
 
-        if (error) {
+        if (error && error.code !== "23505") {
           throw error;
         }
 
