@@ -8,6 +8,7 @@ export const Testimonials = () => {
       location: "Brisbane CBD",
       quote: "After trying the apps, I felt so much more comfortable here. It's great to meet people who understand my background and values. Found my first match right here in Brisbane!",
       rating: 5,
+      avatar: "https://images.unsplash.com/photo-1544723795-3fb6469f5b39?auto=format&fit=crop&w=160&h=160&q=80",
     },
     {
       name: "James K.",
@@ -15,13 +16,15 @@ export const Testimonials = () => {
       location: "International Student",
       quote: "The ratio was perfectly balanced, and the matching system was efficient. As a busy professional, this is the best way to meet quality people without wasting time.",
       rating: 5,
+      avatar: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=160&h=160&q=80",
     },
     {
-      name: "Michelle T.",
+      name: "Kenji T.",
       age: "31",
       location: "Brisbane",
-      quote: "The best part? Everyone was verified and the atmosphere felt really safe. As a woman living in Brisbane, that's super important to me. Plus, the event was so well organized!",
+      quote: "I joined the Stock Exchange Hotel session after work and the vibe was effortlessly relaxed. The hosts kept the pace moving, the matches were genuine, and it felt like everyone showed up with serious intent.",
       rating: 5,
+      avatar: "https://images.unsplash.com/photo-1523348837708-15d4a09cfac2?auto=format&fit=crop&w=160&h=160&q=80",
     },
   ];
 
@@ -57,9 +60,21 @@ export const Testimonials = () => {
 
               {/* Author */}
               <div className="flex items-center gap-2 sm:gap-3">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground font-bold text-sm sm:text-base flex-shrink-0">
-                  {testimonial.name.charAt(0)}
-                </div>
+                {testimonial.avatar ? (
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border border-border bg-muted/40 flex-shrink-0">
+                    <img
+                      src={testimonial.avatar}
+                      alt={`${testimonial.name} profile photo`}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover blur-sm scale-105"
+                    />
+                  </div>
+                ) : (
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground font-bold text-sm sm:text-base flex-shrink-0">
+                    {testimonial.name.charAt(0)}
+                  </div>
+                )}
                 <div className="min-w-0">
                   <p className="font-semibold text-foreground text-sm sm:text-base truncate">
                     {testimonial.name}, {testimonial.age}
