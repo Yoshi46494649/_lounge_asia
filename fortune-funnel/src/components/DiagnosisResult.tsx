@@ -301,11 +301,11 @@ export const DiagnosisResult = ({
               Experience genuine conversations with verified Asian singles in a relaxed, safe atmosphere. 
               Your destiny reading has revealed the path — now take the next step! ✨
             </p>
-            <Button 
-              variant="cta" 
+            <Button
+              variant="cta"
               size="xl"
-              className="mt-6 text-lg px-12 py-6 h-auto shadow-glow hover:shadow-soft hover:scale-105"
-              onClick={() => window.open('http://localhost:5173/speed-dating/lp/', '_blank')}
+              className="mt-6 text-lg w-full sm:w-auto px-6 sm:px-12 py-6 h-auto shadow-glow hover:shadow-soft hover:scale-105"
+              onClick={() => window.open('/speed-dating/lp/', '_blank')}
             >
               <Heart className="w-6 h-6 mr-2" />
               Join Speed Dating Events
