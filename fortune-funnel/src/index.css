@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Romantic pastel gradients inspired by Asian aesthetics */
+    --background: 330 45% 98%;
+    --foreground: 340 50% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 340 50% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 340 50% 15%;
+
+    /* Cherry blossom pink as primary */
+    --primary: 340 82% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 340 75% 75%;
+
+    /* Jade green as secondary */
+    --secondary: 160 45% 65%;
+    --secondary-foreground: 160 90% 15%;
+
+    /* Soft lavender for muted elements */
+    --muted: 270 30% 95%;
+    --muted-foreground: 270 15% 45%;
+
+    /* Celestial blue for accent */
+    --accent: 200 65% 70%;
+    --accent-foreground: 200 90% 15%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 330 20% 90%;
+    --input: 330 20% 90%;
+    --ring: 340 82% 65%;
+
+    --radius: 1rem;
+
+    /* Custom gradients */
+    --gradient-destiny: linear-gradient(135deg, hsl(340 82% 65%), hsl(270 70% 75%), hsl(200 65% 70%));
+    --gradient-soft: linear-gradient(180deg, hsl(330 45% 98%), hsl(270 40% 96%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.9), hsl(330 30% 98% / 0.8));
+    
+    /* Shadows with romantic glow */
+    --shadow-soft: 0 4px 24px hsl(340 82% 65% / 0.15);
+    --shadow-glow: 0 0 40px hsl(340 75% 75% / 0.3);
+    --shadow-card: 0 8px 32px hsl(340 50% 50% / 0.12);
+
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 270 30% 8%;
+    --foreground: 330 40% 95%;
+
+    --card: 270 25% 12%;
+    --card-foreground: 330 40% 95%;
+
+    --popover: 270 25% 12%;
+    --popover-foreground: 330 40% 95%;
+
+    --primary: 340 82% 65%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 340 75% 75%;
+
+    --secondary: 160 45% 55%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 270 20% 18%;
+    --muted-foreground: 270 15% 65%;
+
+    --accent: 200 65% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 270 20% 20%;
+    --input: 270 20% 20%;
+    --ring: 340 82% 65%;
+
+    --gradient-destiny: linear-gradient(135deg, hsl(340 82% 65%), hsl(270 70% 65%), hsl(200 65% 60%));
+    --gradient-soft: linear-gradient(180deg, hsl(270 30% 8%), hsl(270 30% 12%));
+    --gradient-card: linear-gradient(135deg, hsl(270 25% 12% / 0.9), hsl(270 30% 15% / 0.8));
+    
+    --shadow-soft: 0 4px 24px hsl(340 82% 50% / 0.25);
+    --shadow-glow: 0 0 40px hsl(340 75% 60% / 0.4);
+    --shadow-card: 0 8px 32px hsl(340 50% 30% / 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}

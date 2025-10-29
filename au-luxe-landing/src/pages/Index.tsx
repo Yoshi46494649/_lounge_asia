@@ -15,26 +15,26 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>Lounge Asia Speed Dating Brisbane | Meet Asian Singles</title>
+        <title>Lounge Asia Speed Dating Australia | Meet Asian Singles</title>
         <meta
           name="description"
-          content="Meet Brisbane's Asian singles in one unforgettable evening. Verified guests, balanced pairings, and instant match results. Join the waitlist today!"
+          content="Meet Australia's Asian singles in one unforgettable evening. Verified guests, balanced pairings, and instant match results. Join the waitlist today!"
         />
         <meta name="robots" content="index,follow" />
         <link rel="canonical" href={canonicalUrl} />
-        <meta property="og:title" content="Lounge Asia Speed Dating Brisbane | Meet Asian Singles" />
+        <meta property="og:title" content="Lounge Asia Speed Dating Australia | Meet Asian Singles" />
         <meta
           property="og:description"
-          content="Meet Brisbane's Asian singles in one unforgettable evening. Verified guests, balanced pairings, and instant match results."
+          content="Meet Australia's Asian singles in one unforgettable evening. Verified guests, balanced pairings, and instant match results."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={socialImage} />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Lounge Asia Speed Dating Brisbane | Meet Asian Singles" />
+        <meta name="twitter:title" content="Lounge Asia Speed Dating Australia | Meet Asian Singles" />
         <meta
           name="twitter:description"
-          content="Meet Brisbane's Asian singles in one unforgettable evening. Verified guests, balanced pairings, and instant match results."
+          content="Meet Australia's Asian singles in one unforgettable evening. Verified guests, balanced pairings, and instant match results."
         />
         <meta name="twitter:image" content={socialImage} />
       </Helmet>

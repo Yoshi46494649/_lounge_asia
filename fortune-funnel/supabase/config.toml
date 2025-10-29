@@ -1,0 +1,4 @@
+project_id = "fjdsgfjhuapwrwfqhgvi"
+
+[functions.fortune-diagnosis]
+verify_jwt = false
