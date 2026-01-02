@@ -1,0 +1,117 @@
+﻿keyword_source:
+  path: support/content/keyword_research_data.xlsx
+  sheet_name: Keywords
+  keyword_column: Keyword
+  category_column: Category
+  difficulty_column: Competition Score
+  posted_flag_column: Posted
+  posted_truthy_values:
+    - "済"
+    - "done"
+    - "Done"
+    - "DONE"
+    - "yes"
+    - "Yes"
+    - "true"
+    - "True"
+    - 1
+  priority_columns:
+    - name: Competition Score
+      ascending: true
+    - name: Search Volume
+      ascending: false
+  posted_marker_template: "Posted {date}"
+  posted_date_format: "%Y-%m-%d"
+
+content:
+  guideline_path: support/content/lounge-asia-blog-guidelines.md
+  output_dir: brisbane-asian-blogging/content/blog
+  image_root: brisbane-asian-blogging/public/blog-images
+  image_web_base: /blog-images
+  default_author: "Lounge Asia Team"
+  hero_alt_template: "{title} at Lounge Asia"
+  default_tags:
+    - Lounge Asia
+    - Comfort and Romance
+    - Connecting hearts across Asian cultures
+  timezone: Australia/Brisbane
+  min_read_minutes: 4
+  max_read_minutes: 12
+  tone_guidance:
+    - "use approximately 15% more emotional and romantic tone while staying elegant"
+    - "add one participant anecdote that feels authentic yet anonymous"
+    - "sprinkle subtle humour once to keep the article warm"
+  image_category_map:
+    "Asian Dating": asian dating
+    "Speed Dating": speed dating
+    "Tips": tips
+    "Brisbane": brisbane
+    "Melbourne": melbourne
+    "International Meet Up": international meet up
+    default: tips
+
+openai:
+  model_draft: gpt-4o-mini
+  model_review: gpt-4o
+  temperature: 0.4
+  max_output_tokens: 3600
+  timeout_seconds: 180
+  max_retries: 3
+
+internal_links:
+  - title: "Speed Dating for Asian Singles in Brisbane"
+    url: "https://www.loungeasia.com.au/speed-dating/lp/blog/speed-dating-asian-singles-brisbane"
+    categories: ["Speed Dating", "Asian Dating", "Tips", "Brisbane"]
+  - title: "Asian Dating in Brisbane: The Complete Guide"
+    url: "https://www.loungeasia.com.au/speed-dating/lp/blog/asian-dating-brisbane-complete-guide"
+    categories: ["Asian Dating", "Speed Dating", "Tips"]
+  - title: "Best Brisbane Spots for the Asian Community"
+    url: "https://www.loungeasia.com.au/speed-dating/lp/blog/best-brisbane-spots-asian-community"
+    categories: ["Brisbane", "Tips", "International Meet Up"]
+  - title: "Melbourne Asian Scene Guide"
+    url: "https://www.loungeasia.com.au/speed-dating/lp/blog/melbourne-asian-scene-guide"
+    categories: ["Melbourne", "Tips", "International Meet Up"]
+  - title: "Tips for Making Friends in the Asian Community"
+    url: "https://www.loungeasia.com.au/speed-dating/lp/blog/tips-making-friends-asian-community"
+    categories: ["Tips", "International Meet Up", "Asian Dating"]
+
+ci_commands:
+  - name: semgrep
+    command: ["semgrep", "--config", "p/ci", "--error"]
+    cwd: .
+  - name: lint
+    command: ["npm", "run", "lint"]
+    cwd: brisbane-asian-blogging
+  - name: build
+    command: ["npm", "run", "build"]
+    cwd: brisbane-asian-blogging
+  - name: build-css
+    command: ["npm", "run", "build:css"]
+    cwd: .
+  - name: build-js
+    command: ["npm", "run", "build:js"]
+    cwd: .
+  - name: check-site
+    command: ["npm", "run", "check:site"]
+    cwd: .
+
+git:
+  enable: true
+  branch: main
+  commit_message_template: "feat: add blog post {title}"
+
+legacy_site:
+  enabled: true
+  bundle_path: speed-dating/lp/blog/assets/index-DitQGXLX.js
+  template_source: speed-dating/lp/blog/blog/speed-dating-asian-singles-brisbane/index.html
+  output_dir: speed-dating/lp/blog/blog
+  image_map:
+    "International Meet Up": blog/international-meet-up/meetup-hero.png
+    "Asian Dating": blog/asian-dating/asian-dating-hero.jpg
+    "Speed Dating": blog/speed-dating/speed-dating-hero.jpg
+    "Brisbane": blog/brisbane/brisbane-hero.jpg
+    "Melbourne": blog/melbourne/melbourne-hero.png
+    "Tips": blog/tips/tips-hero.jpg
+    default: blog/speed-dating/speed-dating-hero.jpg
+  featured_slugs: []
+

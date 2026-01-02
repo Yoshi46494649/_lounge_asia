@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { Mail } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface NewsletterCTAProps {
   variant?: "inline" | "end";
@@ -74,7 +75,3 @@ export const NewsletterCTA = ({ variant = "inline" }: NewsletterCTAProps) => {
     </div>
   );
 };
-
-function cn(...inputs: any[]) {
-  return inputs.filter(Boolean).join(" ");
-}
