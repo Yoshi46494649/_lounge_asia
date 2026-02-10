@@ -108,8 +108,26 @@ function initMeetupFeed() {
             return response.json();
         })
         .then(data => {
-            if (Array.isArray(data) && data.length > 0) {
-                const upcomingEvents = filterAndSortEvents(data);
+            let events = Array.isArray(data) ? data : [];
+            
+            // Manual Tokyo Event Injection
+            // Ensure Tokyo event is always present if not in the feed
+            const hasTokyo = events.some(e => (e.venue && e.venue.includes('Tokyo')) || (e.title && e.title.includes('Tokyo')));
+            
+            if (!hasTokyo) {
+                console.log('Injecting manual Tokyo event');
+                events.push({
+                    title: "Global Asian Social: Lounge Asia Meetup @ Tokyo",
+                    pubDate: "2026-02-09 10:23:23", 
+                    link: "https://www.meetup.com/ja-jp/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313276852/",
+                    venue: "Tokyo",
+                    eventDate: "2026-02-22T07:00:00.000Z", // Feb 22, 2026
+                    description: "Join us in Tokyo for our global mixer event!"
+                });
+            }
+
+            if (events.length > 0) {
+                const upcomingEvents = filterAndSortEvents(events);
                 
                 if (upcomingEvents.length > 0) {
                     renderMeetupEvents(upcomingEvents, container);
