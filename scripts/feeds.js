@@ -113,6 +113,7 @@ function initMeetupFeed() {
                 
                 if (upcomingEvents.length > 0) {
                     renderMeetupEvents(upcomingEvents, container);
+                    updateHeroLinks(upcomingEvents);
                 } else {
                     renderFallbackEvents(container);
                 }
@@ -146,12 +147,20 @@ function renderFallbackEvents(container) {
             pubDate: "2026-01-21 18:00:00",
             link: "https://www.meetup.com/ja-jp/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/312512043/",
             venue: "Melbourne"
+        },
+        {
+            title: "Global Asian Social: Lounge Asia Meetup @ Tokyo",
+            pubDate: "2026-02-09 10:23:23", 
+            link: "https://www.meetup.com/ja-jp/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313276852/",
+            venue: "Tokyo",
+            eventDate: "2026-02-22T07:00:00.000Z"
         }
     ];
 
     const upcomingEvents = filterAndSortEvents(manualEvents);
     if (upcomingEvents.length > 0) {
          renderMeetupEvents(upcomingEvents, container);
+         updateHeroLinks(upcomingEvents);
     } else {
         renderNoEvents(container, `https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/`);
     }
@@ -188,9 +197,10 @@ function renderMeetupEvents(events, container) {
 
     // City icon and color mapping
     const cityConfigs = {
-        'Brisbane': { icon: '🐨', color: 'bg-green-500/20 text-green-400 border-green-500/30' },
-        'Sydney': { icon: '🌉', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30' },
-        'Melbourne': { icon: '☕', color: 'bg-purple-500/20 text-purple-400 border-purple-500/30' }
+        'Brisbane': { icon: '🐨', color: 'bg-green-500/20 text-green-400 border-green-500/30', timezone: 'Australia/Brisbane' },
+        'Sydney': { icon: '🌉', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30', timezone: 'Australia/Sydney' },
+        'Melbourne': { icon: '☕', color: 'bg-purple-500/20 text-purple-400 border-purple-500/30', timezone: 'Australia/Melbourne' },
+        'Tokyo': { icon: '🗼', color: 'bg-red-500/20 text-red-400 border-red-500/30', timezone: 'Asia/Tokyo' }
     };
 
     // Strategy: Select the next upcoming event for each distinct city first
@@ -198,7 +208,7 @@ function renderMeetupEvents(events, container) {
     const citiesFound = new Set();
 
     // 1. First pass: Find first event for each supported city
-    ['Brisbane', 'Sydney', 'Melbourne'].forEach(city => {
+    ['Brisbane', 'Sydney', 'Melbourne', 'Tokyo'].forEach(city => {
         const event = events.find(e => {
             const venue = e.venue || 'Brisbane'; // Fallback
             // Check if venue matches (loose check)
@@ -226,7 +236,7 @@ function renderMeetupEvents(events, container) {
         } else {
             return acc;
         }
-    }, []).slice(0, 3);
+    }, []).slice(0, 4); // Increased to 4 to accomodate Tokyo if all 4 cities have events
     
     // Sort logic for display: Group by city or just list?
     // Let's just keep the order we found them (Proximity/Priority) or sort by city?
@@ -241,14 +251,27 @@ function renderMeetupEvents(events, container) {
         let configKey = 'Brisbane';
         if (city.includes('Sydney')) configKey = 'Sydney';
         if (city.includes('Melbourne')) configKey = 'Melbourne';
+        if (city.includes('Tokyo')) configKey = 'Tokyo';
         
         // Simplified sleek config - minimal colors
+        const cityInfo = cityConfigs[configKey] || cityConfigs['Brisbane'];
+        
         const cityDisplay = {
             'Brisbane': { short: 'BNE', label: 'Brisbane' },
             'Sydney': { short: 'SYD', label: 'Sydney' },
-            'Melbourne': { short: 'MEL', label: 'Melbourne' }
-        }[configKey];
+            'Melbourne': { short: 'MEL', label: 'Melbourne' },
+            'Tokyo': { short: 'TYO', label: 'Tokyo' }
+        }[configKey] || { short: 'BNE', label: 'Brisbane' };
 
+        // Format Date
+        const dateObj = new Date(event.eventDate);
+        const timeStr = dateObj.toLocaleTimeString('en-US', { 
+            hour: 'numeric', 
+            minute: '2-digit',
+            timeZone: (cityConfigs[configKey] || {}).timezone || 'Australia/Brisbane'
+        });
+        // Optional: Manual override for Tokyo if needed, but better to use real data
+        
         card.innerHTML = `
             <div class="p-8 flex flex-col h-full items-center text-center relative z-10">
                 
@@ -260,23 +283,16 @@ function renderMeetupEvents(events, container) {
                     <div class="h-1 w-12 bg-brand-primary rounded-full mx-auto mt-2 opacity-80"></div>
                 </div>
 
-                <!-- Fixed Time - Clean & Modern -->
-                <div class="mb-8">
-                    <p class="text-gray-300 font-medium tracking-wide flex items-center gap-2 text-lg">
-                        <span class="text-brand-primary opacity-80">TIME</span>
-                        <span class="w-px h-4 bg-gray-600"></span>
-                        <span class="text-white">6:00 PM</span>
-                    </p>
-                </div>
-
-                <!-- Subtle Registration Notice -->
+                <!-- Fixed Time Removed as per user request -->
+                
+                <!-- Registration Notice -->
                 <div class="w-full bg-gray-900/50 border border-gray-700/50 rounded-lg p-4 mb-8">
                     <div class="flex items-center justify-center gap-2 text-gray-400 text-sm mb-1">
                         <span class="text-brand-primary">ℹ️</span>
                         <span class="font-medium text-gray-300">Registration Required</span>
                     </div>
                     <p class="text-gray-500 text-xs text-center leading-relaxed">
-                        Please RSVP on Meetup to join the guest list.
+                        Please RSVP on Meetup to join.
                     </p>
                 </div>
 
@@ -308,4 +324,49 @@ function renderNoEvents(container, groupUrl) {
             </a>
         </div>
     `;
+}
+
+/**
+ * Updates the "Meet Your Local Heroes" section links based on upcoming events.
+ * Maps specific hosts to their city's next event.
+ * @param {Array} events - Sorted list of upcoming events
+ */
+function updateHeroLinks(events) {
+    // Map host IDs to their respective City keywords
+    const hostMap = {
+        'host-chris': 'Sydney',
+        'host-david': 'Melbourne',
+        'host-naoki': 'Brisbane',
+        'host-kazuma': 'Tokyo',
+        'host-hiroshi': 'Fukuoka'
+        // Michael is static
+    };
+
+    // Default Main Link
+    const mainLink = 'https://www.meetup.com/ja-JP/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr';
+
+    Object.keys(hostMap).forEach(hostId => {
+        const element = document.getElementById(hostId);
+        if (element) {
+            const cityKeyword = hostMap[hostId];
+            
+            // Find the *first* upcoming event for this city
+            // Events are already sorted by date in filterAndSortEvents
+            const cityEvent = events.find(e => {
+                const venue = e.venue || '';
+                return venue.toLowerCase().includes(cityKeyword.toLowerCase());
+            });
+
+            if (cityEvent && cityEvent.link) {
+                element.href = cityEvent.link;
+            } else {
+                // If no specific event, link to main group page (or keep default if hardcoded)
+                // We'll set it to main group page to be safe
+                element.href = mainLink;
+            }
+        }
+    });
+
+    // Fukuoka specific handling (since we might no have events yet)
+    // If Hiroshi needs a specific fallback (e.g. no events yet), it defaults to mainLink above.
 }

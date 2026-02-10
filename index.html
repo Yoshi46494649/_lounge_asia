@@ -13,7 +13,9 @@
     <meta property="og:url" content="https://www.loungeasia.com.au/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/hero-real.jpg">
-    <link rel="icon" type="image/png" href="assets/matcha-match-logo.png">
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
 
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
@@ -122,6 +124,7 @@
             
             <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#meetup-events" class="hover:text-white transition-colors">Events</a>
                 <a href="#cities" class="hover:text-white transition-colors">Global Cities</a>
                 <a href="#matcha-match" class="hover:text-brand-primary transition-colors text-brand-primary">Matcha Match App</a>
                 <a href="#leaders" class="hover:text-white transition-colors">Become a Leader</a>
@@ -129,8 +132,8 @@
                 <a href="#contact" class="hover:text-white transition-colors">Contact</a>
             </nav>
 
-            <a href="https://www.facebook.com/profile.php?id=61575030717215" target="_blank" class="hidden md:inline-flex items-center justify-center bg-white text-brand-dark font-bold py-2.5 px-6 rounded-full text-sm hover:bg-brand-primary hover:text-white transition-all duration-300 shadow-lg transform hover:-translate-y-0.5">
-                Join Community
+            <a href="https://www.meetup.com/ja-JP/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr" target="_blank" class="hidden md:inline-flex items-center justify-center bg-white text-brand-dark font-bold py-2.5 px-6 rounded-full text-sm hover:bg-brand-primary hover:text-white transition-all duration-300 shadow-lg transform hover:-translate-y-0.5">
+                Join on Meetup
             </a>
 
             <!-- Mobile Menu Button -->
@@ -154,11 +157,11 @@
                         Real Connections. Real Friendship. A global safe haven where you truly belong.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="#matcha-match" class="bg-brand-primary hover:bg-emerald-500 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-emerald-900/50 transition-all duration-300 transform hover:-translate-y-1">
-                            Download Matcha Match
+                        <a href="#meetup-events" class="bg-brand-primary hover:bg-emerald-500 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-emerald-900/50 transition-all duration-300 transform hover:-translate-y-1">
+                            Join Upcoming Events
                         </a>
-                        <a href="#cities" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold py-4 px-8 rounded-full transition-all duration-300">
-                            Find Your City
+                        <a href="#matcha-match" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold py-4 px-8 rounded-full transition-all duration-300">
+                            Matcha Match App
                         </a>
                     </div>
                 </div>
@@ -170,57 +173,73 @@
             </div>
         </section>
 
-        <!-- ===== Matcha Match Section ===== -->
-        <section id="matcha-match" class="py-24 bg-gradient-to-b from-brand-dark to-gray-900 overflow-hidden">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col lg:flex-row items-center gap-16">
-                    <!-- Left: Images -->
-                    <div class="w-full lg:w-1/2 relative group">
-                        <!-- Background Decorative Blob -->
-                        <div class="absolute -inset-4 bg-brand-primary/20 blur-3xl rounded-full opacity-50 group-hover:opacity-75 transition-opacity duration-700"></div>
-                        
-                        <div class="relative grid grid-cols-2 gap-4">
-                            <!-- Removed h-64 md:h-80 and object-cover to show full image -->
-                            <img src="assets/matcha-match-marketing.jpg" alt="Asian couple enjoying Matcha Match social dating app in Australia" class="rounded-2xl shadow-2xl transform translate-y-8 w-full h-auto border border-white/10">
-                            <!-- Removed h-64 md:h-80 and object-cover to show full image -->
-                            <img src="assets/matcha-match-interface.png" alt="Matcha Match dating app interface showing user profiles" class="rounded-2xl shadow-2xl w-full object-contain h-auto border border-white/10 bg-black">
-                            
-                            <!-- Floated Badge -->
-                            <div class="absolute top-0 right-0 -mt-6 -mr-6 bg-white text-brand-primary font-bold p-4 rounded-full shadow-lg animate-pulse hidden md:block">
-                                New Arrival!
-                            </div>
-                        </div>
-                    </div>
+        <!-- ===== Venue & Atmosphere Gallery (Swipeable) ===== -->
+        <section id="venue-gallery" class="py-12 bg-gray-900 border-y border-gray-800">
+             <div class="container mx-auto px-6 mb-8 flex justify-between items-end">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Our Venues & Vibe</h2>
+                    <p class="text-gray-400 text-sm md:text-base">Swipe to explore where the magic happens</p>
+                </div>
+                <!-- Controls (Visual cues) -->
+                <div class="hidden md:flex gap-2">
+                    <button class="p-2 rounded-full border border-gray-600 hover:bg-gray-800 text-white transition-colors" onclick="document.getElementById('gallery-scroll').scrollBy({left: -300, behavior: 'smooth'})">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button class="p-2 rounded-full border border-gray-600 hover:bg-gray-800 text-white transition-colors" onclick="document.getElementById('gallery-scroll').scrollBy({left: 300, behavior: 'smooth'})">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+             </div>
+             
+             <!-- Horizontal Scroll Container -->
+             <div id="gallery-scroll" class="flex overflow-x-auto gap-4 px-6 pb-8 snap-x snap-mandatory scrollbar-hide no-scrollbar" style="-ms-overflow-style: none; scrollbar-width: none;">
+                
+                <!-- Item: New 1 -->
+                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
+                    <img src="assets/gallery-party-1.jpg" alt="Lounge Asia Social Event" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
 
-                    <!-- Right: Content -->
-                    <div class="w-full lg:w-1/2">
-                        <div class="flex items-center gap-3 mb-4">
-                            <img src="assets/matcha-match-logo.png" alt="Matcha Match Logo" class="w-12 h-auto">
-                            <span class="text-brand-primary font-bold tracking-wider uppercase text-sm">The Evolution of Dating</span>
-                        </div>
-                        <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-                            Speed Dating Has Evolved. <br>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-green-300">Meet Naturally.</span>
-                        </h2>
-                        <h3 class="text-xl text-white font-semibold mb-4">
-                            Say goodbye to awkward rotations. Say hello to Matcha Match.
-                        </h3>
-                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
-                            We’ve discontinued our traditional speed dating events to bring you something better. Meet naturally, safely, and smartly with our verified app. Experience the future of dating and friendship within our trusted ecosystem.
-                        </p>
-                        
-                        <div class="flex flex-col sm:flex-row gap-4">
-                            <a href="https://www.matchamatch.com.au/" target="_blank" class="inline-flex items-center justify-center gap-2 bg-brand-primary hover:bg-emerald-500 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg hover:shadow-emerald-500/30">
-                                <span>Join the Waiting List</span>
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
-                            </a>
-                        </div>
-                        <p class="mt-4 text-sm text-gray-500">
-                            *Limited spots available for early-bird perks.
-                        </p>
+                <!-- Item: New 2 -->
+                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
+                    <img src="assets/gallery-party-2.jpg" alt="Lounge Asia Happy Members" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+
+                <!-- Item 1: Brisbane -->
+                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
+                    <img src="assets/event-table.jpg" alt="Brisbane Venue Atmosphere" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+
+                <!-- Item 2: Sydney -->
+                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
+                    <img src="assets/event-group-casual.jpg" alt="Sydney Venue Atmosphere" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+
+                <!-- Item 3: Melbourne -->
+                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
+                    <img src="assets/event-standing.jpg" alt="Melbourne Venue" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                 
+                 <!-- Item 5: Spacer for scroll padding -->
+                 <div class="min-w-[1px]"></div>
+
+             </div>
+        </section>
+
+        <!-- ===== Meetup Events Section ===== -->
+        <section id="meetup-events" class="py-24 bg-brand-dark relative border-t border-gray-800">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <span class="text-brand-accent font-bold tracking-wide uppercase text-sm mb-2 block">Join the Community</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">Upcoming Events</h2>
+                    <p class="text-xl text-gray-400 max-w-2xl mx-auto">Connect with us in person. Please RSVP on Meetup.</p>
+                </div>
+                <div id="meetup-events-container">
+                    <!-- Loaded via JS -->
+                     <div class="flex justify-center py-8">
+                        <div class="animate-pulse bg-gray-800 h-64 w-full rounded-xl opacity-50 border border-gray-700"></div>
                     </div>
                 </div>
-            </div>
+             </div>
         </section>
 
         <!-- ===== Global Cities Section ===== -->
@@ -295,80 +314,11 @@
                 </div>
 
                 <div class="mt-12">
-                    <a href="https://www.facebook.com/profile.php?id=61575030717215" target="_blank" class="inline-block bg-white text-gray-900 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition-colors">
-                        Find Your Global Hub
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="inline-block bg-white text-gray-900 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition-colors">
+                        See City Vibes on Instagram
                     </a>
                 </div>
             </div>
-        </section>
-
-        <!-- ===== Meetup Events Section ===== -->
-        <section id="meetup-events" class="py-24 bg-brand-dark relative border-t border-gray-800">
-             <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <span class="text-brand-accent font-bold tracking-wide uppercase text-sm mb-2 block">Join the Community</span>
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">Upcoming Events</h2>
-                    <p class="text-xl text-gray-400 max-w-2xl mx-auto">Connect with us in person. No booking required.</p>
-                </div>
-                <div id="meetup-events-container">
-                    <!-- Loaded via JS -->
-                     <div class="flex justify-center py-8">
-                        <div class="animate-pulse bg-gray-800 h-64 w-full rounded-xl opacity-50 border border-gray-700"></div>
-                    </div>
-                </div>
-             </div>
-        </section>
-
-        <!-- ===== Venue & Atmosphere Gallery (Swipeable) ===== -->
-        <section id="venue-gallery" class="py-12 bg-gray-900 border-y border-gray-800">
-             <div class="container mx-auto px-6 mb-8 flex justify-between items-end">
-                <div>
-                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Our Venues & Vibe</h2>
-                    <p class="text-gray-400 text-sm md:text-base">Swipe to explore where the magic happens</p>
-                </div>
-                <!-- Controls (Visual cues) -->
-                <div class="hidden md:flex gap-2">
-                    <button class="p-2 rounded-full border border-gray-600 hover:bg-gray-800 text-white transition-colors" onclick="document.getElementById('gallery-scroll').scrollBy({left: -300, behavior: 'smooth'})">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                    </button>
-                    <button class="p-2 rounded-full border border-gray-600 hover:bg-gray-800 text-white transition-colors" onclick="document.getElementById('gallery-scroll').scrollBy({left: 300, behavior: 'smooth'})">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                    </button>
-                </div>
-             </div>
-             
-             <!-- Horizontal Scroll Container -->
-             <div id="gallery-scroll" class="flex overflow-x-auto gap-4 px-6 pb-8 snap-x snap-mandatory scrollbar-hide no-scrollbar" style="-ms-overflow-style: none; scrollbar-width: none;">
-                
-                <!-- Item: New 1 -->
-                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
-                    <img src="assets/gallery-party-1.jpg" alt="Lounge Asia Social Event" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- Item: New 2 -->
-                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
-                    <img src="assets/gallery-party-2.jpg" alt="Lounge Asia Happy Members" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- Item 1: Brisbane -->
-                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
-                    <img src="assets/event-table.jpg" alt="Brisbane Venue Atmosphere" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- Item 2: Sydney -->
-                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
-                    <img src="assets/event-group-casual.jpg" alt="Sydney Venue Atmosphere" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-
-                <!-- Item 3: Melbourne -->
-                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
-                    <img src="assets/event-standing.jpg" alt="Melbourne Venue" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
-                </div>
-                 
-                 <!-- Item 5: Spacer for scroll padding -->
-                 <div class="min-w-[1px]"></div>
-
-             </div>
         </section>
 
         <!-- ===== Member Interviews (YouTube Shorts) ===== -->
@@ -393,6 +343,59 @@
                      Real conversations. No scripts. Just vibes.
                  </p>
              </div>
+        </section>
+
+        <!-- ===== Matcha Match Section ===== -->
+        <section id="matcha-match" class="py-24 bg-gradient-to-b from-brand-dark to-gray-900 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <!-- Left: Images -->
+                    <div class="w-full lg:w-1/2 relative group">
+                        <!-- Background Decorative Blob -->
+                        <div class="absolute -inset-4 bg-brand-primary/20 blur-3xl rounded-full opacity-50 group-hover:opacity-75 transition-opacity duration-700"></div>
+                        
+                        <div class="relative grid grid-cols-2 gap-4">
+                            <!-- Removed h-64 md:h-80 and object-cover to show full image -->
+                            <img src="assets/matcha-match-marketing.jpg" alt="Asian couple enjoying Matcha Match social dating app in Australia" class="rounded-2xl shadow-2xl transform translate-y-8 w-full h-auto border border-white/10">
+                            <!-- Removed h-64 md:h-80 and object-cover to show full image -->
+                            <img src="assets/matcha-match-interface.png" alt="Matcha Match dating app interface showing user profiles" class="rounded-2xl shadow-2xl w-full object-contain h-auto border border-white/10 bg-black">
+                            
+                            <!-- Floated Badge -->
+                            <div class="absolute top-0 right-0 -mt-6 -mr-6 bg-white text-brand-primary font-bold p-4 rounded-full shadow-lg animate-pulse hidden md:block">
+                                New Arrival!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Content -->
+                    <div class="w-full lg:w-1/2">
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="assets/matcha-match-logo.png" alt="Matcha Match Logo" class="w-12 h-auto">
+                            <span class="text-brand-primary font-bold tracking-wider uppercase text-sm">The Evolution of Dating</span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                            Speed Dating Has Evolved. <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-green-300">Meet Naturally.</span>
+                        </h2>
+                        <h3 class="text-xl text-white font-semibold mb-4">
+                            Say goodbye to awkward rotations. Say hello to Matcha Match.
+                        </h3>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                            We’ve discontinued our traditional speed dating events to bring you something better. Meet naturally, safely, and smartly with our verified app. Experience the future of dating and friendship within our trusted ecosystem.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://www.matchamatch.com.au/" target="_blank" class="inline-flex items-center justify-center gap-2 bg-brand-primary hover:bg-emerald-500 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg hover:shadow-emerald-500/30">
+                                <span>Join the Waiting List</span>
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                        <p class="mt-4 text-sm text-gray-500">
+                            *Limited spots available for early-bird perks.
+                        </p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- ===== Community Heroes Section ===== -->
@@ -580,6 +583,175 @@
                         <div class="w-full h-full flex items-center justify-center text-gray-700">Loading...</div>
                     </div>
                 </div>
+             </div>
+        </section>
+
+        <!-- ===== FAQ Section ===== -->
+        <section id="faq" class="py-24 bg-gray-900 border-t border-gray-800">
+             <div class="container mx-auto px-6 max-w-4xl">
+                 <div class="text-center mb-16">
+                     <span class="text-brand-primary font-bold tracking-wide uppercase text-sm mb-2 block">Common Questions</span>
+                     <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">FAQ</h2>
+                     <p class="text-xl text-gray-400">Everything you need to know about Lounge Asia.</p>
+                 </div>
+
+                 <!-- Group 1 -->
+                 <div class="mb-12">
+                     <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                         <span class="bg-brand-primary/20 text-brand-primary p-2 rounded-lg">🔰</span>
+                         First time at Lounge?
+                     </h3>
+                     <div class="space-y-4">
+                         <!-- Q1 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q1. Can I come alone?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 Yes! Most people come solo. We’ll say hi, help you settle in, and introduce you if you’d like. 😊
+                             </div>
+                         </details>
+                         <!-- Q2 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q2. Do I need to book?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 Yes, RSVP is essential. Please click "Going" on our Meetup event page. <br><br>
+                                 <span class="text-brand-accent">⚠️ Note:</span> If you are not on the RSVP list on Meetup, you may not be able to join. <br>
+                                 👉 Follow us on Instagram: <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="text-brand-primary hover:underline">@_lounge_asia</a> 📩
+                             </div>
+                         </details>
+                         <!-- Q3 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q3. Is there an entry fee?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 It depends on the venue. Usually, there is a small cover charge at the door, or a one-drink minimum order at the bar to support the venue. 🍺
+                             </div>
+                         </details>
+                         <!-- Q4 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q4. What language can I speak?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 English, Japanese, Chinese, Taiwanese, or Korean—all welcome! Use whatever feels most natural. 🌏
+                             </div>
+                         </details>
+                         <!-- Q5 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q5. Can I arrive late or leave early?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 Absolutely. It’s a casual, drop-in style event. Feel free to come and go as you please.
+                             </div>
+                         </details>
+                         <!-- Q6 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q6. Do I need to bring anything?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 If the event is at a bar/pub, please bring a valid Photo ID (Passport, Driver’s License, etc.). 🆔
+                             </div>
+                         </details>
+                         <!-- Q7 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q7. What happens when I arrive?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 Look for the Host at the front. Tell us your name, get a name tag (if available), and enjoy the night! 🏷️
+                             </div>
+                         </details>
+                     </div>
+                 </div>
+
+                 <!-- Group 2 -->
+                 <div>
+                     <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                         <span class="bg-brand-primary/20 text-brand-primary p-2 rounded-lg">🌏</span>
+                         Community & Partners
+                     </h3>
+                     <div class="space-y-4">
+                         <!-- Q1 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q1. Is this a dating group or a social club?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 Friendship comes first. Our events are for making friends naturally. Aggressive pickup lines or asking for contact info immediately is strictly prohibited. <br><br>
+                                 <strong class="text-red-400">🛑 Safety Policy:</strong> If you feel uncomfortable, please alert the Host or Bar Staff immediately. Harassment will result in immediate removal and a permanent ban from all future events.
+                             </div>
+                         </details>
+                         <!-- Q2 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q2. What if I am looking for a partner?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 We recommend starting as friends first! Alternatively, try our official app "Matcha Match"—it’s designed specifically for safe and smart matching. 📲 <br>
+                                 Check it out here: <a href="#matcha-match" class="text-brand-primary hover:underline">Matcha Match</a>
+                             </div>
+                         </details>
+                         <!-- Q3 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q3. How can I become a Host or City Leader?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 We’d love to have you! We are actively looking for visionary leaders in cities worldwide. It’s a great way to build your network and gain leadership skills. <br><br>
+                                 👉 <strong class="text-white">Action:</strong> <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="text-brand-primary hover:underline">DM us on Instagram</a> to apply!
+                             </div>
+                         </details>
+                         <!-- Q4 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q4. I’m a business owner. Can we partner or sponsor?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 Absolutely. We collaborate with language schools, agencies, venues, and brands to connect them with our global community. <br><br>
+                                 📩 <strong class="text-white">Contact:</strong> Please DM us on Instagram (<a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="text-brand-primary hover:underline">@_lounge_asia</a>) or email us at <a href="mailto:lounge.brisbane@gmail.com" class="text-brand-primary hover:underline">lounge.brisbane@gmail.com</a> to discuss opportunities.
+                             </div>
+                         </details>
+                         <!-- Q5 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q5. Which cities are you active in?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 Currently, we have hubs in Brisbane, Sydney, Melbourne, Tokyo, Fukuoka, and Ho Chi Minh City. <br><br>
+                                 🚀 <strong class="text-white">Coming soon:</strong> Osaka, Cebu, Singapore, and more!
+                             </div>
+                         </details>
+                         <!-- Q6 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q6. Is there an official app?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 Yes! We are developing "Matcha Match"—a verified app for safer, smarter connections. 📲 <br>
+                                 <a href="#matcha-match" class="text-brand-primary hover:underline font-bold">Join the waitlist on our homepage</a> to get early-bird perks!
+                             </div>
+                         </details>
+                     </div>
+                 </div>
              </div>
         </section>
 
