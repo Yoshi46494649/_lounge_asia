@@ -110,21 +110,72 @@ function initMeetupFeed() {
         .then(data => {
             let events = Array.isArray(data) ? data : [];
             
-            // Manual Tokyo Event Injection
-            // Ensure Tokyo event is always present if not in the feed
-            const hasTokyo = events.some(e => (e.venue && e.venue.includes('Tokyo')) || (e.title && e.title.includes('Tokyo')));
-            
-            if (!hasTokyo) {
-                console.log('Injecting manual Tokyo event');
-                events.push({
-                    title: "Global Asian Social: Lounge Asia Meetup @ Tokyo",
-                    pubDate: "2026-02-09 10:23:23", 
-                    link: "https://www.meetup.com/ja-jp/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313276852/",
-                    venue: "Tokyo",
-                    eventDate: "2026-02-22T07:00:00.000Z", // Feb 22, 2026
-                    description: "Join us in Tokyo for our global mixer event!"
-                });
-            }
+            // Manual Event Injection (Tokyo, Riyadh, Dubai, HCMC, Fukuoka)
+            const manualInjections = [
+                {
+                    city: 'Tokyo',
+                    event: {
+                        title: "Global Asian Social: Lounge Asia Meetup @ Tokyo",
+                        pubDate: "2026-02-09 10:23:23", 
+                        link: "https://www.meetup.com/ja-jp/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313276852/",
+                        venue: "Tokyo",
+                        eventDate: "2026-02-22T07:00:00.000Z",
+                        description: "Join us in Tokyo for our global mixer event!"
+                    }
+                },
+                {
+                    city: 'Riyadh',
+                    event: {
+                        title: "Global Asian Social: Lounge Asia Meetup @ Riyadh",
+                        pubDate: "2026-02-12 10:00:00",
+                        link: "https://www.meetup.com/ja-jp/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313320977", 
+                        venue: "Riyadh",
+                        eventDate: "2026-03-01T18:00:00.000Z",
+                        description: "Join us in Riyadh!"
+                    }
+                },
+                {
+                    city: 'Dubai',
+                    event: {
+                        title: "Global Asian Social: Lounge Asia Meetup @ Dubai",
+                        pubDate: "2026-02-12 10:00:00",
+                        link: "https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313321443",
+                        venue: "Dubai",
+                        eventDate: "2026-03-02T18:00:00.000Z",
+                        description: "Join us in Dubai!"
+                    }
+                },
+                {
+                    city: 'Ho Chi Minh City',
+                    event: {
+                        title: "Global Asian Social: Lounge Asia Meetup @ Ho Chi Minh City",
+                        pubDate: "2026-02-12 10:00:00",
+                        link: "https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/?venue=hcmc",
+                        venue: "Ho Chi Minh City",
+                        eventDate: "2026-03-03T18:00:00.000Z",
+                        description: "Join us in HCMC!"
+                    }
+                },
+                {
+                    city: 'Fukuoka',
+                    event: {
+                        title: "Global Asian Social: Lounge Asia Meetup @ Fukuoka",
+                        pubDate: "2026-02-12 10:00:00",
+                        link: "https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/?venue=fukuoka",
+                        venue: "Fukuoka",
+                        eventDate: "2026-03-04T18:00:00.000Z",
+                        description: "Join us in Fukuoka!"
+                    }
+                }
+            ];
+
+            manualInjections.forEach(item => {
+                const hasCity = events.some(e => (e.venue && e.venue.includes(item.city)) || (e.title && e.title.includes(item.city)));
+                if (!hasCity) {
+                   console.log(`Injecting manual ${item.city} event`);
+                   events.push(item.event);
+                }
+            });
 
             if (events.length > 0) {
                 const upcomingEvents = filterAndSortEvents(events);
@@ -172,6 +223,34 @@ function renderFallbackEvents(container) {
             link: "https://www.meetup.com/ja-jp/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313276852/",
             venue: "Tokyo",
             eventDate: "2026-02-22T07:00:00.000Z"
+        },
+        {
+            title: "Global Asian Social: Lounge Asia Meetup @ Riyadh",
+            pubDate: "2026-02-12 10:00:00",
+            link: "https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp",
+            venue: "Riyadh",
+            eventDate: "2026-03-01T18:00:00.000Z" // Placeholder date
+        },
+        {
+            title: "Global Asian Social: Lounge Asia Meetup @ Dubai",
+            pubDate: "2026-02-12 10:00:00",
+            link: "https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313321443",
+            venue: "Dubai",
+            eventDate: "2026-03-02T18:00:00.000Z" // Placeholder date derived from link context if possible, otherwise generic future
+        },
+         {
+            title: "Global Asian Social: Lounge Asia Meetup @ Ho Chi Minh City",
+            pubDate: "2026-02-12 10:00:00",
+            link: "https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/",
+            venue: "Ho Chi Minh City",
+            eventDate: "2026-03-03T18:00:00.000Z" // Placeholder
+        },
+        {
+            title: "Global Asian Social: Lounge Asia Meetup @ Fukuoka",
+            pubDate: "2026-02-12 10:00:00",
+            link: "https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/",
+            venue: "Fukuoka",
+            eventDate: "2026-03-04T18:00:00.000Z" // Placeholder
         }
     ];
 
@@ -218,7 +297,11 @@ function renderMeetupEvents(events, container) {
         'Brisbane': { icon: '🐨', color: 'bg-green-500/20 text-green-400 border-green-500/30', timezone: 'Australia/Brisbane' },
         'Sydney': { icon: '🌉', color: 'bg-blue-500/20 text-blue-400 border-blue-500/30', timezone: 'Australia/Sydney' },
         'Melbourne': { icon: '☕', color: 'bg-purple-500/20 text-purple-400 border-purple-500/30', timezone: 'Australia/Melbourne' },
-        'Tokyo': { icon: '🗼', color: 'bg-red-500/20 text-red-400 border-red-500/30', timezone: 'Asia/Tokyo' }
+        'Tokyo': { icon: '🗼', color: 'bg-red-500/20 text-red-400 border-red-500/30', timezone: 'Asia/Tokyo' },
+        'Riyadh': { icon: '🇸🇦', color: 'bg-green-500/20 text-green-400 border-green-500/30', timezone: 'Asia/Riyadh' },
+        'Dubai': { icon: '🇦🇪', color: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30', timezone: 'Asia/Dubai' },
+        'Fukuoka': { icon: '🍜', color: 'bg-pink-500/20 text-pink-400 border-pink-500/30', timezone: 'Asia/Tokyo' },
+        'Ho Chi Minh City': { icon: '🇻🇳', color: 'bg-red-500/20 text-red-400 border-red-500/30', timezone: 'Asia/Ho_Chi_Minh' }
     };
 
     // Strategy: Select the next upcoming event for each distinct city first
@@ -226,7 +309,8 @@ function renderMeetupEvents(events, container) {
     const citiesFound = new Set();
 
     // 1. First pass: Find first event for each supported city
-    ['Brisbane', 'Sydney', 'Melbourne', 'Tokyo'].forEach(city => {
+    // 1. First pass: Find first event for each supported city
+    ['Brisbane', 'Sydney', 'Melbourne', 'Tokyo', 'Riyadh', 'Dubai', 'Ho Chi Minh City', 'Fukuoka'].forEach(city => {
         const event = events.find(e => {
             const venue = e.venue || 'Brisbane'; // Fallback
             // Check if venue matches (loose check)
@@ -254,7 +338,7 @@ function renderMeetupEvents(events, container) {
         } else {
             return acc;
         }
-    }, []).slice(0, 4); // Increased to 4 to accomodate Tokyo if all 4 cities have events
+    }, []).slice(0, 8); // Updated to 8 to accommodate all new cities
     
     // Sort logic for display: Group by city or just list?
     // Let's just keep the order we found them (Proximity/Priority) or sort by city?
@@ -270,6 +354,10 @@ function renderMeetupEvents(events, container) {
         if (city.includes('Sydney')) configKey = 'Sydney';
         if (city.includes('Melbourne')) configKey = 'Melbourne';
         if (city.includes('Tokyo')) configKey = 'Tokyo';
+        if (city.includes('Riyadh')) configKey = 'Riyadh';
+        if (city.includes('Dubai')) configKey = 'Dubai';
+        if (city.includes('Fukuoka')) configKey = 'Fukuoka';
+        if (city.includes('Ho Chi Minh') || city.includes('Saigon')) configKey = 'Ho Chi Minh City';
         
         // Simplified sleek config - minimal colors
         const cityInfo = cityConfigs[configKey] || cityConfigs['Brisbane'];
@@ -278,7 +366,11 @@ function renderMeetupEvents(events, container) {
             'Brisbane': { short: 'BNE', label: 'Brisbane' },
             'Sydney': { short: 'SYD', label: 'Sydney' },
             'Melbourne': { short: 'MEL', label: 'Melbourne' },
-            'Tokyo': { short: 'TYO', label: 'Tokyo' }
+            'Tokyo': { short: 'TYO', label: 'Tokyo' },
+            'Riyadh': { short: 'RUH', label: 'Riyadh' },
+            'Dubai': { short: 'DXB', label: 'Dubai' },
+            'Fukuoka': { short: 'FUK', label: 'Fukuoka' },
+            'Ho Chi Minh City': { short: 'SGN', label: 'Ho Chi Minh' }
         }[configKey] || { short: 'BNE', label: 'Brisbane' };
 
         // Format Date
