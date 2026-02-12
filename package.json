@@ -7,6 +7,8 @@
     "check:site": "node scripts/check-site.mjs",
     "build:css": "tailwindcss -c tailwind.config.js -i styles/main.css -o assets/main.min.css --minify",
     "build:js": "terser -c -m -o assets/main.min.js -- assets/main.js",
+    "build:parents": "cd apps/parents-lp && npm install && npm run build && node -e \"const fs=require('fs'); const path=require('path'); const src='dist'; const dest='../../parents'; fs.rmSync(dest, {recursive:true, force:true}); fs.mkdirSync(dest, {recursive:true}); fs.cpSync(src, dest, {recursive:true});\"",
+    "build": "npm run build:css && npm run build:js && npm run build:parents",
     "dev": "serve ."
   },
   "repository": {
