@@ -300,8 +300,8 @@ function renderMeetupEvents(events, container) {
     // SVG Icons (Monochrome, Premium)
     const icons = {
         brisbane: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>', 
-        // Custom Opera House Path attempting to match the "gold line art" feel
-        sydney: '<svg class="w-20 h-20 text-[#C6A87C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h17M3 19h18M5.5 19l.5-6s.5-3 4-3 3 5 3 5M9 19l1-8s1-4 4-2 2 6 2 6M15 19l1-5s1-3 3-2 2 5 2 5M12 19V9M7 19v-4"/></svg>', 
+        // Custom Opera House Path attempting to match the "gold line art" feel but reusing the unified white style
+        sydney: '<svg class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h17M3 19h18M5.5 19l.5-6s.5-3 4-3 3 5 3 5M9 19l1-8s1-4 4-2 2 6 2 6M15 19l1-5s1-3 3-2 2 5 2 5M12 19V9M7 19v-4"/></svg>', 
         melbourne: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path></svg>', 
         tokyo: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M12 21V3m0 0L8.25 7.5M12 3l3.75 4.5M12 9a4.5 4.5 0 100 9 4.5 4.5 0 000-9zM3 21h18" stroke-linecap="round" stroke-linejoin="round"></path></svg>', 
         fukuoka: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M4.5 10.5L12 3l7.5 7.5M3 21h18v-9H3v9zm9-6v3" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
