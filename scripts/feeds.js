@@ -294,7 +294,7 @@ function renderMeetupEvents(events, container) {
     // - Mobile: Horizontal Scroll (flex + overflow-x-auto)
     // - Desktop: Grid (md:grid)
     const list = document.createElement('div');
-    list.className = 'flex overflow-x-auto gap-4 pb-4 md:grid md:gap-6 md:grid-cols-2 lg:grid-cols-3 snap-x snap-mandatory scrollbar-hide no-scrollbar';
+    list.className = 'flex overflow-x-auto gap-4 pb-4 md:grid md:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 snap-x snap-mandatory scrollbar-hide no-scrollbar';
     list.style.cssText = '-ms-overflow-style: none; scrollbar-width: none;'; // Hide scrollbar cleanly
 
     // SVG Icons (Monochrome, Premium)
@@ -305,110 +305,80 @@ function renderMeetupEvents(events, container) {
         melbourne: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path></svg>', 
         tokyo: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M12 21V3m0 0L8.25 7.5M12 3l3.75 4.5M12 9a4.5 4.5 0 100 9 4.5 4.5 0 000-9zM3 21h18" stroke-linecap="round" stroke-linejoin="round"></path></svg>', 
         fukuoka: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M4.5 10.5L12 3l7.5 7.5M3 21h18v-9H3v9zm9-6v3" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+        osaka: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M3 21h18M5 21v-7l7-4 7 4v7M12 10V3" stroke-linecap="round" stroke-linejoin="round"></path></svg>', // Castle minimal
+        cairns: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>', // Same as Brisbane (Sun/Tropical)
         hcmc: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.546-3.131 1.457-4.373" stroke-linecap="round" stroke-linejoin="round"></path></svg>', 
         riyadh: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>', 
         dubai: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M12 21V3m0 0l-9 9m9-9l9 9" stroke-linecap="round" stroke-linejoin="round"></path></svg>', 
+        cebu: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>', 
+        singapore: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path></svg>', 
         global: '<svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" stroke-linecap="round" stroke-linejoin="round"></path></svg>', 
     };
 
-    // City Configs with Fallback Logic implied
+    // City Configs with Country Names
     const cityConfigs = {
-        'Brisbane': { icon: icons.brisbane, timezone: 'Australia/Brisbane', label: 'Brisbane', short: 'BNE' },
-        'Sydney': { icon: icons.sydney, timezone: 'Australia/Sydney', label: 'Sydney', short: 'SYD' },
-        'Melbourne': { icon: icons.melbourne, timezone: 'Australia/Melbourne', label: 'Melbourne', short: 'MEL' },
-        'Tokyo': { icon: icons.tokyo, timezone: 'Asia/Tokyo', label: 'Tokyo', short: 'TYO' },
-        'Fukuoka': { icon: icons.fukuoka, timezone: 'Asia/Tokyo', label: 'Fukuoka', short: 'FUK' },
-        'Ho Chi Minh City': { icon: icons.hcmc, timezone: 'Asia/Ho_Chi_Minh', label: 'Ho Chi Minh', short: 'SGN' },
-        'Riyadh': { icon: icons.riyadh, timezone: 'Asia/Riyadh', label: 'Riyadh', short: 'RUH' },
-        'Dubai': { icon: icons.dubai, timezone: 'Asia/Dubai', label: 'Dubai', short: 'DXB' },
-        'Global': { icon: icons.global, timezone: 'UTC', label: 'Global', short: 'GLO' }
+        'Brisbane': { icon: icons.brisbane, country: 'Australia', label: 'Brisbane', short: 'BNE' },
+        'Sydney': { icon: icons.sydney, country: 'Australia', label: 'Sydney', short: 'SYD' },
+        'Melbourne': { icon: icons.melbourne, country: 'Australia', label: 'Melbourne', short: 'MEL' },
+        'Cairns': { icon: icons.cairns, country: 'Australia', label: 'Cairns', short: 'CNS' },
+        'Tokyo': { icon: icons.tokyo, country: 'Japan', label: 'Tokyo', short: 'TYO' },
+        'Osaka': { icon: icons.osaka, country: 'Japan', label: 'Osaka', short: 'OSA' },
+        'Fukuoka': { icon: icons.fukuoka, country: 'Japan', label: 'Fukuoka', short: 'FUK' },
+        'Ho Chi Minh City': { icon: icons.hcmc, country: 'Vietnam', label: 'Ho Chi Minh', short: 'SGN' },
+        'Riyadh': { icon: icons.riyadh, country: 'Saudi Arabia', label: 'Riyadh', short: 'RUH' },
+        'Dubai': { icon: icons.dubai, country: 'UAE', label: 'Dubai', short: 'DXB' },
+        'Cebu': { icon: icons.cebu, country: 'Philippines', label: 'Cebu', short: 'CEB' },
+        'Global': { icon: icons.global, country: 'Worldwide', label: 'Global', short: 'GLO' }
     };
 
-    // Helper to get city config
-    function getCityConfig(venue) {
-        if (!venue) return cityConfigs['Global'];
-        const v = venue.toLowerCase();
-        if (v.includes('brisbane') || v.includes('gold coast') || v.includes('sunshine')) return cityConfigs['Brisbane'];
-        if (v.includes('sydney') || v.includes('newcastle')) return cityConfigs['Sydney'];
-        if (v.includes('melbourne')) return cityConfigs['Melbourne'];
-        if (v.includes('tokyo') || v.includes('yokohama')) return cityConfigs['Tokyo'];
-        if (v.includes('fukuoka')) return cityConfigs['Fukuoka'];
-        if (v.includes('ho chi minh') || v.includes('saigon')) return cityConfigs['Ho Chi Minh City'];
-        if (v.includes('riyadh')) return cityConfigs['Riyadh'];
-        if (v.includes('dubai')) return cityConfigs['Dubai'];
-        return cityConfigs['Global']; // Fallback for unknown cities
-    }
+    // List of keys to render in order (11 cities)
+    const priorityCities = ['Brisbane', 'Sydney', 'Melbourne', 'Tokyo', 'Fukuoka', 'Osaka', 'Cairns', 'Ho Chi Minh City', 'Riyadh', 'Dubai', 'Cebu'];
 
-    // Strategy: Select the next upcoming event for each distinct city first
-    const uniqueCityEvents = [];
-    const citiesFound = new Set();
-    const cityPriorities = ['Brisbane', 'Sydney', 'Melbourne', 'Tokyo', 'Riyadh', 'Dubai', 'Ho Chi Minh City', 'Fukuoka'];
-
-    // 1. First pass: Find first event for each supported city
-    cityPriorities.forEach(cityKeyword => {
+    priorityCities.forEach(cityKey => {
+        const config = cityConfigs[cityKey] || cityConfigs['Global'];
+        
+        // Find an event for this city if available
         const event = events.find(e => {
             const venue = e.venue || '';
-            return venue.toLowerCase().includes(cityKeyword.toLowerCase());
+            const link = e.link || '';
+            // Basic matching logic
+            if (cityKey === 'Ho Chi Minh City') return venue.includes('Ho Chi Minh') || link.includes('Ho_Chi_Minh');
+            return venue.includes(cityKey) || link.includes(cityKey);
         });
-        
-        if (event) {
-            uniqueCityEvents.push(event);
-            citiesFound.add(event.link);
-        }
-    });
 
-    // 2. Second pass: Fill remaining slots with other events
-    const remainingEvents = events.filter(e => !citiesFound.has(e.link));
-    
-    // Combine and slice
-    let displayList = [...uniqueCityEvents, ...remainingEvents];
-    
-    // Deduplicate
-    displayList = displayList.reduce((acc, current) => {
-        const x = acc.find(item => item.link === current.link);
-        return !x ? acc.concat([current]) : acc;
-    }, []).slice(0, 8); 
-    
-    displayList.forEach(event => {
+        // Default link if no event found (try to guess or use a generic one)
+        const eventLink = event ? event.link : 'https://www.meetup.com/'; // Fallback link
+
         const card = document.createElement('article');
         // Card Styles: Consistent Dark Theme
         card.className = 'min-w-[280px] md:min-w-0 snap-center bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-700 hover:border-brand-primary/50 flex flex-col relative group';
-
-        const config = getCityConfig(event.venue);
-
-        // Format Date
-        const dateObj = new Date(event.eventDate);
-        const dateStr = dateObj.toLocaleDateString('en-US', {
-            month: 'short',
-            day: 'numeric',
-            weekday: 'short'
-        });
-        const timeStr = dateObj.toLocaleTimeString('en-US', { 
-            hour: 'numeric', 
-            minute: '2-digit',
-            timeZone: config.timezone
-        });
 
         card.innerHTML = `
             <div class="p-6 flex flex-col h-full items-center text-center relative z-10">
                 
                 <!-- Compact Header: Icon + City -->
                 <div class="mb-4 flex flex-col items-center">
-                    <div class="text-4xl mb-2 filter drop-shadow-lg transform transition-transform group-hover:scale-110">${config.icon}</div>
-                    <h3 class="text-2xl font-bold text-white uppercase tracking-tight leading-none">
+                    <div class="text-4xl mb-4 filter drop-shadow-lg transform transition-transform group-hover:scale-110 text-gray-300 group-hover:text-brand-primary transition-colors duration-300">
+                        ${config.icon}
+                    </div>
+                    
+                    <h3 class="text-2xl font-bold text-white uppercase tracking-tight leading-none mb-1">
                         ${config.label}
                     </h3>
-                    <div class="h-0.5 w-8 bg-brand-primary rounded-full mx-auto mt-3 opacity-60 group-hover:w-16 transition-all duration-300"></div>
+                    <p class="text-gray-400 text-sm font-medium tracking-widest uppercase mb-3">
+                        ${config.country}
+                    </p>
+                    <div class="h-0.5 w-8 bg-brand-primary rounded-full mx-auto opacity-60 group-hover:w-16 transition-all duration-300"></div>
                 </div>
 
                 <!-- Registration Notice (Simplified) -->
-                ${event.link.includes('meetup.com') ? 
-                `<div class="flex items-center gap-1.5 text-gray-500 text-xs mb-4 opacity-80">
-                    <span class="text-brand-primary">●</span> RSVP Required
+                ${eventLink.includes('meetup.com') ? 
+                `<div class="flex items-center gap-1.5 text-gray-500 text-xs mb-4 opacity-60">
+                    <span class="text-brand-primary">●</span> Community Hub
                 </div>` : ''}
 
                 <div class="mt-auto w-full">
-                    <a href="${event.link}" target="_blank" class="block w-full bg-white/5 hover:bg-brand-primary hover:text-white text-gray-300 border border-white/10 hover:border-transparent font-bold py-3.5 px-4 rounded-lg transition-all duration-300 text-sm backdrop-blur-sm uppercase tracking-wider">
+                    <a href="${eventLink}" target="_blank" class="block w-full bg-white/5 hover:bg-brand-primary hover:text-white text-gray-300 border border-white/10 hover:border-transparent font-bold py-3.5 px-4 rounded-lg transition-all duration-300 text-sm backdrop-blur-sm uppercase tracking-wider">
                         Register on Meetup
                     </a>
                 </div>
