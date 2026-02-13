@@ -13,91 +13,79 @@ document.addEventListener('DOMContentLoaded', () => {
  * Powered by Behold.so
  * FEED URL: https://feeds.behold.so/7d5XSu3SRu6EpNpo755e
  */
+// Instagram Feed with Caching
 function initInstagramFeed() {
     const container = document.getElementById('instagram-feed-container');
     if (!container) return;
 
-    // LIVE Feed URL
+    const CACHE_KEY = 'lounge_asia_insta_cache';
+    const CACHE_TIME = 3600000; // 1 hour
+
+    // 1. Try to load from cache first for immediate display
+    const cachedData = localStorage.getItem(CACHE_KEY);
+    if (cachedData) {
+        try {
+            const { timestamp, posts } = JSON.parse(cachedData);
+            if (Date.now() - timestamp < CACHE_TIME) {
+                renderInstagramGrid(posts, container);
+                return; // Exit if cache is fresh
+            } else {
+                // If cache is expired, show it but fetch new in background (stale-while-revalidate)
+                renderInstagramGrid(posts, container);
+            }
+        } catch (e) {
+            console.error('Cache parse error', e);
+        }
+    }
+
+    // 2. Fetch fresh data
     const FEED_URL = 'https://feeds.behold.so/7d5XSu3SRu6EpNpo755e';
-    
     fetch(FEED_URL)
         .then(response => response.json())
         .then(data => {
-            // Support both array response and object with 'posts' key
             const feedItems = Array.isArray(data) ? data : (data.posts || []);
-            
             const posts = feedItems.map(item => ({
                 url: (item.mediaType === 'VIDEO' || item.mediaType === 'REEL') ? (item.thumbnailUrl || item.mediaUrl) : item.mediaUrl,
                 caption: item.caption || '',
                 permalink: item.permalink || 'https://instagram.com/_lounge_asia'
             })); 
             
+            // Render and Cache
             renderInstagramGrid(posts, container);
+            localStorage.setItem(CACHE_KEY, JSON.stringify({
+                timestamp: Date.now(),
+                posts: posts
+            }));
         })
         .catch(err => {
-            console.warn('Instagram feed failed to load, falling back to placeholders', err);
-            renderFallbackInstagram(container);
+            console.warn('Instagram feed failed', err);
+            if (!cachedData) renderFallbackInstagram(container); // Only fallback if no cache
         });
 }
 
-function renderInstagramGrid(posts, container) {
-    container.innerHTML = '';
-    
-    posts.forEach(post => {
-        const item = document.createElement('div');
-        item.className = 'group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer';
-        
-        const link = document.createElement('a');
-        link.href = post.permalink || 'https://instagram.com/_lounge_asia';
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        link.className = 'block w-full h-full';
-
-        const img = document.createElement('img');
-        img.src = post.url;
-        img.alt = post.caption || 'Instagram Post';
-        img.className = 'w-full h-full object-cover transition-transform duration-700 group-hover:scale-110';
-        img.loading = 'lazy';
-
-        // Overlay with icon
-        const overlay = document.createElement('div');
-        overlay.className = 'absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center';
-        // Simple Instagram Icon SVG
-        overlay.innerHTML = `
-            <svg class="w-8 h-8 text-white drop-shadow-lg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.153 1.772c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.468 4.08c.636-.247 1.363-.416 2.427-.465C8.901 3.534 9.255 3.522 12 3.522h.315zM12 5.845a6.155 6.155 0 100 12.31 6.155 6.155 0 000-12.31zm0 1.845a4.31 4.31 0 110 8.62 4.31 4.31 0 010-8.62zm6.165-3.266a1.229 1.229 0 110 2.458 1.229 1.229 0 010-2.458z" clip-rule="evenodd" />
-            </svg>
-        `;
-
-        link.appendChild(img);
-        link.appendChild(overlay);
-        item.appendChild(link);
-        container.appendChild(item);
-    });
-}
-
-function renderFallbackInstagram(container) {
-    // Original placeholders as absolute fallback
-    const placeholders = [
-        { url: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80', caption: 'Great exciting atmosphere!', permalink: 'https://www.instagram.com/_lounge_asia/' },
-        { url: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=600&q=80', caption: 'Networking with friends', permalink: 'https://www.instagram.com/_lounge_asia/' },
-        { url: 'https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=600&q=80', caption: 'Join our community', permalink: 'https://www.instagram.com/_lounge_asia/' },
-        { url: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=600&q=80', caption: 'Diverse group of people', permalink: 'https://www.instagram.com/_lounge_asia/' },
-        { url: 'https://images.unsplash.com/photo-1517457373958-b7bdd4587205?auto=format&fit=crop&w=600&q=80', caption: 'Friday night drinks', permalink: 'https://www.instagram.com/_lounge_asia/' },
-        { url: 'https://images.unsplash.com/photo-1576267423048-15c0040fec78?auto=format&fit=crop&w=600&q=80', caption: 'Making memories', permalink: 'https://www.instagram.com/_lounge_asia/' }
-    ];
-    renderInstagramGrid(placeholders, container);
-}
-
-/**
- * Meetup Feed Integration
- * Fetches events from a static JSON file generated by a daily GitHub Action.
- */
+// Meetup Feed with Caching
 function initMeetupFeed() {
     const container = document.getElementById('meetup-events-container');
     if (!container) return;
 
-    // Fetch from local JSON file
+    const CACHE_KEY = 'lounge_asia_meetup_cache';
+    const CACHE_TIME = 3600000; // 1 hour
+
+    // 1. Try cache
+    const cachedData = localStorage.getItem(CACHE_KEY);
+    if (cachedData) {
+        try {
+            const { timestamp, events } = JSON.parse(cachedData);
+            if (Date.now() - timestamp < CACHE_TIME) {
+                processAndRenderEvents(events, container);
+                return;
+            } else {
+                processAndRenderEvents(events, container);
+            }
+        } catch (e) { console.error('Cache error', e); }
+    }
+
+    // 2. Fetch fresh
     fetch('assets/events.json')
         .then(response => {
             if (!response.ok) throw new Error('Network response was not ok');
@@ -106,10 +94,14 @@ function initMeetupFeed() {
         .then(data => {
             let fetchedEvents = Array.isArray(data) ? data : [];
             processAndRenderEvents(fetchedEvents, container);
+            localStorage.setItem(CACHE_KEY, JSON.stringify({
+                timestamp: Date.now(),
+                events: fetchedEvents
+            }));
         })
         .catch(err => {
-            console.warn('Failed to load local Meetup events, falling back to manual list.', err);
-            processAndRenderEvents([], container);
+            console.warn('Failed to load Meetup events', err);
+            if (!cachedData) processAndRenderEvents([], container);
         });
 }
 
