@@ -1,7 +1,11 @@
 {
   "version": 2,
   "cleanUrls": true,
-  "trailingSlash": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/parents", "destination": "/parents/index.html" },
+    { "source": "/parents/", "destination": "/parents/index.html" }
+  ],
   "redirects": [],
   "headers": [
     {
