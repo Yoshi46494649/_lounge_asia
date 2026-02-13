@@ -14,6 +14,13 @@ export function Footer() {
               agents or real estate agents. Visa services are provided by MARA registered partners. Real
               estate services are provided by licensed professionals.
             </p>
+            <p className="text-xs text-primary-foreground/40 mt-4">
+              ABN 72 472 785 236
+            </p>
+            <div className="flex gap-4 justify-center md:justify-end text-xs text-primary-foreground/50 mt-2">
+              <a href="/privacy.html" className="hover:text-primary-foreground transition-colors">Privacy Policy</a>
+              <a href="/terms.html" className="hover:text-primary-foreground transition-colors">Terms of Service</a>
+            </div>
             <p className="text-xs text-primary-foreground/40 mt-2">
               © 2026 Lounge Asia. All rights reserved.
             </p>
