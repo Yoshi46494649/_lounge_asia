@@ -1,8 +1,8 @@
 import { AnimatedSection, AnimatedChild } from "@/components/AnimatedSection";
-import courseNursing from "@/assets/course-nursing.jpg";
-import courseIT from "@/assets/course-it.jpg";
-import courseEngineering from "@/assets/course-engineering.jpg";
-import courseHospitality from "@/assets/course-hospitality.jpg";
+import courseNursing from "@/assets/nursing.png";
+import courseIT from "@/assets/infomation.png";
+import courseEngineering from "@/assets/engineer.png";
+import courseHospitality from "@/assets/hospitarity.png";
 
 const courses = [
   { title: "Nursing", desc: "High demand, direct PR pathway", image: courseNursing },
