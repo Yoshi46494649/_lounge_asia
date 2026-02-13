@@ -253,9 +253,101 @@
                 </div>
                 <div id="meetup-events-container">
                     <!-- Loaded via JS -->
-                     <div class="flex justify-center py-8">
-                        <div class="animate-pulse bg-gray-800 h-64 w-full rounded-xl opacity-50 border border-gray-700"></div>
-                    </div>
+                    <!-- Pre-rendered Global Hubs (Static Fallback) -->
+                    <div class="flex overflow-x-auto gap-4 pb-4 md:grid md:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 snap-x snap-mandatory scrollbar-hide no-scrollbar" style="-ms-overflow-style: none; scrollbar-width: none;">
+                        <!-- Brisbane -->
+                        <article class="min-w-[280px] md:min-w-0 snap-center bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 flex flex-col relative group">
+                            <div class="p-6 flex flex-col h-full items-center text-center relative z-10">
+                                <div class="mb-4 flex flex-col items-center">
+                                    <div class="text-4xl mb-4 text-gray-400 group-hover:text-brand-primary transition-colors duration-300">
+                                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-white uppercase tracking-tight leading-none mb-1">Brisbane</h3>
+                                    <p class="text-gray-400 text-sm font-medium tracking-widest uppercase mb-3">Australia</p>
+                                    <div class="h-0.5 w-8 bg-brand-primary rounded-full mx-auto opacity-60"></div>
+                                </div>
+                                <div class="mb-6 flex-grow flex items-center justify-center flex-col">
+                                     <p class="text-gray-300 font-semibold mb-1">Monthly Events</p>
+                                     <p class="text-gray-500 text-xs uppercase tracking-wide">Next Event</p>
+                                </div>
+                                <div class="mt-auto w-full">
+                                    <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" class="block w-full bg-white/5 hover:bg-brand-primary hover:text-white text-gray-300 border border-white/10 hover:border-transparent font-bold py-3.5 px-4 rounded-lg transition-all duration-300 text-sm backdrop-blur-sm uppercase tracking-wider">
+                                        Join Community
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                         <!-- Sydney -->
+                        <article class="min-w-[280px] md:min-w-0 snap-center bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 flex flex-col relative group">
+                            <div class="p-6 flex flex-col h-full items-center text-center relative z-10">
+                                <div class="mb-4 flex flex-col items-center">
+                                    <div class="text-4xl mb-4 text-gray-400 group-hover:text-brand-primary transition-colors duration-300">
+                                        <svg class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h17M3 19h18M5.5 19l.5-6s.5-3 4-3 3 5 3 5M9 19l1-8s1-4 4-2 2 6 2 6M15 19l1-5s1-3 3-2 2 5 2 5M12 19V9M7 19v-4"/></svg>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-white uppercase tracking-tight leading-none mb-1">Sydney</h3>
+                                    <p class="text-gray-400 text-sm font-medium tracking-widest uppercase mb-3">Australia</p>
+                                    <div class="h-0.5 w-8 bg-brand-primary rounded-full mx-auto opacity-60"></div>
+                                </div>
+                                <div class="mb-6 flex-grow flex items-center justify-center flex-col">
+                                     <p class="text-gray-300 font-semibold mb-1">Monthly Events</p>
+                                     <p class="text-gray-500 text-xs uppercase tracking-wide">Next Event</p>
+                                </div>
+                                <div class="mt-auto w-full">
+                                    <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" class="block w-full bg-white/5 hover:bg-brand-primary hover:text-white text-gray-300 border border-white/10 hover:border-transparent font-bold py-3.5 px-4 rounded-lg transition-all duration-300 text-sm backdrop-blur-sm uppercase tracking-wider">
+                                        Join Community
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                        <!-- Melbourne -->
+                        <article class="min-w-[280px] md:min-w-0 snap-center bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 flex flex-col relative group">
+                            <div class="p-6 flex flex-col h-full items-center text-center relative z-10">
+                                <div class="mb-4 flex flex-col items-center">
+                                    <div class="text-4xl mb-4 text-gray-400 group-hover:text-brand-primary transition-colors duration-300">
+                                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-white uppercase tracking-tight leading-none mb-1">Melbourne</h3>
+                                    <p class="text-gray-400 text-sm font-medium tracking-widest uppercase mb-3">Australia</p>
+                                    <div class="h-0.5 w-8 bg-brand-primary rounded-full mx-auto opacity-60"></div>
+                                </div>
+                                <div class="mb-6 flex-grow flex items-center justify-center flex-col">
+                                     <p class="text-gray-300 font-semibold mb-1">Monthly Events</p>
+                                     <p class="text-gray-500 text-xs uppercase tracking-wide">Next Event</p>
+                                </div>
+                                <div class="mt-auto w-full">
+                                    <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" class="block w-full bg-white/5 hover:bg-brand-primary hover:text-white text-gray-300 border border-white/10 hover:border-transparent font-bold py-3.5 px-4 rounded-lg transition-all duration-300 text-sm backdrop-blur-sm uppercase tracking-wider">
+                                        Join Community
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                         <!-- Tokyo -->
+                        <article class="min-w-[280px] md:min-w-0 snap-center bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 flex flex-col relative group">
+                            <div class="p-6 flex flex-col h-full items-center text-center relative z-10">
+                                <div class="mb-4 flex flex-col items-center">
+                                    <div class="text-4xl mb-4 text-gray-400 group-hover:text-brand-primary transition-colors duration-300">
+                                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M12 21V3m0 0L8.25 7.5M12 3l3.75 4.5M12 9a4.5 4.5 0 100 9 4.5 4.5 0 000-9zM3 21h18" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-white uppercase tracking-tight leading-none mb-1">Tokyo</h3>
+                                    <p class="text-gray-400 text-sm font-medium tracking-widest uppercase mb-3">Japan</p>
+                                    <div class="h-0.5 w-8 bg-brand-primary rounded-full mx-auto opacity-60"></div>
+                                </div>
+                                <div class="mb-6 flex-grow flex items-center justify-center flex-col">
+                                     <p class="text-gray-300 font-semibold mb-1">Monthly Events</p>
+                                     <p class="text-gray-500 text-xs uppercase tracking-wide">Next Event</p>
+                                </div>
+                                <div class="mt-auto w-full">
+                                    <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" class="block w-full bg-white/5 hover:bg-brand-primary hover:text-white text-gray-300 border border-white/10 hover:border-transparent font-bold py-3.5 px-4 rounded-lg transition-all duration-300 text-sm backdrop-blur-sm uppercase tracking-wider">
+                                        Join Community
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    </div><!-- id: 0 -->
+- [ ] Pre-render 'Global Hubs' (Meetup) content in index.html (Zero Delay) <!-- id: 1 -->
+- [ ] Pre-render 'Moments' (Instagram) placeholders in index.html (Zero Delay) <!-- id: 2 -->
+- [ ] Verify Privacy/Terms Links again <!-- id: 3 -->
+- [ ] Push, Deploy, and CONFIRM VISUALLY (via source check) <!-- id: 4 -->
                 </div>
              </div>
         </section>
@@ -633,11 +725,31 @@
                     </a>
                 </div>
                 
-                <div id="instagram-feed-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-                     <!-- Loaded via JS -->
-                    <div class="bg-gray-800 aspect-square rounded-xl animate-pulse">
-                        <div class="w-full h-full flex items-center justify-center text-gray-700">Loading...</div>
-                    </div>
+         <div id="instagram-feed-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                     <!-- Pre-rendered Placeholders -->
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer bg-gray-800">
+                        <img src="assets/gallery-party-1.jpg" alt="Lounge Asia Instagram" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-white font-bold">@_lounge_asia</span>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer bg-gray-800">
+                        <img src="assets/gallery-party-2.jpg" alt="Lounge Asia Instagram" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                    </a>
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer bg-gray-800">
+                        <img src="assets/event-table.jpg" alt="Lounge Asia Instagram" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                    </a>
+                     <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer bg-gray-800">
+                        <img src="assets/event-group-casual.jpg" alt="Lounge Asia Instagram" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                    </a>
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer bg-gray-800">
+                        <img src="assets/event-standing.jpg" alt="Lounge Asia Instagram" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                    </a>
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer bg-gray-800">
+                        <div class="w-full h-full flex items-center justify-center bg-gray-800 text-gray-500 font-bold border border-gray-700 hover:text-white hover:border-brand-primary transition-colors">
+                            View More &rarr;
+                        </div>
+                    </a>
                 </div>
              </div>
         </section>
