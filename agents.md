@@ -1,4 +1,24 @@
-﻿## MCP Usage Policy
+﻿# Lounge Asia Project Rules & Guidelines
+
+## 0. 【重要】Critical: Content Preservation & User Alignment
+このセクションは絶対遵守すること。違反した場合、信頼を大きく損なうことになります。
+
+### 0.1 指示以外の変更禁止 (NO UNAUTHORIZED CHANGES)
+- **要求された範囲外のコード・テキストは一切変更しないこと。**
+- 「良かれと思って」修正すること（Lint修正、フォーマット、文言の微調整など）は厳禁。
+- 既存のコンテンツ（特に `index.html` 内のテキストや構成）は、ユーザーから明示的な指示がない限り **1文字たりとも変更してはならない**。
+
+### 0.2 動的コンテンツの上書きに関する警告 (Dynamic Content Warning)
+- `scripts/feeds.js` などのスクリプトが HTML要素（例: `meetup-events-container`, `instagram-feed-container`）を動的に上書きする場合、ユーザーがその HTML を手動編集しても無駄になることを **事前に** 警告すること。
+- 勝手にスクリプトの動作を変更せず、「動的表示を停止しますか？」と提案すること。
+
+### 0.3 コンテキストの維持 (Preserve Context)
+- ファイルの一部を書き換える際は、周囲のコード（コメント含む）を不用意に削除・変更しない。
+- 特に "Expanding to 10 Global Hubs" や "Moments" などのセクション見出しは、ユーザーがこだわっているポイントであるため、細心の注意を払うこと。
+
+---
+
+## MCP Usage Policy
 
 - すべてのコード生成は **Semgrep→TSビルド→Unit→Playwright** が green の場合のみ PR 作成。
 - 外部副作用のある MCP（GitHub/Supabase/Stripe/n8n/Retell）は **dry-run → plan → apply** の3段階。

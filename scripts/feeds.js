@@ -219,9 +219,9 @@ function processAndRenderEvents(fetchedEvents, container) {
 
     // 5. Render
     renderCards(sortedDisplayEvents, container);
+
     updateHeroLinks(sortedDisplayEvents);
 }
-
 
 function renderCards(events, container) {
     container.innerHTML = '';
@@ -238,10 +238,6 @@ function renderCards(events, container) {
         // Card Styles: Consistent Dark Theme
         card.className = 'min-w-[280px] md:min-w-0 snap-center bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 border border-gray-700 hover:border-brand-primary/50 flex flex-col relative group';
 
-        // Format Date
-        const dateObj = new Date(item.eventDate || item.pubDate);
-        const dateStr = dateObj.toLocaleDateString('en-AU', { month: 'short', day: 'numeric', weekday: 'short' });
-        
         card.innerHTML = `
             <div class="p-6 flex flex-col h-full items-center text-center relative z-10">
                 
@@ -260,15 +256,14 @@ function renderCards(events, container) {
                     <div class="h-0.5 w-8 bg-brand-primary rounded-full mx-auto opacity-60 group-hover:w-16 transition-all duration-300"></div>
                 </div>
 
-                <!-- Event Details (if available/fallback) -->
+                <!-- Event Details (Date Removed) -->
                 <div class="mb-6 flex-grow flex items-center justify-center flex-col">
-                     <p class="text-gray-300 font-semibold mb-1">${dateStr}</p>
-                     <p class="text-gray-500 text-xs uppercase tracking-wide">Next Event</p>
+                     <!-- Frequency text removed by user request -->
                 </div>
 
                 <div class="mt-auto w-full">
                     <a href="${item.link}" target="_blank" class="block w-full bg-white/5 hover:bg-brand-primary hover:text-white text-gray-300 border border-white/10 hover:border-transparent font-bold py-3.5 px-4 rounded-lg transition-all duration-300 text-sm backdrop-blur-sm uppercase tracking-wider">
-                        ${item.isFallback ? 'Join Community' : 'Register Now'}
+                        Sign up on Meetup
                     </a>
                 </div>
             </div>
@@ -312,6 +307,41 @@ function updateHeroLinks(events) {
             } else {
                 element.href = mainLink;
             }
+
         }
     });
+}
+
+function renderInstagramGrid(posts, container) {
+    container.innerHTML = '';
+    // Apply grid directly to container to avoid nesting issues with existing HTML classes
+    container.className = 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6';
+    
+    // Take top 6 posts (or 4/8 to match grid?)
+    // User wants them "visible". Let's stick to 6-8 if we have them.
+    // If we have 4 cols, 4 or 8 looks best. 6 leaves empty space.
+    // Let's take up to 4 for now to ensure one nice row? Or 8 for two rows?
+    // Screenshot had 4 items.
+    // Let's use up to 4 items for a clean single row on huge screens, or 2 rows on mobile.
+    // Spec says "Follow our journey".
+    // I will use 4 items to ensure large size and clean layout.
+    posts.slice(0, 4).forEach(post => {
+        const item = document.createElement('a');
+        item.href = post.permalink;
+        item.target = '_blank';
+        item.className = 'group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer bg-gray-800';
+        
+        item.innerHTML = `
+            <img src="${post.url}" alt="${post.caption || 'Lounge Asia Instagram'}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+            <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <span class="text-white font-bold">@_lounge_asia</span>
+            </div>
+        `;
+        container.appendChild(item);
+    });
+}
+
+function renderFallbackInstagram(container) {
+    // Leave static HTML as is
+    console.warn('Instagram feed unavailable, using static fallback.');
 }
