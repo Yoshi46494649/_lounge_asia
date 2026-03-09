@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lounge Asia - #1 Asian Community & Social Network in Australia</title>
-    <meta name="description" content="Join Australia's premier Asian community. Connect with over 1,000+ members in Brisbane, Sydney, & Melbourne. Social events, Matcha Match dating app, and city leader network.">
-    <meta name="keywords" content="Asian Community Australia, Asian Dating App, Social Events Brisbane, Social Events Sydney, Social Events Melbourne, Make Friends Australia, Matcha Match">
+    <title>Lounge Asia | Free Asian Meetups in Brisbane, Sydney &amp; Melbourne</title>
+    <meta name="description" content="Join Australia's #1 Asian community. Free monthly meetups in Brisbane, Sydney &amp; Melbourne. Easy English OK, solo welcome, zero harassment. RSVP on Meetup to secure your spot.">
+    <meta name="keywords" content="Asian meetup Brisbane, Asian meetup Sydney, Asian meetup Melbourne, Asian community Australia, social events Asians Australia, Easy English meetup, make Asian friends Australia">
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://www.loungeasia.com.au/">
-    <meta property="og:title" content="Lounge Asia - Real Community, Real Connections">
-    <meta property="og:description" content="The premier community for Asians in Australia. Social events, dating app, and leadership opportunities.">
+    <meta property="og:title" content="Free Asian Meetups | Lounge Asia — Brisbane, Sydney &amp; Melbourne">
+    <meta property="og:description" content="Join 2,960+ members at our free social events. Easy English, solo welcome, zero harassment. RSVP now on Meetup!">
     <meta property="og:url" content="https://www.loungeasia.com.au/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="assets/hero-real.jpg">
@@ -48,6 +48,73 @@
         }
       ]
     }
+    </script>
+
+    <!-- GA4 Event Tracking -->
+    <script>
+    (function() {
+        'use strict';
+
+        // Track clicks on all Meetup links
+        function trackMeetupClick(label) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'meetup_click', { event_label: label });
+            }
+        }
+
+        // Track Hero CTA clicks
+        function trackHeroCta(label) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'hero_cta_click', { event_label: label });
+            }
+        }
+
+        // Scroll depth tracking
+        var scrollDepthsFired = {};
+        function onScroll() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (docHeight <= 0) { return; }
+            var pct = Math.round((scrollTop / docHeight) * 100);
+            [25, 50, 75, 100].forEach(function(depth) {
+                if (pct >= depth && !scrollDepthsFired[depth]) {
+                    scrollDepthsFired[depth] = true;
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'scroll_depth', { event_label: depth + '%' });
+                    }
+                }
+            });
+        }
+
+        // FAQ open tracking
+        function trackFaqOpen(question) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'faq_open', { event_label: question });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Meetup link click tracking
+            document.querySelectorAll('a[href*="meetup.com"]').forEach(function(el) {
+                el.addEventListener('click', function() {
+                    trackMeetupClick(el.textContent.trim() || el.href);
+                });
+            });
+
+            // FAQ open tracking
+            document.querySelectorAll('#faq details').forEach(function(el) {
+                el.addEventListener('toggle', function() {
+                    if (el.open) {
+                        var q = el.querySelector('h4');
+                        trackFaqOpen(q ? q.textContent.trim() : 'Unknown FAQ');
+                    }
+                });
+            });
+
+            // Scroll depth
+            window.addEventListener('scroll', onScroll, { passive: true });
+        });
+    })();
     </script>
     
     <!-- Fonts -->
@@ -155,11 +222,31 @@
             </a>
 
             <!-- Mobile Menu Button -->
-            <button class="md:hidden text-white p-2">
+            <button id="mobile-menu-btn" aria-label="Open menu" class="md:hidden text-white p-2 focus:outline-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
     </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 hidden" aria-hidden="true">
+        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <nav class="absolute top-0 right-0 h-full w-72 bg-gray-900 border-l border-gray-700 flex flex-col p-8 pt-20">
+            <button id="mobile-menu-close" aria-label="Close menu" class="absolute top-5 right-5 text-white p-2 hover:text-brand-primary transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="flex flex-col gap-6 text-lg font-semibold text-gray-200">
+                <a href="#meetup-events" class="hover:text-brand-primary transition-colors mobile-nav-link">Events</a>
+                <a href="#cities" class="hover:text-brand-primary transition-colors mobile-nav-link">Global Cities</a>
+                <a href="#matcha-match" class="hover:text-brand-primary transition-colors mobile-nav-link">Matcha Match</a>
+                <a href="#leaders" class="hover:text-brand-primary transition-colors mobile-nav-link">Become a Leader</a>
+                <a href="#contact" class="hover:text-brand-primary transition-colors mobile-nav-link">Contact</a>
+            </div>
+            <a href="https://www.meetup.com/ja-JP/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr" target="_blank" rel="noopener" class="mt-auto block text-center bg-brand-primary hover:bg-emerald-500 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300">
+                🎟 RSVP for Next Event
+            </a>
+        </nav>
+    </div>
 
     <main>
         <!-- ===== Hero Section ===== -->
@@ -175,12 +262,21 @@
                         Real Connections. Real Friendship. A global safe haven where you truly belong.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center gap-4">
-                        <a href="#meetup-events" class="bg-brand-primary hover:bg-emerald-500 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-emerald-900/50 transition-all duration-300 transform hover:-translate-y-1">
-                            Join Upcoming Events
+                        <a id="hero-cta-primary" href="https://www.meetup.com/ja-JP/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" rel="noopener" onclick="if(typeof gtag!=='undefined'){gtag('event','hero_cta_click',{event_label:'RSVP Next Event'})}" class="bg-brand-primary hover:bg-emerald-500 text-white font-bold py-4 px-8 rounded-full shadow-lg shadow-emerald-900/50 transition-all duration-300 transform hover:-translate-y-1">
+                            🎟 RSVP for Next Event — Free Entry
                         </a>
-                        <a href="#matcha-match" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold py-4 px-8 rounded-full transition-all duration-300">
+                        <a id="hero-cta-secondary" href="#matcha-match" onclick="if(typeof gtag!=='undefined'){gtag('event','hero_cta_click',{event_label:'Matcha Match App'})}" class="bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/30 text-white font-bold py-4 px-8 rounded-full transition-all duration-300">
                             Matcha Match App
                         </a>
+                    </div>
+
+                    <!-- Value Proposition Pills -->
+                    <div class="mt-8 flex flex-wrap justify-center gap-3">
+                        <span class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full">✅ Easy English OK</span>
+                        <span class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full">🙋 Solo Welcome</span>
+                        <span class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full">🛡 Zero Harassment</span>
+                        <span class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full">🎉 Free Entry</span>
+                        <span class="inline-flex items-center gap-1.5 bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm font-medium px-4 py-2 rounded-full">🌏 2,960+ Members</span>
                     </div>
                 </div>
             </div>
@@ -243,111 +339,92 @@
              </div>
         </section>
 
-        <!-- ===== Meetup Events Section ===== -->
+        <!-- ===== Upcoming Events Section ===== -->
         <section id="meetup-events" class="py-24 bg-brand-dark relative border-t border-gray-800">
              <div class="container mx-auto px-6">
                 <div class="text-center mb-12">
-                    <span class="text-brand-accent font-bold tracking-wide uppercase text-sm mb-2 block">Join the Community</span>
-                    <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">Expanding to 10 Global Hubs</h2>
-                    <p class="text-xl text-gray-400 max-w-2xl mx-auto">Wherever you go, you have a family waiting for you.</p>
+                    <span class="text-brand-accent font-bold tracking-wide uppercase text-sm mb-2 block">Upcoming Events</span>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">Join Us This Month</h2>
+                    <p class="text-xl text-gray-400 max-w-2xl mx-auto">Real events. Real people. RSVP to secure your spot — most are free.</p>
                 </div>
                 <div id="meetup-events-container">
-                    <!-- Loaded via JS -->
-                    <!-- Pre-rendered Global Hubs (Static Fallback) -->
-                    <div class="flex overflow-x-auto gap-4 pb-4 md:grid md:gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 snap-x snap-mandatory scrollbar-hide no-scrollbar" style="-ms-overflow-style: none; scrollbar-width: none;">
-                        <!-- Brisbane -->
-                        <article class="min-w-[280px] md:min-w-0 snap-center bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 flex flex-col relative group">
-                            <div class="p-6 flex flex-col h-full items-center text-center relative z-10">
-                                <div class="mb-4 flex flex-col items-center">
-                                    <div class="text-4xl mb-4 text-gray-400 group-hover:text-brand-primary transition-colors duration-300">
-                                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                    </div>
-                                    <h3 class="text-2xl font-bold text-white uppercase tracking-tight leading-none mb-1">Brisbane</h3>
-                                    <p class="text-gray-400 text-sm font-medium tracking-widest uppercase mb-3">Australia</p>
-                                    <div class="h-0.5 w-8 bg-brand-primary rounded-full mx-auto opacity-60"></div>
+                    <div class="flex overflow-x-auto gap-4 pb-4 md:grid md:gap-6 md:grid-cols-2 lg:grid-cols-3 snap-x snap-mandatory scrollbar-hide no-scrollbar" style="-ms-overflow-style: none; scrollbar-width: none;">
+
+                        <!-- Event Card: Brisbane -->
+                        <article class="min-w-[300px] md:min-w-0 snap-center bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-700 flex flex-col group hover:border-brand-primary transition-all duration-300">
+                            <div class="relative">
+                                <img src="assets/gallery-party-1.jpg" alt="Lounge Asia Brisbane Meetup" class="w-full h-40 object-cover transition-transform duration-700 group-hover:scale-105">
+                                <span class="absolute top-3 left-3 bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full">🎉 FREE</span>
+                                <span class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">🇦🇺 Brisbane</span>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow">
+                                <h3 class="text-lg font-bold text-white mb-3 leading-tight">Lounge Asia Brisbane Mixer — Easy English Night</h3>
+                                <div class="space-y-1.5 mb-4 text-sm text-gray-400">
+                                    <p><span class="text-gray-300 font-medium">📅</span> Monthly — Check Meetup for next date</p>
+                                    <p><span class="text-gray-300 font-medium">📍</span> Brisbane CBD (venue on Meetup)</p>
+                                    <p><span class="text-gray-300 font-medium">👥</span> 2,960+ members · Free entry</p>
                                 </div>
-                                <div class="mb-6 flex-grow flex items-center justify-center flex-col">
-                                     <p class="text-gray-300 font-semibold mb-1">Monthly Events</p>
-                                     <p class="text-gray-500 text-xs uppercase tracking-wide">Next Event</p>
-                                </div>
-                                <div class="mt-auto w-full">
-                                    <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" class="block w-full bg-white/5 hover:bg-brand-primary hover:text-white text-gray-300 border border-white/10 hover:border-transparent font-bold py-3.5 px-4 rounded-lg transition-all duration-300 text-sm backdrop-blur-sm uppercase tracking-wider">
-                                        Join Community
+                                <div class="mt-auto">
+                                    <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" rel="noopener" class="block w-full text-center bg-brand-primary hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 text-sm">
+                                        RSVP on Meetup →
                                     </a>
                                 </div>
                             </div>
                         </article>
-                         <!-- Sydney -->
-                        <article class="min-w-[280px] md:min-w-0 snap-center bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 flex flex-col relative group">
-                            <div class="p-6 flex flex-col h-full items-center text-center relative z-10">
-                                <div class="mb-4 flex flex-col items-center">
-                                    <div class="text-4xl mb-4 text-gray-400 group-hover:text-brand-primary transition-colors duration-300">
-                                        <svg class="w-16 h-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M4 21h17M3 19h18M5.5 19l.5-6s.5-3 4-3 3 5 3 5M9 19l1-8s1-4 4-2 2 6 2 6M15 19l1-5s1-3 3-2 2 5 2 5M12 19V9M7 19v-4"/></svg>
-                                    </div>
-                                    <h3 class="text-2xl font-bold text-white uppercase tracking-tight leading-none mb-1">Sydney</h3>
-                                    <p class="text-gray-400 text-sm font-medium tracking-widest uppercase mb-3">Australia</p>
-                                    <div class="h-0.5 w-8 bg-brand-primary rounded-full mx-auto opacity-60"></div>
+
+                        <!-- Event Card: Sydney -->
+                        <article class="min-w-[300px] md:min-w-0 snap-center bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-gray-700 flex flex-col group hover:border-brand-primary transition-all duration-300">
+                            <div class="relative">
+                                <img src="assets/gallery-party-2.jpg" alt="Lounge Asia Sydney Meetup" class="w-full h-40 object-cover transition-transform duration-700 group-hover:scale-105">
+                                <span class="absolute top-3 left-3 bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full">🎉 FREE</span>
+                                <span class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">🇦🇺 Sydney</span>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow">
+                                <h3 class="text-lg font-bold text-white mb-3 leading-tight">Lounge Asia Sydney Social — Meet Global Asians</h3>
+                                <div class="space-y-1.5 mb-4 text-sm text-gray-400">
+                                    <p><span class="text-gray-300 font-medium">📅</span> Monthly — Check Meetup for next date</p>
+                                    <p><span class="text-gray-300 font-medium">📍</span> Sydney CBD (venue on Meetup)</p>
+                                    <p><span class="text-gray-300 font-medium">👥</span> Growing fast · Free entry</p>
                                 </div>
-                                <div class="mb-6 flex-grow flex items-center justify-center flex-col">
-                                     <p class="text-gray-300 font-semibold mb-1">Monthly Events</p>
-                                     <p class="text-gray-500 text-xs uppercase tracking-wide">Next Event</p>
-                                </div>
-                                <div class="mt-auto w-full">
-                                    <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" class="block w-full bg-white/5 hover:bg-brand-primary hover:text-white text-gray-300 border border-white/10 hover:border-transparent font-bold py-3.5 px-4 rounded-lg transition-all duration-300 text-sm backdrop-blur-sm uppercase tracking-wider">
-                                        Join Community
+                                <div class="mt-auto">
+                                    <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" rel="noopener" class="block w-full text-center bg-brand-primary hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 text-sm">
+                                        RSVP on Meetup →
                                     </a>
                                 </div>
                             </div>
                         </article>
-                        <!-- Melbourne -->
-                        <article class="min-w-[280px] md:min-w-0 snap-center bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 flex flex-col relative group">
-                            <div class="p-6 flex flex-col h-full items-center text-center relative z-10">
-                                <div class="mb-4 flex flex-col items-center">
-                                    <div class="text-4xl mb-4 text-gray-400 group-hover:text-brand-primary transition-colors duration-300">
-                                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                    </div>
-                                    <h3 class="text-2xl font-bold text-white uppercase tracking-tight leading-none mb-1">Melbourne</h3>
-                                    <p class="text-gray-400 text-sm font-medium tracking-widest uppercase mb-3">Australia</p>
-                                    <div class="h-0.5 w-8 bg-brand-primary rounded-full mx-auto opacity-60"></div>
+
+                        <!-- Event Card: Bangkok (currently active per Meetup) -->
+                        <article class="min-w-[300px] md:min-w-0 snap-center bg-gray-800 rounded-2xl overflow-hidden shadow-lg border border-brand-primary/50 flex flex-col group hover:border-brand-primary transition-all duration-300">
+                            <div class="relative">
+                                <img src="assets/event-group-casual.jpg" alt="Lounge Asia Bangkok Meetup" class="w-full h-40 object-cover transition-transform duration-700 group-hover:scale-105">
+                                <span class="absolute top-3 left-3 bg-brand-accent text-gray-900 text-xs font-bold px-3 py-1 rounded-full">🔥 TRENDING</span>
+                                <span class="absolute top-3 right-3 bg-black/60 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">🇹🇭 Bangkok</span>
+                            </div>
+                            <div class="p-5 flex flex-col flex-grow">
+                                <h3 class="text-lg font-bold text-white mb-3 leading-tight">🍸 Bangkok Mixer: Easy English &amp; 50% Off Drinks!</h3>
+                                <div class="space-y-1.5 mb-4 text-sm text-gray-400">
+                                    <p><span class="text-gray-300 font-medium">📅</span> Regular events — See Meetup</p>
+                                    <p><span class="text-gray-300 font-medium">📍</span> Bangkok venue (listed on Meetup)</p>
+                                    <p><span class="text-gray-300 font-medium">👥</span> Expanding to SEA · Free entry</p>
                                 </div>
-                                <div class="mb-6 flex-grow flex items-center justify-center flex-col">
-                                     <p class="text-gray-300 font-semibold mb-1">Monthly Events</p>
-                                     <p class="text-gray-500 text-xs uppercase tracking-wide">Next Event</p>
-                                </div>
-                                <div class="mt-auto w-full">
-                                    <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" class="block w-full bg-white/5 hover:bg-brand-primary hover:text-white text-gray-300 border border-white/10 hover:border-transparent font-bold py-3.5 px-4 rounded-lg transition-all duration-300 text-sm backdrop-blur-sm uppercase tracking-wider">
-                                        Join Community
+                                <div class="mt-auto">
+                                    <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" rel="noopener" class="block w-full text-center bg-brand-primary hover:bg-emerald-500 text-white font-bold py-3 px-4 rounded-xl transition-all duration-300 text-sm">
+                                        RSVP on Meetup →
                                     </a>
                                 </div>
                             </div>
                         </article>
-                         <!-- Tokyo -->
-                        <article class="min-w-[280px] md:min-w-0 snap-center bg-gray-800 rounded-xl overflow-hidden shadow-lg border border-gray-700 flex flex-col relative group">
-                            <div class="p-6 flex flex-col h-full items-center text-center relative z-10">
-                                <div class="mb-4 flex flex-col items-center">
-                                    <div class="text-4xl mb-4 text-gray-400 group-hover:text-brand-primary transition-colors duration-300">
-                                        <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1"><path d="M12 21V3m0 0L8.25 7.5M12 3l3.75 4.5M12 9a4.5 4.5 0 100 9 4.5 4.5 0 000-9zM3 21h18" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-                                    </div>
-                                    <h3 class="text-2xl font-bold text-white uppercase tracking-tight leading-none mb-1">Tokyo</h3>
-                                    <p class="text-gray-400 text-sm font-medium tracking-widest uppercase mb-3">Japan</p>
-                                    <div class="h-0.5 w-8 bg-brand-primary rounded-full mx-auto opacity-60"></div>
-                                </div>
-                                <div class="mb-6 flex-grow flex items-center justify-center flex-col">
-                                     <p class="text-gray-300 font-semibold mb-1">Monthly Events</p>
-                                     <p class="text-gray-500 text-xs uppercase tracking-wide">Next Event</p>
-                                </div>
-                                <div class="mt-auto w-full">
-                                    <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" class="block w-full bg-white/5 hover:bg-brand-primary hover:text-white text-gray-300 border border-white/10 hover:border-transparent font-bold py-3.5 px-4 rounded-lg transition-all duration-300 text-sm backdrop-blur-sm uppercase tracking-wider">
-                                        Join Community
-                                    </a>
-                                </div>
-                            </div>
-                        </article>
-                    </div><!-- id: 0 -->
-- [ ] Pre-render 'Global Hubs' (Meetup) content in index.html (Zero Delay) <!-- id: 1 -->
-- [ ] Pre-render 'Moments' (Instagram) placeholders in index.html (Zero Delay) <!-- id: 2 -->
-- [ ] Verify Privacy/Terms Links again <!-- id: 3 -->
-- [ ] Push, Deploy, and CONFIRM VISUALLY (via source check) <!-- id: 4 -->
+
+                    </div>
+
+                    <!-- View all events CTA -->
+                    <div class="text-center mt-10">
+                        <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 border border-gray-600 hover:border-brand-primary text-gray-300 hover:text-white font-semibold py-3 px-8 rounded-full transition-all duration-300">
+                            View All Upcoming Events on Meetup
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
                 </div>
              </div>
         </section>
@@ -987,5 +1064,79 @@
     </main>
 
     <script src="scripts/feeds.js?v=4"></script>
+
+    <!-- Event Schema JSON-LD -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Lounge Asia Brisbane Meetup — Easy English Night",
+        "description": "Free monthly social mixer for the Asian community in Brisbane. Easy English OK, solo welcome, zero harassment policy.",
+        "organizer": { "@type": "Organization", "name": "Lounge Asia", "url": "https://www.loungeasia.com.au/" },
+        "location": { "@type": "Place", "name": "Brisbane CBD", "address": { "@type": "PostalAddress", "addressLocality": "Brisbane", "addressRegion": "QLD", "addressCountry": "AU" } },
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "isAccessibleForFree": true,
+        "url": "https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/",
+        "image": "https://www.loungeasia.com.au/assets/gallery-party-1.jpg"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "Lounge Asia Sydney Social — Meet Global Asians",
+        "description": "Free monthly social mixer for the Asian community in Sydney. Easy English OK, solo welcome, zero harassment policy.",
+        "organizer": { "@type": "Organization", "name": "Lounge Asia", "url": "https://www.loungeasia.com.au/" },
+        "location": { "@type": "Place", "name": "Sydney CBD", "address": { "@type": "PostalAddress", "addressLocality": "Sydney", "addressRegion": "NSW", "addressCountry": "AU" } },
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "isAccessibleForFree": true,
+        "url": "https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/",
+        "image": "https://www.loungeasia.com.au/assets/gallery-party-2.jpg"
+      }
+    ]
+    </script>
+
+    <!-- Mobile Menu JS -->
+    <script>
+    (function() {
+        'use strict';
+        var btn = document.getElementById('mobile-menu-btn');
+        var menu = document.getElementById('mobile-menu');
+        var overlay = document.getElementById('mobile-menu-overlay');
+        var closeBtn = document.getElementById('mobile-menu-close');
+        var navLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (!btn || !menu) { return; }
+
+        function openMenu() {
+            menu.classList.remove('hidden');
+            menu.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            menu.classList.add('hidden');
+            menu.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        btn.addEventListener('click', openMenu);
+        if (closeBtn) { closeBtn.addEventListener('click', closeMenu); }
+        if (overlay) { overlay.addEventListener('click', closeMenu); }
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+    })();
+    </script>
+
+    <!-- Sticky Mobile CTA -->
+    <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-30 md:hidden px-4 pb-4 pt-2 bg-gradient-to-t from-black/90 to-transparent">
+        <a href="https://www.meetup.com/ja-JP/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/" target="_blank" rel="noopener"
+           onclick="if(typeof gtag!=='undefined'){gtag('event','meetup_click',{event_label:'Sticky CTA Mobile'})}"
+           class="block w-full text-center bg-brand-primary hover:bg-emerald-500 text-white font-bold py-4 px-6 rounded-2xl shadow-lg shadow-emerald-900/50 transition-all duration-300">
+            🎟 RSVP for Next Event — Free Entry
+        </a>
+    </div>
 </body>
 </html>
