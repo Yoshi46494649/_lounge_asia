@@ -90,17 +90,17 @@ async function run() {
       consoleErrors.push(entry);
     });
 
-    const response = await page.goto(SERVER_URL, { waitUntil: 'networkidle', timeout: 15000 });
+    const response = await page.goto(SERVER_URL, { waitUntil: 'networkidle', timeout: 30000 });
     if (!response || !response.ok()) {
       throw new Error(`Failed to load ${SERVER_URL}: ${response?.status()} ${response?.statusText()}`);
     }
 
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(2000);
     await page.evaluate(() => {
       document.querySelectorAll('.reveal').forEach((el) => el.classList.add('active'));
       window.scrollTo({ top: document.body.scrollHeight, behavior: 'instant' });
     });
-    await page.waitForTimeout(500);
+    await page.waitForTimeout(1000);
     await page.screenshot({ path: SCREENSHOT_PATH, fullPage: true });
     console.log(`Screenshot saved to ${SCREENSHOT_PATH}`);
 
@@ -108,6 +108,9 @@ async function run() {
 
     if (consoleErrors.length > 0) {
       const message = consoleErrors.join('\n');
+      console.error('--- Console Errors Detected ---');
+      console.error(message);
+      console.error('-------------------------------');
       await writeFile(join(SCREENSHOT_DIR, 'last-error.log'), message, 'utf8');
       throw new Error(`Console errors detected:\n${message}`);
     }

@@ -1,0 +1,1365 @@
+<!DOCTYPE html>
+<!-- Deployed at 2026-02-13T11:43:10+10:00 -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asian Meetup Bangkok | Lounge Asia 窶・Free Social Events</title>
+    <meta name="description" content="Join Bangkok's biggest Asian community. Social meetups at Hair of the Dog (Phrom Phong). Easy English, solo welcome. RSVP now!">
+    <meta name="keywords" content="Asian meetup Bangkok, Asian community Bangkok, social events Bangkok, Hair of the Dog events, Phrom Phong meetup, international students Bangkok">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://www.loungeasia.com.au/bangkok.html">
+    <meta property="og:title" content="Asian Meetup Bangkok | Lounge Asia">
+    <meta property="og:description" content="Join Bangkok's biggest Asian community. Social meetups at Hair of the Dog (Phrom Phong). RSVP now!">
+    <meta property="og:url" content="https://www.loungeasia.com.au/bangkok.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/hero-real.jpg">
+    <link rel="icon" href="assets/favicon.ico" sizes="any">
+    <link rel="icon" href="assets/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "name": "Lounge Asia",
+          "url": "https://www.loungeasia.com.au/",
+          "logo": "https://www.loungeasia.com.au/assets/matcha-match-logo.png",
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61575030717215",
+            "https://www.instagram.com/_lounge_asia/"
+          ],
+          "description": "The largest Asian social community in Australia connecting professionals and students through events and technology."
+        },
+        {
+          "@type": "SoftwareApplication",
+          "name": "Matcha Match",
+          "applicationCategory": "SocialNetworkingApplication",
+          "operatingSystem": "iOS, Android",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "AUD"
+          },
+          "description": "A verified dating and friendship app for the Asian community in Australia, focusing on natural connections and safety."
+        }
+      ]
+    }
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PGWNF5BZS1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-PGWNF5BZS1');
+    </script>
+
+    <!-- GA4 Event Tracking -->
+    <script>
+    (function() {
+        'use strict';
+
+        // Track clicks on all Meetup links
+        function trackMeetupClick(label) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'meetup_click', { event_label: label });
+            }
+        }
+
+        // Track Hero CTA clicks
+        function trackHeroCta(label) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'hero_cta_click', { event_label: label });
+            }
+        }
+
+        // Scroll depth tracking
+        var scrollDepthsFired = {};
+        function onScroll() {
+            var scrollTop = window.scrollY || document.documentElement.scrollTop;
+            var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (docHeight <= 0) { return; }
+            var pct = Math.round((scrollTop / docHeight) * 100);
+            [25, 50, 75, 100].forEach(function(depth) {
+                if (pct >= depth && !scrollDepthsFired[depth]) {
+                    scrollDepthsFired[depth] = true;
+                    if (typeof gtag !== 'undefined') {
+                        gtag('event', 'scroll_depth', { event_label: depth + '%' });
+                    }
+                }
+            });
+        }
+
+        // FAQ open tracking
+        function trackFaqOpen(question) {
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'faq_open', { event_label: question });
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Meetup link click tracking
+            document.querySelectorAll('a[href*="meetup.com"]').forEach(function(el) {
+                el.addEventListener('click', function() {
+                    trackMeetupClick(el.textContent.trim() || el.href);
+                });
+            });
+
+            // FAQ open tracking
+            document.querySelectorAll('#faq details').forEach(function(el) {
+                el.addEventListener('toggle', function() {
+                    if (el.open) {
+                        var q = el.querySelector('h4');
+                        trackFaqOpen(q ? q.textContent.trim() : 'Unknown FAQ');
+                    }
+                });
+            });
+
+            // Scroll depth
+            window.addEventListener('scroll', onScroll, { passive: true });
+
+            // Mobile Menu Toggle
+            var btn = document.getElementById('mobile-menu-btn');
+            var close = document.getElementById('mobile-menu-close');
+            var menu = document.getElementById('mobile-menu');
+            var overlay = document.getElementById('mobile-menu-overlay');
+            var links = document.querySelectorAll('.mobile-nav-link');
+
+            function toggleMenu() {
+                menu.classList.toggle('hidden');
+                document.body.classList.toggle('overflow-hidden');
+            }
+
+            if(btn) btn.addEventListener('click', toggleMenu);
+            if(close) close.addEventListener('click', toggleMenu);
+            if(overlay) overlay.addEventListener('click', toggleMenu);
+            
+            links.forEach(function(link) {
+                link.addEventListener('click', toggleMenu);
+            });
+
+            // Sticky CTA Scroll Logic
+            var stickyCta = document.getElementById('sticky-cta');
+            window.addEventListener('scroll', function() {
+                if (window.scrollY > 400) {
+                    stickyCta.classList.remove('translate-y-full', 'opacity-0');
+                } else {
+                    stickyCta.classList.add('translate-y-full', 'opacity-0');
+                }
+            }, { passive: true });
+        });
+    })();
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind (CDN for consistency with brisbane.html) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Outfit', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#111827',
+                            primary: '#4A0E2E', // Luxurious Purple from Logo
+                            matcha: '#10B981', // Keep original green as 'matcha'
+                            accent: '#D4AF37', // Champagne Gold
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Performance: Local Built CSS if still needed, but Tailwind CDN will take priority for new classes -->
+    <link rel="stylesheet" href="assets/main.min.css">
+    
+    <style>
+        .glass-nav {
+            background: rgba(17, 24, 39, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('assets/hero-new.jpg');
+            background-size: cover;
+            background-position: center 30%;
+            background-repeat: no-repeat;
+        }
+        @media (min-width: 1024px) {
+            .hero-bg {
+                background-position: center 25%;
+                background-attachment: fixed;
+            }
+        }
+        .text-shadow {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.8s ease-out forwards;
+        }
+        
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Sticky CTA Animations */
+        #sticky-cta {
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased selection:bg-brand-primary selection:text-white">
+
+    <!-- ===== Header ===== -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300">
+        <div class="mx-auto flex w-full max-w-7xl items-center justify-between gap-6 px-6 py-4">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <!-- Using Correct Lounge Asia Logo -->
+                <img src="assets/lounge%20asia%20logo%20white.png" alt="Lounge Asia Logo" class="w-12 h-auto object-contain">
+                <span class="text-2xl font-serif font-bold tracking-tight text-white group-hover:text-brand-accent transition-colors">Lounge Asia</span>
+            </a>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="index.html#meetup-events" class="hover:text-white transition-colors">Events</a>
+                <div class="relative group">
+                    <button class="hover:text-white transition-colors flex items-center gap-1">
+                        Cities
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <!-- Dropdown Menu -->
+                    <div class="absolute left-1/2 -translate-x-1/2 top-full pt-4 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+                        <div class="bg-gray-900 border border-gray-700 rounded-xl shadow-2xl p-4 w-48 flex flex-col gap-2">
+                            <a href="brisbane.html" class="px-4 py-2 hover:bg-white/5 rounded-lg transition-colors">Brisbane</a>
+                            <a href="sydney.html" class="px-4 py-2 hover:bg-white/5 rounded-lg transition-colors">Sydney</a>
+                            <a href="melbourne.html" class="px-4 py-2 hover:bg-white/5 rounded-lg transition-colors">Melbourne</a>
+                            <a href="tokyo.html" class="px-4 py-2 hover:bg-white/5 rounded-lg transition-colors">Tokyo</a>
+                            <a href="bangkok.html" class="px-4 py-2 hover:bg-white/5 rounded-lg transition-colors border-l-2 border-brand-primary">Bangkok</a>
+                            <a href="hcmc.html" class="px-4 py-2 hover:bg-white/5 rounded-lg transition-colors">HCMC</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="index.html#matcha-match" class="hover:text-brand-accent transition-colors text-brand-accent">Matcha Match App</a>
+                <a href="#leaders" class="hover:text-white transition-colors">Become a Leader</a>
+                <a href="index.html#partners" class="hover:text-white transition-colors">Partners</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </nav>
+
+            <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313563573/" target="_blank" class="hidden md:inline-flex items-center justify-center border-2 border-white/20 hover:border-brand-primary text-white font-bold py-2.5 px-6 rounded-full text-sm transition-all duration-300 hover:bg-brand-primary/5">
+                Join on Meetup
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" aria-label="Open menu" class="md:hidden text-white p-2 focus:outline-none">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 hidden" aria-hidden="true">
+        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <nav class="absolute top-0 right-0 h-full w-72 bg-gray-900 border-l border-gray-700 flex flex-col p-8 pt-20">
+            <button id="mobile-menu-close" aria-label="Close menu" class="absolute top-5 right-5 text-white p-2 hover:text-brand-primary transition-colors">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <div class="flex flex-col gap-6 text-lg font-semibold text-gray-200">
+                <a href="index.html#meetup-events" class="hover:text-brand-accent transition-colors mobile-nav-link">Events</a>
+                <div class="flex flex-col gap-4 pl-4 border-l border-gray-700">
+                    <span class="text-xs text-gray-500 uppercase tracking-widest font-bold">Cities</span>
+                    <a href="brisbane.html" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link">Brisbane</a>
+                    <a href="sydney.html" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link">Sydney</a>
+                    <a href="melbourne.html" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link">Melbourne</a>
+                    <a href="tokyo.html" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link">Tokyo</a>
+                    <a href="bangkok.html" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link text-brand-primary">Bangkok</a>
+                    <a href="hcmc.html" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link">HCMC</a>
+                </div>
+                <a href="index.html#matcha-match" class="hover:text-brand-accent transition-colors mobile-nav-link">Matcha Match</a>
+                <a href="#leaders" class="hover:text-brand-accent transition-colors mobile-nav-link">Become a Leader</a>
+                <a href="#contact" class="hover:text-brand-accent transition-colors mobile-nav-link">Contact</a>
+            </div>
+            <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313563573/" target="_blank" rel="noopener" class="mt-auto block text-center bg-brand-primary text-white font-bold py-4 px-6 rounded-2xl shadow-lg shadow-emerald-500/20 active:scale-95 transition-all">
+                次 RSVP for Next Event
+            </a>
+        </nav>
+    </div>
+
+    <main>
+        <!-- ===== Hero Section ===== -->
+        <section class="hero-bg min-h-screen flex items-center justify-center relative overflow-hidden pb-40">
+            <!-- Neutral Dark Overlay for readability -->
+            <div class="absolute inset-0 bg-black/60"></div>
+            
+            <div class="container mx-auto px-6 text-center relative z-10 pt-20">
+                <div class="animate-fade-in-up">
+                    <h1 class="text-5xl md:text-8xl font-serif font-bold leading-tight mb-6 text-white text-shadow">
+                        Connecting Bangkok's <br/><span class="text-brand-accent">Asians</span> Together
+                    </h1>
+                    <p class="text-lg md:text-2xl mb-8 text-gray-200 max-w-3xl mx-auto font-light leading-relaxed">
+                        Join Bangkok's <span class="text-white font-bold">#1 community</span> in a safe and premium place.<br class="hidden md:block">
+                        Meet amazing people in Hair of the Dog (Phrom Phong Branch).
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                        <a id="hero-cta-primary" href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313563573/" target="_blank" rel="noopener" onclick="if(typeof gtag!=='undefined'){gtag('event','hero_cta_click',{event_label:'RSVP Next Event'})}" class="group relative px-10 py-5 font-bold text-white transition-all duration-300 transform hover:-translate-y-1">
+                            <span class="relative block bg-brand-primary border border-brand-accent/30 py-4 px-12 rounded-full shadow-[0_0_20px_rgba(74,14,46,0.3)] group-hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] group-hover:border-brand-accent transition-all text-xl">
+                                View Bangkok Events
+                            </span>
+                        </a>
+                        <a id="hero-cta-secondary" href="#matcha-match" onclick="if(typeof gtag!=='undefined'){gtag('event','hero_cta_click',{event_label:'Matcha Match App'})}" class="px-10 py-5 text-gray-300 hover:text-white font-semibold transition-all duration-300 border-b-2 border-transparent hover:border-brand-accent backdrop-blur-sm bg-white/5 rounded-lg">
+                            Download Matcha Match App
+                        </a>
+                    </div>
+
+                    <!-- Trust Bar - Modern & Authoritative -->
+                    <div class="mt-24 flex flex-wrap justify-center gap-6 items-center">
+                        <div class="flex items-center gap-3 px-5 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-xl">
+                            <span class="flex items-center text-brand-accent">
+                                <svg class="w-5 h-5 text-brand-accent" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                </svg>
+                                <span class="ml-1 font-bold text-white">4.8</span>
+                            </span>
+                            <span class="text-sm font-medium text-gray-200">Meetup Rating</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-xl">
+                            <span class="text-brand-accent font-bold">1,800+</span>
+                            <span class="text-sm font-medium text-gray-200">Bangkok Members</span>
+                        </div>
+                        <div class="flex items-center gap-2 px-5 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-xl">
+                            <span class="text-xs font-bold text-gray-200 uppercase tracking-widest">Active In:</span>
+                            <span class="text-sm font-medium text-white">Sukhumvit 笳・Phrom Phong 笳・Asok</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce text-gray-400">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+            </div>
+        </section>
+
+        <!-- ===== Venue & Atmosphere Gallery (Swipeable) ===== -->
+        <section id="venue-gallery" class="py-12 bg-gray-900 border-y border-gray-800">
+             <div class="container mx-auto px-6 mb-8 flex justify-between items-end">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Our Venues & Vibe</h2>
+                    <p class="text-gray-400 text-sm md:text-base">Swipe to explore where the magic happens</p>
+                </div>
+                <!-- Controls (Visual cues) -->
+                <div class="hidden md:flex gap-2">
+                    <button class="p-2 rounded-full border border-gray-600 hover:bg-gray-800 text-white transition-colors" onclick="document.getElementById('gallery-scroll').scrollBy({left: -300, behavior: 'smooth'})">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button class="p-2 rounded-full border border-gray-600 hover:bg-gray-800 text-white transition-colors" onclick="document.getElementById('gallery-scroll').scrollBy({left: 300, behavior: 'smooth'})">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+             </div>
+             
+             <!-- Horizontal Scroll Container -->
+             <div id="gallery-scroll" class="flex overflow-x-auto gap-4 px-6 pb-8 snap-x snap-mandatory scrollbar-hide no-scrollbar" style="-ms-overflow-style: none; scrollbar-width: none;">
+                
+                <!-- Item: New 1 -->
+                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
+                    <img src="assets/gallery-party-1.jpg" alt="Lounge Asia Social Event Sydney - Group of people talking and smiling" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                </div>
+
+                <!-- Item: New 2 -->
+                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
+                    <img src="assets/gallery-party-2.jpg" alt="Lounge Asia Sydney Meetup - Friends enjoying drinks together" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                </div>
+
+                <!-- Item 1: Brisbane -->
+                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
+                    <img src="assets/event-table.jpg" alt="Lounge Asia Event Venue Atmosphere - Relaxed seating and people talking" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                </div>
+
+                <!-- Item 2: Sydney -->
+                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
+                    <img src="assets/event-group-casual.jpg" alt="Lounge Asia Sydney Community - Casual gathering of Asian residents" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                </div>
+
+                <!-- Item 3: Melbourne -->
+                <div class="min-w-[85vw] md:min-w-[400px] aspect-[4/3] relative rounded-2xl overflow-hidden snap-center group border border-gray-700">
+                    <img src="assets/event-standing.jpg" alt="Lounge Asia Melbourne Event Venue - Premium standing social space" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                </div>
+                 
+                 <!-- Item 5: Spacer for scroll padding -->
+                 <div class="min-w-[1px]"></div>
+
+             </div>
+        </section>
+
+        <!-- ===== Upcoming Events Section (Featured Brisbane) ===== -->
+        <section id="meetup-events" class="py-24 bg-brand-dark relative border-t border-gray-800">
+             <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="text-brand-accent font-bold tracking-wide uppercase text-sm mb-2 block">Next Social Event</span>
+                    <h2 class="text-4xl md:text-6xl font-bold mb-4 text-white">Bangkok Asian Meetup & Social Events</h2>
+                    <p class="text-xl text-gray-400 max-w-2xl mx-auto">Connecting global souls in the heart of Bangkok.</p>
+                </div>
+
+                <!-- Featured Brisbane Event Card -->
+                <div class="max-w-5xl mx-auto mb-20">
+                    <article class="bg-gray-800/40 backdrop-blur-md rounded-[2.5rem] overflow-hidden shadow-2xl border border-brand-primary/30 flex flex-col lg:flex-row group transition-all duration-500 hover:border-brand-primary/60">
+                        <!-- Image Side -->
+                        <div class="lg:w-1/2 relative overflow-hidden h-64 lg:h-auto min-h-[300px]">
+                            <img src="assets/event-standing.jpg" alt="Lounge Asia Bangkok Meetup" class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105">
+                            <div class="absolute inset-0 bg-gradient-to-r from-gray-900/60 to-transparent hidden lg:block"></div>
+                            <div class="absolute top-6 left-6 flex flex-col gap-2">
+                                <span class="bg-brand-primary text-white text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full shadow-lg self-start">Official Mixer</span>
+                                <span class="bg-white/10 backdrop-blur-md text-white text-xs font-bold px-4 py-1.5 rounded-full border border-white/20 self-start">・・ Bangkok</span>
+                            </div>
+                        </div>
+
+                        <!-- Content Side -->
+                        <div class="lg:w-1/2 p-8 lg:p-12 flex flex-col">
+                            <h3 class="text-3xl font-bold text-white mb-6 leading-tight">査 [FREE] Lounge Asia Bangkok Meetup: Easy English & 50% Off Gin for Ladies!</h3>
+                            
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
+                                <div class="space-y-4">
+                                    <div class="flex items-start gap-3">
+                                        <span class="text-2xl mt-0.5">欄・・/span>
+                                        <div>
+                                            <p class="text-white font-bold text-sm">When</p>
+                                            <p class="text-gray-400 text-sm">Wednesday, March 11</p>
+                                            <p class="text-brand-primary text-sm font-semibold">7:00 pm 窶・11:59 pm</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <span class="text-2xl mt-0.5">桃</span>
+                                        <div>
+                                            <p class="text-white font-bold text-sm">Where</p>
+                                            <p class="text-gray-400 text-sm">Hair of the Dog (Phrom Phong)</p>
+                                            <p class="text-gray-500 text-xs">593/27 Sukhumvit Rd, Bangkok</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-start gap-3">
+                                        <span class="text-2xl mt-0.5">垳</span>
+                                        <div>
+                                            <p class="text-white font-bold text-sm">Access</p>
+                                            <p class="text-gray-400 text-sm">Phrom Phong BTS Station</p>
+                                            <p class="text-gray-400 text-sm">(5 mins walk from Exit 3)</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3">
+                                        <span class="text-2xl mt-0.5">腸</span>
+                                        <div>
+                                            <p class="text-white font-bold text-sm">Entry</p>
+                                            <p class="text-gray-400 text-sm">FREE ENTRY</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-8 p-4 bg-white/5 rounded-2xl border border-white/5">
+                                <p class="text-brand-accent text-xs font-bold uppercase tracking-wider mb-2">笞｡ WHY JOIN?</p>
+                                <p class="text-gray-300 text-sm leading-relaxed italic">
+                                    "The perfect night to meet new friends in a warm, relaxed atmosphere. The best place in Bangkok to meet the global East Asian community."
+                                </p>
+                            </div>
+
+                            <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313563573/" target="_blank" rel="noopener" class="block w-full text-center bg-brand-primary hover:bg-emerald-500 text-white font-bold py-5 rounded-2xl shadow-[0_10px_30px_rgba(16,185,129,0.3)] transition-all transform hover:-translate-y-1">
+                                RSVP on Meetup 窶・Join the List 竊・
+                            </a>
+                            <p class="text-center text-gray-500 text-[10px] uppercase tracking-tighter mt-4 font-bold">
+                                笞・・Meetup RSVP is STRICTLY REQUIRED for entry
+                            </p>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Venue Map & Details Section -->
+                <div class="grid lg:grid-cols-2 gap-12 items-center mb-24 max-w-6xl mx-auto">
+                    <div class="order-2 lg:order-1">
+                        <div class="rounded-[2rem] overflow-hidden border border-gray-700 shadow-2xl h-[400px]">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3875.760105342468!2d100.56910637!3d13.73142079!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e29f041fb82f71%3A0xe6bf4bf06fb6b27e!2sHair%20of%20the%20Dog%20Phrom%20Phong!5e0!3m2!1sen!2sth!4v1710010000000!5m2!1sen!2sth" 
+                                width="100%" height="100%" style="border:0; filter: grayscale(1) contrast(1.2) invert(0.9);" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                    </div>
+                    <div class="order-1 lg:order-2 space-y-8">
+                        <div>
+                            <span class="text-brand-primary font-bold tracking-widest uppercase text-xs mb-3 block">Venue Spotlight</span>
+                            <h3 class="text-3xl font-bold text-white mb-4">Hair of the Dog (Phrom Phong)</h3>
+                            <p class="text-gray-400 text-lg leading-relaxed">
+                                Our home in Bangkok. Located just a short walk from Phrom Phong BTS Station, Hair of the Dog offers a unique atmosphere and incredible craft beer and gin selection.
+                            </p>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-4 text-gray-300">
+                                <div class="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center text-brand-primary">笨・/div>
+                                <span>No loud club music 窶・Perfect for real talk</span>
+                            </li>
+                            <li class="flex items-center gap-4 text-gray-300">
+                                <div class="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center text-brand-primary">笨・/div>
+                                <span>Safe and inclusive community vibes</span>
+                            </li>
+                            <li class="flex items-center gap-4 text-gray-300">
+                                <div class="w-8 h-8 rounded-full bg-emerald-500/10 flex items-center justify-center text-brand-primary">笨・/div>
+                                <span>Prime Sukhumvit location, easy BTS access</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Other Cities Section -->
+                <div class="mt-24 pt-24 border-t border-gray-800/50">
+                    <div class="flex items-center justify-between mb-12">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Other Global Cities</h3>
+                            <p class="text-gray-500">Our family is growing everywhere</p>
+                        </div>
+                        <div class="flex gap-2">
+                            <button class="p-2 rounded-full border border-gray-700 hover:bg-gray-800 text-white transition-colors" onclick="document.getElementById('other-events-scroll').scrollBy({left: -300, behavior: 'smooth'})">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7"></path></svg>
+                            </button>
+                            <button class="p-2 rounded-full border border-gray-700 hover:bg-gray-800 text-white transition-colors" onclick="document.getElementById('other-events-scroll').scrollBy({left: 300, behavior: 'smooth'})">
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="other-events-scroll" class="flex overflow-x-auto gap-6 pb-8 snap-x snap-mandatory scrollbar-hide no-scrollbar">
+                         <!-- Brisbane -->
+                         <article class="min-w-[280px] md:min-w-[320px] snap-center bg-gray-800/30 rounded-3xl overflow-hidden border border-white/5 flex flex-col group hover:border-brand-primary/40 transition-all duration-500">
+                             <div class="relative h-40">
+                                 <img src="assets/gallery-party-1.jpg" alt="Lounge Asia Brisbane" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                                 <span class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full">・・ Brisbane</span>
+                             </div>
+                             <div class="p-6">
+                                 <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-primary transition-colors">Brisbane Social Mixer</h4>
+                                 <p class="text-gray-500 text-sm mb-4">Monthly Socials in the CBD</p>
+                                 <a href="brisbane.html" class="text-brand-primary font-bold text-sm hover:underline">See Details 竊・/a>
+                             </div>
+                         </article>
+
+                         <!-- Sydney -->
+                         <article class="min-w-[280px] md:min-w-[320px] snap-center bg-gray-800/30 rounded-3xl overflow-hidden border border-white/5 flex flex-col group hover:border-brand-primary/40 transition-all duration-500">
+                             <div class="relative h-40">
+                                 <img src="assets/gallery-party-2.jpg" alt="Lounge Asia Sydney" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                                 <span class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full">・・ Sydney</span>
+                             </div>
+                             <div class="p-6">
+                                 <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-primary transition-colors">Sydney Social Mixer</h4>
+                                 <p class="text-gray-500 text-sm mb-4">Meet global Asians in Sydney</p>
+                                 <a href="sydney.html" class="text-brand-primary font-bold text-sm hover:underline">See Details 竊・/a>
+                             </div>
+                         </article>
+
+                         <!-- Melbourne -->
+                         <article class="min-w-[280px] md:min-w-[320px] snap-center bg-gray-800/30 rounded-3xl overflow-hidden border border-white/5 flex flex-col group hover:border-brand-primary/40 transition-all duration-500">
+                             <div class="relative h-40">
+                                 <img src="assets/event-standing.jpg" alt="Lounge Asia Melbourne" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                                 <span class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full">・・ Melbourne</span>
+                             </div>
+                             <div class="p-6">
+                                 <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-primary transition-colors">Melbourne Community Night</h4>
+                                 <p class="text-gray-500 text-sm mb-4">Meet global Asians in Melb</p>
+                                 <a href="melbourne.html" class="text-brand-primary font-bold text-sm hover:underline">See Details 竊・/a>
+                             </div>
+                         </article>
+
+                         <!-- HCMC -->
+                         <article class="min-w-[280px] md:min-w-[320px] snap-center bg-gray-800/30 rounded-3xl overflow-hidden border border-white/5 flex flex-col group hover:border-brand-primary/40 transition-all duration-500">
+                             <div class="relative h-40">
+                                 <img src="assets/event-group-casual.jpg" alt="Lounge Asia HCMC" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                                 <span class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full">・・ Ho Chi Minh</span>
+                             </div>
+                             <div class="p-6">
+                                 <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-primary transition-colors">HCMC Global Mixer</h4>
+                                 <p class="text-gray-500 text-sm mb-4">Easy English Nights in District 1</p>
+                                 <a href="hcmc.html" class="text-brand-primary font-bold text-sm hover:underline">See Details 竊・/a>
+                             </div>
+                         </article>
+
+                         <!-- Tokyo -->
+                         <article class="min-w-[280px] md:min-w-[320px] snap-center bg-gray-800/30 rounded-3xl overflow-hidden border border-white/5 flex flex-col group hover:border-brand-primary/40 transition-all duration-500">
+                             <div class="relative h-40">
+                                 <img src="assets/hero-new.jpg" alt="Lounge Asia Tokyo" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700">
+                                 <span class="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full">・・ Tokyo</span>
+                             </div>
+                             <div class="p-6">
+                                 <h4 class="text-lg font-bold text-white mb-2 group-hover:text-brand-primary transition-colors">Tokyo Social Mixer</h4>
+                                 <p class="text-gray-500 text-sm mb-4">Join our newest hub in Yaesu</p>
+                                 <a href="tokyo.html" class="text-brand-primary font-bold text-sm hover:underline">See Details 竊・/a>
+                             </div>
+                         </article>
+
+                         <div class="min-w-[1px]"></div>
+                    </div>
+                </div>
+             </div>
+        </section>
+
+        <!-- ===== Global Cities Section ===== -->
+        <section id="cities" class="py-24 bg-gray-900 relative">
+            <div class="absolute inset-0 bg-[url('assets/global-map-concept.png')] bg-contain bg-center bg-no-repeat opacity-10 pointer-events-none"></div>
+            
+            <div class="container mx-auto px-6 relative z-10 text-center">
+                <span class="text-brand-accent font-bold tracking-wide uppercase text-sm mb-2 block">Our Global Footprint</span>
+                <h2 class="text-3xl md:text-5xl font-bold mb-4">Expanding Global Network</h2>
+                <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">Wherever you go, you have a family waiting for you.</p>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 max-w-[90rem] mx-auto text-left">
+                    <!-- City Card 1 -->
+                    <a href="brisbane.html" class="group relative overflow-hidden rounded-xl bg-gray-800 border border-gray-700 hover:border-brand-primary transition-all duration-300 cursor-pointer">
+                        <div class="p-6">
+                            <div class="w-1.5 h-1.5 rounded-full bg-green-500 absolute top-4 right-4 shadow-[0_0_10px_rgba(34,197,94,0.8)]"></div>
+                            <h3 class="text-xl font-bold text-white mb-1">Brisbane</h3>
+                            <p class="text-xs text-gray-400">Australia</p>
+                        </div>
+                        <div class="absolute inset-x-0 bottom-0 bg-brand-primary h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    </a>
+                     <!-- City Card 2 -->
+                     <a href="sydney.html" class="group relative overflow-hidden rounded-xl bg-gray-800 border border-gray-700 hover:border-brand-primary transition-all duration-300 cursor-pointer">
+                        <div class="p-6">
+                            <div class="w-1.5 h-1.5 rounded-full bg-green-500 absolute top-4 right-4 shadow-[0_0_10px_rgba(34,197,94,0.8)]"></div>
+                            <h3 class="text-xl font-bold text-white mb-1">Sydney</h3>
+                            <p class="text-xs text-gray-400">Australia</p>
+                        </div>
+                          <div class="absolute inset-x-0 bottom-0 bg-brand-primary h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    </a>
+                     <!-- City Card 3 -->
+                     <a href="melbourne.html" class="group relative overflow-hidden rounded-xl bg-gray-800 border border-gray-700 hover:border-brand-primary transition-all duration-300 cursor-pointer">
+                        <div class="p-6">
+                            <div class="w-1.5 h-1.5 rounded-full bg-green-500 absolute top-4 right-4 shadow-[0_0_10px_rgba(34,197,94,0.8)]"></div>
+                            <h3 class="text-xl font-bold text-white mb-1">Melbourne</h3>
+                            <p class="text-xs text-gray-400">Australia</p>
+                        </div>
+                          <div class="absolute inset-x-0 bottom-0 bg-brand-primary h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    </a>
+                     <!-- City Card 4 (Tokyo) -->
+                     <a href="tokyo.html" class="group relative overflow-hidden rounded-xl bg-gray-800 border border-gray-700 hover:border-brand-primary transition-all duration-300 cursor-pointer">
+                        <div class="p-6">
+                            <div class="w-1.5 h-1.5 rounded-full bg-green-500 absolute top-4 right-4 shadow-[0_0_10px_rgba(34,197,94,0.8)]"></div>
+                            <h3 class="text-xl font-bold text-white mb-1">Tokyo</h3>
+                            <p class="text-xs text-gray-400">Japan</p>
+                        </div>
+                          <div class="absolute inset-x-0 bottom-0 bg-brand-primary h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    </a>
+                     <!-- City Card 5 (Bangkok - Current) -->
+                     <a href="bangkok.html" class="group relative overflow-hidden rounded-xl bg-gray-800 border border-brand-primary hover:border-brand-primary transition-all duration-300 cursor-pointer">
+                        <div class="p-6">
+                            <div class="w-2 h-2 rounded-full bg-green-500 absolute top-4 right-4 shadow-[0_0_10px_rgba(34,197,94,0.8)]"></div>
+                            <h3 class="text-xl font-bold text-white mb-1">Bangkok</h3>
+                            <p class="text-xs text-gray-400">Thailand</p>
+                        </div>
+                          <div class="absolute inset-x-0 bottom-0 bg-brand-primary h-1 transform scale-x-100 transition-transform duration-300"></div>
+                    </a>
+                     <!-- City Card 6 (HCMC) -->
+                     <a href="hcmc.html" class="group relative overflow-hidden rounded-xl bg-gray-800 border border-gray-700 hover:border-brand-primary transition-all duration-300 cursor-pointer">
+                        <div class="p-6">
+                            <div class="w-1.5 h-1.5 rounded-full bg-green-500 absolute top-4 right-4 shadow-[0_0_10px_rgba(34,197,94,0.8)]"></div>
+                            <h3 class="text-xl font-bold text-white mb-1">HCMC</h3>
+                            <p class="text-xs text-gray-400">Vietnam</p>
+                        </div>
+                          <div class="absolute inset-x-0 bottom-0 bg-brand-primary h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></div>
+                    </a>
+                </div>
+                
+                <div class="mt-8 flex justify-center gap-4 text-sm text-gray-500 font-mono">
+                    <span>Targeting:</span>
+                    <span class="text-gray-400">Cairns</span>
+                    <span class="text-gray-400">Osaka</span>
+                    <span class="text-gray-400">Cebu</span>
+                    <span class="text-gray-400">Singapore</span>
+                </div>
+
+                <div class="mt-12">
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="inline-block bg-white text-gray-900 hover:bg-gray-100 font-bold py-3 px-8 rounded-full transition-colors">
+                        See City Vibes on Instagram
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Member Interviews (YouTube Shorts) ===== -->
+        <section id="member-voices" class="py-24 bg-black relative border-t border-gray-800">
+             <div class="container mx-auto px-6 text-center">
+                 <span class="text-brand-primary font-bold tracking-wide uppercase text-sm mb-2 block">Community Voices</span>
+                 <h2 class="text-3xl md:text-5xl font-bold mb-12 text-white">Hear from our Members</h2>
+                 
+                 <div class="flex flex-col md:flex-row justify-center gap-8 items-center">
+                     <!-- Video 1 -->
+                     <div class="relative group rounded-2xl overflow-hidden shadow-2xl border border-gray-800 w-full max-w-[315px] aspect-[9/16]">
+                        <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/-aO5Lh-o0dI" title="Lounge Asia Interview 1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                     </div>
+                     
+                     <!-- Video 2 -->
+                     <div class="relative group rounded-2xl overflow-hidden shadow-2xl border border-gray-800 w-full max-w-[315px] aspect-[9/16]">
+                        <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/ptq_A6yarEw" title="Lounge Asia Interview 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                     </div>
+                 </div>
+                 
+                 <p class="mt-8 text-gray-400 text-lg">
+                     Real conversations. No scripts. Just vibes.
+                 </p>
+             </div>
+        </section>
+
+        <!-- ===== Matcha Match Section ===== -->
+        <section id="matcha-match" class="py-24 bg-gradient-to-b from-brand-dark to-gray-900 overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <!-- Left: Images -->
+                    <div class="w-full lg:w-1/2 relative group">
+                        <!-- Background Decorative Blob -->
+                        <div class="absolute -inset-4 bg-brand-primary/20 blur-3xl rounded-full opacity-50 group-hover:opacity-75 transition-opacity duration-700"></div>
+                        
+                        <div class="relative grid grid-cols-2 gap-4">
+                            <!-- Removed h-64 md:h-80 and object-cover to show full image -->
+                            <img src="assets/matcha-match-marketing.jpg" alt="Asian couple using Matcha Match app in Bangkok" class="rounded-2xl shadow-2xl transform translate-y-8 w-full h-auto border border-white/10" loading="lazy">
+                            <!-- Removed h-64 md:h-80 and object-cover to show full image -->
+                            <img src="assets/matcha-match-interface.png" alt="Matcha Match dating app user interface" class="rounded-2xl shadow-2xl w-full object-contain h-auto border border-white/10 bg-black" loading="lazy">
+                            
+                            <!-- Floated Badge -->
+                            <div class="absolute top-0 right-0 -mt-6 -mr-6 bg-white text-brand-primary font-bold p-4 rounded-full shadow-lg animate-pulse hidden md:block">
+                                New Arrival!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Content -->
+                    <div class="w-full lg:w-1/2">
+                        <div class="flex items-center gap-3 mb-4">
+                            <img src="assets/matcha-match-logo.png" alt="Matcha Match Logo" class="w-12 h-auto">
+                            <span class="text-brand-primary font-bold tracking-wider uppercase text-sm">The Evolution of Dating</span>
+                        </div>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+                            Speed Dating Has Evolved. <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-primary to-green-300">Meet Naturally.</span>
+                        </h2>
+                        <h3 class="text-xl text-white font-semibold mb-4">
+                            Say goodbye to awkward rotations. Say hello to Matcha Match.
+                        </h3>
+                        <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                            We窶况e discontinued our traditional speed dating events to bring you something better. Meet naturally, safely, and smartly with our verified app. Experience the future of dating and friendship within our trusted ecosystem.
+                        </p>
+                        
+                        <div class="flex flex-col sm:flex-row gap-4">
+                            <a href="https://www.matchamatch.com.au/" target="_blank" class="inline-flex items-center justify-center gap-2 bg-brand-primary hover:bg-emerald-500 text-white font-bold py-3 px-8 rounded-xl transition-all shadow-lg hover:shadow-emerald-500/30">
+                                <span>Join the Waiting List</span>
+                                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                            </a>
+                        </div>
+                        <p class="mt-4 text-sm text-gray-500">
+                            *Limited spots available for early-bird perks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="community-heroes" class="py-24 bg-brand-dark relative">
+             <div class="container mx-auto px-6">
+                 <div class="text-center mb-16">
+                     <span class="text-brand-primary font-bold tracking-wide uppercase text-sm mb-2 block">Our Leaders</span>
+                     <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Meet Your Local Heroes</h2>
+                     <p class="text-gray-400 max-w-2xl mx-auto italic">"Behind every great community are the people who care."</p>
+                 </div>
+                 
+                  <!-- Founder & Melbourne Team (Primary) -->
+                  <div class="mb-20">
+                      <h3 class="text-xl font-bold text-brand-accent mb-8 flex items-center gap-3">
+                          <span class="w-8 h-[2px] bg-brand-accent"></span>
+                          Founder & Bangkok Team
+                      </h3>
+                      <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                          <!-- Tuvshinzaya (Bangkok Organizer) -->
+                          <div class="bg-gray-800/50 rounded-[2rem] p-8 border border-white/10 hover:border-brand-primary transition-all duration-500 group hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-primary/10 flex flex-col h-full">
+                             <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-gray-700 group-hover:border-brand-primary transition-all duration-500 shadow-xl">
+                                 <img src="assets/tuv-bangkok.jpg" alt="Tuvshinzaya - Lounge Asia Bangkok Organizer" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                             </div>
+                             <div class="inline-block px-4 py-1.5 bg-brand-primary/10 text-brand-primary text-[10px] font-bold tracking-widest uppercase rounded-full mb-4 w-fit mx-auto">
+                                 Bangkok Lead
+                             </div>
+                             <h4 class="text-2xl font-bold text-white mb-2 text-center">Tuvshinzaya</h4>
+                             <p class="text-gray-400 text-sm leading-relaxed mb-4 text-center">
+                                 Tuvshinzaya is our Bangkok Lead, passionate about connecting the diverse international community in Bangkok. She ensures a warm, inclusive, and high-energy environment at every event.
+                             </p>
+                          </div>
+
+                         <!-- Michael (Founder) -->
+                         <div class="bg-gray-800/50 rounded-[2rem] p-8 border border-white/10 hover:border-brand-primary transition-all duration-500 group hover:-translate-y-2 hover:shadow-2xl hover:shadow-brand-primary/10 flex flex-col h-full">
+                             <div class="w-40 h-40 mx-auto mb-6 rounded-full overflow-hidden border-4 border-gray-700 group-hover:border-brand-primary transition-all duration-500 shadow-xl">
+                                 <img src="assets/michael-organizer.jpg" alt="Michael - Founder of Lounge Asia" class="w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110" loading="lazy">
+                             </div>
+                             <div class="inline-block px-4 py-1.5 bg-brand-primary/10 text-brand-primary text-[10px] font-bold tracking-widest uppercase rounded-full mb-4 w-fit mx-auto">
+                                 Founder
+                             </div>
+                             <h4 class="text-2xl font-bold text-white mb-2 text-center">Michael</h4>
+                             <p class="text-gray-400 text-sm leading-relaxed mb-4 text-center">
+                                 Bridging the distance between you and your future best friends. Making connections feel as simple as saying hello.
+                             </p>
+                         </div>
+                     </div>
+                 </div>
+
+                 <!-- Global Team (Secondary) -->
+                 <div class="pt-16 border-t border-gray-800/20">
+                     <h3 class="text-lg font-bold text-gray-500 mb-8 flex items-center gap-3">
+                         <span class="w-6 h-[1px] bg-gray-700"></span>
+                         Global Team
+                     </h3>
+                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 max-w-[90rem] mx-auto">
+                          <!-- Chris (Sydney) -->
+                          <div class="bg-gray-800/30 rounded-2xl p-6 border border-white/5 hover:border-brand-primary/30 transition-all duration-500 group">
+                              <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-brand-primary transition-all">
+                                  <img src="assets/chris_new.jpg" alt="Chris - Sydney" class="w-full h-full object-cover">
+                              </div>
+                              <p class="text-[10px] font-bold text-blue-400 uppercase tracking-widest mb-1 text-center font-mono">Sydney</p>
+                              <h5 class="text-lg font-bold text-white text-center">Chris</h5>
+                          </div>
+
+                          <!-- David (Melbourne) -->
+                          <div class="bg-gray-800/30 rounded-2xl p-6 border border-white/5 hover:border-brand-primary/30 transition-all duration-500 group">
+                              <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-brand-primary transition-all">
+                                  <img src="assets/david-melbourne.jpg" alt="David - Melbourne" class="w-full h-full object-cover">
+                              </div>
+                              <p class="text-[10px] font-bold text-purple-400 uppercase tracking-widest mb-1 text-center font-mono">Melbourne</p>
+                              <h5 class="text-lg font-bold text-white text-center">David</h5>
+                          </div>
+
+                          <!-- Kazuma (Tokyo) -->
+                          <div class="bg-gray-800/30 rounded-2xl p-6 border border-white/5 hover:border-brand-primary/30 transition-all duration-500 group">
+                              <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-brand-primary transition-all">
+                                  <img src="assets/kazuma.jpg" alt="Kazuma - Tokyo" class="w-full h-full object-cover">
+                              </div>
+                              <p class="text-[10px] font-bold text-red-400 uppercase tracking-widest mb-1 text-center font-mono">Tokyo</p>
+                              <h5 class="text-lg font-bold text-white text-center">Kazuma</h5>
+                          </div>
+
+                           <!-- Hiroshi (Fukuoka) -->
+                           <div class="bg-gray-800/30 rounded-2xl p-6 border border-white/5 hover:border-brand-primary/30 transition-all duration-500 group">
+                               <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-2 border-gray-700 group-hover:border-brand-primary transition-all">
+                                   <img src="assets/hiroshi_fixed.jpg" alt="Hiroshi - Fukuoka" class="w-full h-full object-cover">
+                               </div>
+                               <p class="text-[10px] font-bold text-orange-400 uppercase tracking-widest mb-1 text-center font-mono">Fukuoka</p>
+                               <h5 class="text-lg font-bold text-white text-center">Hiroshi</h5>
+                           </div>
+
+                           <!-- Future City Leader -->
+                           <div class="bg-gray-800/20 rounded-2xl p-6 border border-dashed border-gray-700 flex flex-col items-center justify-center group hover:bg-gray-800/40 transition-all">
+                               <div class="w-24 h-24 rounded-full bg-gray-900 flex items-center justify-center text-gray-600 group-hover:text-brand-primary transition-colors mb-4">
+                                   <svg class="w-8 h-8" fill="currentColor" viewBox="0 0 24 24"><path d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path></svg>
+                               </div>
+                               <p class="text-[10px] font-bold text-gray-500 uppercase tracking-widest mb-1 text-center font-mono">Your City?</p>
+                               <h5 class="text-xs font-bold text-gray-400 text-center">Join the Team</h5>
+                           </div>
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+        <!-- ===== Become a Leader Section ===== -->
+        <section id="leaders" class="py-24 bg-brand-dark overflow-hidden">
+            <div class="container mx-auto px-6">
+                <div class="bg-gradient-to-r from-blue-900 to-brand-dark rounded-3xl overflow-hidden shadow-2xl border border-blue-800/30">
+                    <div class="grid md:grid-cols-2 items-center">
+                        <div class="p-12">
+                            <div class="inline-block px-4 py-1.5 bg-blue-500/20 text-blue-300 rounded-full text-xs font-bold uppercase tracking-wider mb-6">
+                                Recruitment
+                            </div>
+                            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+                                Lead Your City. <br>Become a Local Hero.
+                            </h2>
+                            <p class="text-xl text-gray-300 mb-8 leading-relaxed">
+                                We are looking for 20 visionary City Leaders to grow our communities worldwide. This isn't just a volunteer role窶琶t's your next career move.
+                            </p>
+                            
+                            <ul class="space-y-4 mb-10">
+                                <li class="flex items-start gap-3">
+                                    <div class="mt-1 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white">Make New Friends</h4>
+                                        <p class="text-sm text-gray-400">Connect deeply with diverse people and build lifelong friendships.</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-3">
+                                    <div class="mt-1 w-6 h-6 rounded-full bg-blue-600 flex items-center justify-center flex-shrink-0">
+                                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold text-white">Master Event Planning</h4>
+                                        <p class="text-sm text-gray-400">Gain real-world experience in community management and leadership.</p>
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <a href="#contact" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 px-10 rounded-full transition-transform hover:-translate-y-1">
+                                Apply to Lead
+                            </a>
+                        </div>
+                        <div class="h-full min-h-[400px]">
+                            <img src="assets/event-standing.jpg" alt="City Leaders Network" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Partners & Footer Section ===== -->
+        <section id="partners" class="py-20 bg-gray-900 border-t border-gray-800">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4">Partner with Lounge Asia</h2>
+                <p class="text-gray-400 mb-8">Connect your brand with over <span class="text-white font-bold text-xl">1,000+</span> global citizens annually.</p>
+                
+                <div class="flex flex-wrap justify-center gap-8 mb-12 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+                    <!-- Placeholder Logos -->
+                    <div class="h-12 w-32 bg-gray-700/50 rounded flex items-center justify-center text-sm font-bold text-gray-500">Schools</div>
+                    <div class="h-12 w-32 bg-gray-700/50 rounded flex items-center justify-center text-sm font-bold text-gray-500">Agencies</div>
+                    <div class="h-12 w-32 bg-gray-700/50 rounded flex items-center justify-center text-sm font-bold text-gray-500">Venues</div>
+                    <div class="h-12 w-32 bg-gray-700/50 rounded flex items-center justify-center text-sm font-bold text-gray-500">Brands</div>
+                </div>
+
+                <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="text-sm font-semibold text-brand-primary hover:text-white underline underline-offset-4">
+                    Partner With Us (DM on Instagram) &rarr;
+                </a>
+            </div>
+        </section>
+        
+        <!-- ===== Instagram Section ===== -->
+        <section id="instagram-feed" class="py-20 bg-black">
+             <div class="container mx-auto px-6">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+                    <div>
+                        <h2 class="text-3xl font-bold mb-2 text-white">Moments</h2>
+                        <p class="text-gray-400">Follow our journey <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="text-brand-primary hover:text-emerald-400">@_lounge_asia</a></p>
+                    </div>
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold text-white border border-gray-700 hover:bg-gray-800 px-4 py-2 rounded-full transition-colors">
+                        View More on Instagram &rarr;
+                    </a>
+                </div>
+                
+         <div id="instagram-feed-container" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+                     <!-- Pre-rendered Placeholders -->
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer bg-gray-800">
+                        <img src="assets/gallery-party-1.jpg" alt="Lounge Asia Instagram" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span class="text-white font-bold">@_lounge_asia</span>
+                        </div>
+                    </a>
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer bg-gray-800">
+                        <img src="assets/gallery-party-2.jpg" alt="Lounge Asia Instagram" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                    </a>
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer bg-gray-800">
+                        <img src="assets/event-table.jpg" alt="Lounge Asia Instagram" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                    </a>
+                     <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer bg-gray-800">
+                        <img src="assets/event-group-casual.jpg" alt="Lounge Asia Instagram" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                    </a>
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer bg-gray-800">
+                        <img src="assets/event-standing.jpg" alt="Lounge Asia Instagram" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-60 group-hover:opacity-100">
+                    </a>
+                    <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="group relative overflow-hidden rounded-xl aspect-square card-glow cursor-pointer bg-gray-800">
+                        <div class="w-full h-full flex items-center justify-center bg-gray-800 text-gray-500 font-bold border border-gray-700 hover:text-white hover:border-brand-primary transition-colors">
+                            View More &rarr;
+                        </div>
+                    </a>
+                </div>
+             </div>
+        </section>
+
+        <!-- ===== FAQ Section (Melbourne Specifics) ===== -->
+        <section id="faq" class="py-24 bg-gray-900 border-t border-gray-800">
+             <div class="container mx-auto px-6 max-w-4xl">
+                 <div class="text-center mb-16">
+                     <span class="text-brand-primary font-bold tracking-wide uppercase text-sm mb-2 block">Common Questions</span>
+                     <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">Bangkok Asian Meetup FAQ</h2>
+                     <p class="text-xl text-gray-400">Everything you need to know about our Bangkok events.</p>
+                 </div>
+
+                 <!-- Group 1: Joining & Logistics -->
+                 <div class="mb-12">
+                     <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                         <span class="bg-brand-primary/20 text-brand-primary p-2 rounded-lg">伐</span>
+                         First time at Lounge?
+                     </h3>
+                     <div class="space-y-4">
+                         <!-- Q1 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q1. Can I come alone?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 Yes! Most people come solo. We窶冤l say hi, help you settle in, and introduce you if you窶囘 like. ・
+                             </div>
+                         </details>
+                         <!-- Q2: RSVP Strict -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q2. Do I need to book?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 <strong class="text-brand-accent">Yes, Meetup RSVP is STRICTLY REQUIRED.</strong> 次・・<br>
+                                 No RSVP = No Entry. We check the Meetup attendance list at the door. Please ensure you click "Attend" on our Meetup page before arriving.
+                             </div>
+                         </details>
+                         <!-- Q3: Entry Fee Clear -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q3. Is there an entry fee?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 Entry requires either: <br>
+                                 1・鞘Ε <strong class="text-white">Purchase of at least 1 drink</strong> at the bar, OR <br>
+                                 2・鞘Ε <strong class="text-white">A reasonable contribution</strong> if not drinking. <br>
+                                 Thank you for supporting our venue and the community! 瑳
+                             </div>
+                         </details>
+                         <!-- Q4 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q4. What language can I speak?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 English, Japanese, Chinese, Taiwanese, or Korean窶蚤ll welcome! Use whatever feels most natural. 件
+                             </div>
+                         </details>
+                         <!-- Q5 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q5. Can I arrive late or leave early?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 Absolutely. It窶冱 a casual, drop-in style event. Feel free to come and go as you please.
+                             </div>
+                         </details>
+                         <!-- Q6 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q6. Do I need to bring anything?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 If the event is at a bar/pub, please bring a valid Photo ID (Passport, Driver窶冱 License, etc.). ・
+                             </div>
+                         </details>
+                     </div>
+                 </div>
+
+                 <!-- Group 2: Rules & Community -->
+                 <div>
+                     <h3 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                         <span class="bg-brand-primary/20 text-brand-primary p-2 rounded-lg">孱・・/span>
+                         Safety & Community
+                     </h3>
+                     <div class="space-y-4">
+                         <!-- Q7: House Rules -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q7. What are the House Rules?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 We have a <strong class="text-red-400">Zero Tolerance Policy</strong> to keep our space safe: <br>
+                                 圻 <strong class="text-white">No Solicitation:</strong> No MLM, business recruitment, or poaching. <br>
+                                 圻 <strong class="text-white">No Harassment:</strong> No pickup artists or creepy behavior. <br>
+                                 Violators are removed immediately. If you ever feel uncomfortable, please tell the Host.
+                             </div>
+                         </details>
+                         <!-- Q8: VIP Access -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q8. What is "VIP Access" for Founding Members?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 Founding Members gain early access to our official app and special party invites. Join the VIP list to be part of the inner circle as we grow! 氏
+                             </div>
+                         </details>
+                         <!-- Q9 -->
+                         <details class="group bg-gray-800 rounded-xl border border-gray-700 overflow-hidden transition-all duration-300 open:border-brand-primary/50">
+                             <summary class="flex justify-between items-center p-6 cursor-pointer list-none">
+                                 <h4 class="font-bold text-white text-lg">Q9. Is this a dating group or a social club?</h4>
+                                 <svg class="w-6 h-6 text-gray-400 group-open:rotate-180 transition-transform duration-300" fill="currentColor" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"></path></svg>
+                             </summary>
+                             <div class="px-6 pb-6 text-gray-300 leading-relaxed border-t border-gray-700/50 pt-4">
+                                 Friendship first. Our events are for making friends naturally. For those looking for a partner, we recommend our official app "Matcha Match"窶琶t窶冱 designed specifically for verified matching. 憧
+                             </div>
+                         </details>
+                     </div>
+                 </div>
+             </div>
+        </section>
+
+        <!-- ===== Contact Section ===== -->
+        <section id="contact" class="py-24 bg-brand-dark relative border-t border-gray-800">
+             <div class="container mx-auto px-6 max-w-4xl text-center">
+                 <span class="text-brand-primary font-bold tracking-wide uppercase text-sm mb-2 block">Get in Touch</span>
+                 <h2 class="text-3xl md:text-5xl font-bold mb-8 text-white">Have Questions?</h2>
+                 <p class="text-xl text-gray-400 mb-12">
+                     Whether you want to join our team, partner with us, or just say hello 窶・we'd love to hear from you.
+                 </p>
+                 
+                 <div class="grid md:grid-cols-2 gap-8">
+                     <!-- Email -->
+                     <a href="mailto:lounge.bangkok@gmail.com" class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-brand-primary transition-all duration-300 group hover:-translate-y-1">
+                         <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                         </div>
+                         <h3 class="text-xl font-bold text-white mb-2">Email Us</h3>
+                         <p class="text-brand-primary">lounge.bangkok@gmail.com</p>
+                     </a>
+                     
+                     <!-- DM -->
+                     <a href="https://www.instagram.com/_lounge_asia/" target="_blank" class="bg-gray-800 p-8 rounded-2xl border border-gray-700 hover:border-brand-primary transition-all duration-300 group hover:-translate-y-1">
+                        <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-brand-primary group-hover:text-white transition-colors">
+                           <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.584.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path></svg>
+                        </div>
+                        <h3 class="text-xl font-bold text-white mb-2">DM on Instagram</h3>
+                        <p class="text-brand-primary">@_lounge_asia</p>
+                    </a>
+                 </div>
+             </div>
+        </section>
+
+        <!-- ===== SEO & Authority Section ===== -->
+        <section id="seo-content" class="py-24 bg-black border-t border-gray-800">
+            <div class="container mx-auto px-6 max-w-4xl text-left">
+                <h2 class="text-3xl font-bold mb-8 text-white">Why Join Our Bangkok Asian Community?</h2>
+                <div class="prose prose-invert max-w-none text-gray-400 leading-relaxed space-y-6 text-lg">
+                    <p>
+                        Lounge Asia is Bangkok's premier destination for connecting with the local and international East Asian community. Our monthly meetups in the heart of Bangkok (Sukhumvit area) provide a safe and welcoming 'Third Place' for expats, locals, and travelers to make lifelong friends.
+                    </p>
+                    <p>
+                        Whether you're looking to practice English in a relaxed environment or meet people with shared cultural backgrounds, our community events at convenient venues like <strong class="text-white">Hair of the Dog (Phrom Phong)</strong> offer the perfect setting. Join us and discover why we are a top choice for Asian social networking in Thailand.
+                    </p>
+                    <p>
+                        Our mission is to bridge the gap between cultures and create meaningful connections through authentic social interactions. From casual mixers to themed events, Lounge Asia provides the infrastructure for you to find your tribe in Bangkok.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== Footer ===== -->
+        <footer class="bg-black py-12 border-t border-gray-800">
+            <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <span class="text-2xl font-bold text-white tracking-tight">Lounge Asia</span>
+                    <div class="mt-2 text-gray-500 text-xs">
+                        ABN 72 472 785 236
+                    </div>
+                    <div class="mt-4">
+                        <a href="parents/" class="text-gray-300 hover:text-white font-medium flex items-center gap-2 group">
+                            <span>Secure Education (For Parents)</span>
+                            <svg class="w-4 h-4 text-brand-primary group-hover:translate-x-1 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </a>
+                    </div>
+                    <div class="flex flex-wrap items-center justify-center gap-2 text-xs text-gray-500 mt-4">
+                    <div class="mt-4 flex flex-wrap gap-4 text-sm font-medium">
+                        <span class="text-gray-500">Our Locations:</span>
+                        <a href="index.html" class="text-gray-400 hover:text-white">Home</a>
+                        <a href="brisbane.html" class="text-gray-400 hover:text-white">Brisbane</a>
+                        <a href="sydney.html" class="text-gray-400 hover:text-white">Sydney</a>
+                        <a href="melbourne.html" class="text-gray-400 hover:text-white">Melbourne</a>
+                        <a href="tokyo.html" class="text-gray-400 hover:text-white">Tokyo</a>
+                        <a href="bangkok.html" class="text-white border-b border-brand-primary">Bangkok</a>
+                        <a href="hcmc.html" class="text-gray-400 hover:text-white">HCMC</a>
+                    </div>
+                    <p class="mt-4">ﾂｩ 2026 Lounge Asia. All rights reserved. ABN 72 472 785 236</p>
+                </div>
+                
+                 <div class="flex gap-6">
+                      <a href="https://www.instagram.com/_lounge_asia/" class="text-gray-400 hover:text-white transition-colors">Instagram</a>
+                      <a href="https://www.facebook.com/profile.php?id=61575030717215" class="text-gray-400 hover:text-white transition-colors">Facebook</a>
+                      <a href="mailto:lounge.bangkok@gmail.com" class="text-gray-400 hover:text-white transition-colors">Email</a>
+                 </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="scripts/feeds.js?v=4"></script>
+
+    <!-- Event Schema JSON-LD -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Event",
+        "name": "査 [FREE] Lounge Asia Bangkok Meetup: Easy English & 50% Off Gin for Ladies!",
+        "description": "Free social mixer for the East Asian community in Bangkok. Easy English OK, solo welcome, located at Hair of the Dog (Phrom Phong).",
+        "organizer": { "@type": "Organization", "name": "Lounge Asia", "url": "https://www.loungeasia.com.au/bangkok" },
+        "location": { 
+          "@type": "Place", 
+          "name": "Hair of the Dog Craft Beer and Gin Experience (Phrom Phong)", 
+          "address": { 
+            "@type": "PostalAddress", 
+            "streetAddress": "593/27 Sukhumvit Rd",
+            "addressLocality": "Bangkok", 
+            "addressRegion": "Watthana", 
+            "postalCode": "10110",
+            "addressCountry": "TH" 
+          } 
+        },
+        "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+        "eventStatus": "https://schema.org/EventScheduled",
+        "isAccessibleForFree": true,
+        "url": "https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313563573/",
+        "image": "https://www.loungeasia.com.au/assets/event-standing.jpg"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "Can I come alone?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! Most people come solo. We窶冤l say hi, help you settle in, and introduce you if you窶囘 like. ・"
+          }
+        }, {
+          "@type": "Question",
+          "name": "Do I need to book?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, Meetup RSVP is STRICTLY REQUIRED. No RSVP = No Entry. We check the Meetup attendance list at the door."
+          }
+        }, {
+          "@type": "Question",
+          "name": "Is there an entry fee?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Entry is FREE! We just ask you to purchase at least one drink at the bar to support the venue."
+          }
+        }, {
+          "@type": "Question",
+          "name": "What language can I speak?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "English, Japanese, Chinese, Taiwanese, or Korean窶蚤ll welcome! Use whatever feels most natural."
+          }
+        }, {
+          "@type": "Question",
+          "name": "Can I arrive late or leave early?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolutely. It窶冱 a casual, drop-in style event. Feel free to come and go as you please."
+          }
+        }, {
+          "@type": "Question",
+          "name": "Do I need to bring anything?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "If the event is at a bar/pub, please bring a valid Photo ID (Passport, Driver窶冱 License, etc.)."
+          }
+        }, {
+          "@type": "Question",
+          "name": "What are the House Rules?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We have a Zero Tolerance Policy: No Solicitation (MLM, etc.) and No Harassment. Violators are removed immediately."
+          }
+        }, {
+          "@type": "Question",
+          "name": "What is 'VIP Access' for Founding Members?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Founding Members gain early access to our official app and special party invites. Join the VIP list to be part of the inner circle!"
+          }
+        }, {
+          "@type": "Question",
+          "name": "Is this a dating group or a social club?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Friendship first. Our events are for making friends naturally. For partners, we recommend our official app 'Matcha Match'."
+          }
+        }]
+      }
+    ]
+    </script>
+
+    <!-- Mobile Menu JS -->
+    <script>
+    (function() {
+        'use strict';
+        var btn = document.getElementById('mobile-menu-btn');
+        var menu = document.getElementById('mobile-menu');
+        var overlay = document.getElementById('mobile-menu-overlay');
+        var closeBtn = document.getElementById('mobile-menu-close');
+        var navLinks = document.querySelectorAll('.mobile-nav-link');
+
+        if (!btn || !menu) { return; }
+
+        function openMenu() {
+            menu.classList.remove('hidden');
+            menu.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMenu() {
+            menu.classList.add('hidden');
+            menu.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = '';
+        }
+
+        btn.addEventListener('click', openMenu);
+        if (closeBtn) { closeBtn.addEventListener('click', closeMenu); }
+        if (overlay) { overlay.addEventListener('click', closeMenu); }
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', closeMenu);
+        });
+    })();
+    </script>
+
+    <!-- Sticky Mobile CTA -->
+    <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-30 md:hidden px-4 pb-4 pt-2 bg-gradient-to-t from-black/90 to-transparent">
+        <a href="https://www.meetup.com/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr/events/313563573/" target="_blank" rel="noopener"
+           onclick="if(typeof gtag!=='undefined'){gtag('event','meetup_click',{event_label:'Sticky CTA Mobile'})}"
+           class="block w-full text-center bg-brand-primary hover:bg-emerald-500 text-white font-bold py-4 px-6 rounded-2xl shadow-lg shadow-emerald-900/50 transition-all duration-300">
+            次 RSVP for Next Event
+        </a>
+    </div>
+</body>
+</html>

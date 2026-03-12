@@ -5,3 +5,4 @@ tenacity>=9.0.0
 python-slugify>=8.0.4
 semgrep>=1.83.0
 markdown>=3.6
+google-analytics-admin>=0.22.0
