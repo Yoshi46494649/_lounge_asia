@@ -1,4 +1,4 @@
-﻿# Lounge Asia Project Rules & Guidelines
+# Lounge Asia Project Rules & Guidelines
 
 ## 0. 【重要】Critical: Content Preservation & User Alignment
 このセクションは絶対遵守すること。違反した場合、信頼を大きく損なうことになります。
@@ -16,7 +16,10 @@
 - ファイルの一部を書き換える際は、周囲のコード（コメント含む）を不用意に削除・変更しない。
 - 特に "Expanding to 10 Global Hubs" や "Moments" などのセクション見出しは、ユーザーがこだわっているポイントであるため、細心の注意を払うこと。
 
----
+### 0.4 グローバルスキルの管理 (Global Skills Management)
+- **すべての新規スキルは `C:\Users\yoshi\Pictures\xcopy\-Skills` に保存すること。**
+- 各プロジェクトの `.agent/skills` は、このグローバルディレクトリから必要なスキルをコピーまたは参照して使用する。
+- 共通の自動化（例: `/git`）はグローバルで一元管理し、個別のプロジェクトに閉じた実装を避けること。
 
 ## MCP Usage Policy
 
