@@ -174,7 +174,7 @@
                     colors: {
                         brand: {
                             dark: '#111827',
-                            primary: '#4A0E2E', // Luxurious Purple from Logo
+                            primary: '#D4AF37', // Champagne Gold (High Visibility)
                             matcha: '#10B981', // Keep original green as 'matcha'
                             accent: '#D4AF37', // Champagne Gold
                         }
@@ -342,14 +342,18 @@
                         <strong class="font-bold text-white">District 1's #1 Asian Community.</strong><br>
                         Join hundreds of locals and expats for monthly meetups in East West Brewing Co.
                     </p>
-                    <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
-                        <a id="hero-cta-primary" href="https://www.meetup.com/ja-JP/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr" target="_blank" rel="noopener" onclick="if(typeof gtag!=='undefined'){gtag('event','hero_cta_click',{event_label:'RSVP Next Event'})}" class="group relative px-10 py-5 font-bold text-white transition-all duration-300 transform hover:-translate-y-1">
-                            <span class="relative block bg-brand-primary border border-brand-accent/30 py-4 px-12 rounded-full shadow-[0_0_20px_rgba(74,14,46,0.3)] group-hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] group-hover:border-brand-accent transition-all text-xl">
+                    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12 flex-wrap">
+                        <a id="hero-cta-primary" href="https://www.meetup.com/ja-JP/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr" target="_blank" rel="noopener" onclick="if(typeof gtag!=='undefined'){gtag('event','hero_cta_click',{event_label:'RSVP Next Event'})}" class="group relative px-6 py-3 font-bold text-white transition-all duration-300 transform hover:-translate-y-1">
+                            <span class="relative block bg-brand-primary border border-brand-accent/30 py-3 px-8 rounded-full shadow-[0_0_20px_rgba(212,175,55,0.3)] group-hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] group-hover:border-brand-accent transition-all text-lg">
                                 View HCMC Events
                             </span>
                         </a>
-                        <a id="hero-cta-secondary" href="#matcha-match" onclick="if(typeof gtag!=='undefined'){gtag('event','hero_cta_click',{event_label:'Matcha Match App'})}" class="px-10 py-5 text-gray-300 hover:text-white font-semibold transition-all duration-300 border-b-2 border-transparent hover:border-brand-accent backdrop-blur-sm bg-white/5 rounded-lg">
-                            Download Matcha Match App
+                        <a href="#" class="open-video-btn px-8 py-3.5 text-white font-bold transition-all duration-300 border border-white/30 hover:border-white hover:bg-white/10 backdrop-blur-sm rounded-full flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                            Watch Intro
+                        </a>
+                        <a id="hero-cta-secondary" href="#matcha-match" onclick="if(typeof gtag!=='undefined'){gtag('event','hero_cta_click',{event_label:'Matcha Match App'})}" class="px-8 py-3.5 text-gray-300 hover:text-white font-semibold transition-all duration-300 border-b-2 border-transparent hover:border-brand-accent backdrop-blur-sm bg-white/5 rounded-full">
+                            Matcha Match App
                         </a>
                     </div>
 
@@ -730,6 +734,11 @@
              <div class="container mx-auto px-6 text-center">
                  <span class="text-brand-accent font-bold tracking-wide uppercase text-sm mb-2 block">Community Voices</span>
                  <h2 class="text-3xl md:text-5xl font-bold mb-12 text-white">Hear from our Members</h2>
+                 
+                 <!-- Main Intro Video -->
+                 <div class="max-w-4xl mx-auto mb-16 relative group rounded-3xl overflow-hidden shadow-[0_0_40px_rgba(212,175,55,0.15)] border border-gray-800 transition-all hover:border-brand-primary/50 aspect-video">
+                     <iframe class="absolute inset-0 w-full h-full" src="https://www.youtube.com/embed/tNak_cu9CXw" title="Lounge Asia Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                 </div>
                  
                  <div class="flex flex-col md:flex-row justify-center gap-8 items-center">
                      <!-- Video 1 -->
@@ -1358,6 +1367,68 @@
         if (overlay) { overlay.addEventListener('click', closeMenu); }
         navLinks.forEach(function(link) {
             link.addEventListener('click', closeMenu);
+        });
+    })();
+    </script>
+
+    <!-- Video Modal -->
+    <div id="video-modal" class="fixed inset-0 z-[100] hidden flex-col items-center justify-center bg-black/90 backdrop-blur-md opacity-0 transition-opacity duration-300">
+        <button id="close-video" class="absolute top-6 right-6 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2 backdrop-blur-md transition-all z-[101]">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <div class="w-full max-w-5xl px-4 md:px-8 aspect-video mt-8">
+            <iframe id="youtube-iframe" class="w-full h-full rounded-2xl shadow-2xl border border-white/10" src="https://www.youtube.com/embed/tNak_cu9CXw?enablejsapi=1&version=3&playerapiid=ytplayer" title="Lounge Asia Introduction" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <!-- Video Modal JS -->
+    <script>
+    (function() {
+        'use strict';
+        var modal = document.getElementById('video-modal');
+        var closeBtn = document.getElementById('close-video');
+        var iframe = document.getElementById('youtube-iframe');
+        var openBtns = document.querySelectorAll('.open-video-btn');
+        var originalSrc = iframe ? iframe.src : '';
+
+        if (!modal || !iframe) return;
+
+        function openVideo(e) {
+            if(e) e.preventDefault();
+            if(originalSrc.indexOf('autoplay=1') === -1) {
+                iframe.src = originalSrc + (originalSrc.indexOf('?') > -1 ? '&' : '?') + 'autoplay=1';
+            }
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(function() {
+                modal.classList.remove('opacity-0');
+            }, 10);
+            document.body.style.overflow = 'hidden';
+            if (typeof gtag !== 'undefined') gtag('event', 'video_play', { event_label: 'Intro Video Modal' });
+        }
+
+        function closeVideo() {
+            modal.classList.add('opacity-0');
+            setTimeout(function() {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+                iframe.src = originalSrc; // Stop video
+            }, 300);
+            document.body.style.overflow = '';
+        }
+
+        openBtns.forEach(function(btn) {
+            btn.addEventListener('click', openVideo);
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeVideo);
+        
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeVideo();
+        });
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && !modal.classList.contains('hidden')) closeVideo();
         });
     })();
     </script>
