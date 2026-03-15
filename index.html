@@ -522,11 +522,13 @@
                 
                 <div class="mt-8 flex justify-center gap-4 text-sm text-gray-500 font-mono">
                     <span>Targeting:</span>
-                    <span class="text-gray-400">Bangkok</span>
-                    <span class="text-gray-400">Cairns</span>
                     <span class="text-gray-400">Osaka</span>
+                    <span class="text-gray-400">Cairns</span>
                     <span class="text-gray-400">Cebu</span>
+                    <span class="text-gray-400">Manila</span>
                     <span class="text-gray-400">Singapore</span>
+                    <span class="text-gray-400">Soul</span>
+                    <span class="text-gray-400">Taipei</span>
                 </div>
 
                 <div class="mt-12">
@@ -1240,6 +1242,73 @@
         });
     })();
     </script>
+    <!-- Gallery Auto-Scroll JS -->
+    <script>
+    (function() {
+        'use strict';
+        const scrollContainer = document.getElementById('gallery-scroll');
+        if (!scrollContainer) return;
+
+        let isPaused = false;
+        let scrollInterval;
+        let resumeTimeout;
+        const intervalTime = 4000; // 4 seconds
+        const resumeDelay = 8000; // 8 seconds after interaction
+
+        function getScrollStep() {
+            // Move by roughly one item width
+            const firstItem = scrollContainer.firstElementChild;
+            return firstItem ? firstItem.offsetWidth + 16 : 300; // 16 is gap
+        }
+
+        function autoScroll() {
+            if (isPaused) return;
+            
+            const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+            if (scrollContainer.scrollLeft >= maxScroll - 5) {
+                // Smoothly reset to start
+                scrollContainer.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                scrollContainer.scrollBy({ left: getScrollStep(), behavior: 'smooth' });
+            }
+        }
+
+        function startAutoScroll() {
+            stopAutoScroll();
+            scrollInterval = setInterval(autoScroll, intervalTime);
+        }
+
+        function stopAutoScroll() {
+            if (scrollInterval) clearInterval(scrollInterval);
+        }
+
+        function pauseAndResume() {
+            isPaused = true;
+            stopAutoScroll();
+            if (resumeTimeout) clearTimeout(resumeTimeout);
+            
+            resumeTimeout = setTimeout(() => {
+                isPaused = false;
+                startAutoScroll();
+            }, resumeDelay);
+        }
+
+        // Event listeners for user interaction
+        scrollContainer.addEventListener('mouseenter', () => { isPaused = true; stopAutoScroll(); });
+        scrollContainer.addEventListener('mouseleave', () => { if (!resumeTimeout) startAutoScroll(); isPaused = false; });
+        scrollContainer.addEventListener('touchstart', pauseAndResume, { passive: true });
+        scrollContainer.addEventListener('scroll', () => {
+             // If manual scroll is detected, we also want to pause/resume
+             if (Math.abs(scrollContainer.scrollLeft % getScrollStep()) > 10) {
+                 pauseAndResume();
+             }
+        }, { passive: true });
+
+        // Initialize
+        startAutoScroll();
+    })();
+    </script>
 </body>
+
 </html>
 ```
