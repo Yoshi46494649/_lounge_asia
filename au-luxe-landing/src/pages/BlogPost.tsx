@@ -1,4 +1,5 @@
-﻿import { useParams, Link } from "react-router-dom";
+```
+import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import Navigation from "@/components/Navigation";
 import { Button } from "@/components/ui/button";
@@ -14,8 +15,19 @@ import { SocialProof } from "@/components/blog/SocialProof";
 import { WaitlistCTA as BlogWaitlistCTA } from "@/components/blog/WaitlistCTA";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
+interface BlogPostData {
+  title: string;
+  excerpt: string;
+  category: string;
+  date: string;
+  readTime: string;
+  image: string;
+  author: string;
+  content: string;
+}
+
 // Mock blog post data (in production, this would come from a database)
-const blogPostsData: Record<string, any> = {
+const blogPostsData: Record<string, BlogPostData> = {
   "brisbane-asian-meetup-guide-2025": {
     title: "Your Guide to Asian Meetups in Brisbane 2025",
     excerpt: "Step inside Lounge Asia's International Meet Up-Brisbane's open-floor language exchange for Asian professionals and local friends.",
