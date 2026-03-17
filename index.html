@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!-- Deployed at 2026-02-13T11:43:10+10:00 -->
-<html lang="en">
+<html lang="en" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -131,8 +131,26 @@
             var links = document.querySelectorAll('.mobile-nav-link');
 
             function toggleMenu() {
-                menu.classList.toggle('hidden');
-                document.body.classList.toggle('overflow-hidden');
+                var isOpen = !menu.classList.contains('hidden');
+                if (isOpen) {
+                    var nav = menu.querySelector('nav');
+                    if (nav) nav.classList.add('translate-x-full');
+                    var overlay = document.getElementById('mobile-menu-overlay');
+                    if (overlay) overlay.classList.add('opacity-0');
+                    setTimeout(function() {
+                        menu.classList.add('hidden');
+                        document.body.classList.remove('overflow-hidden');
+                    }, 300);
+                } else {
+                    menu.classList.remove('hidden');
+                    document.body.classList.add('overflow-hidden');
+                    var nav = menu.querySelector('nav');
+                    var overlay = document.getElementById('mobile-menu-overlay');
+                    if (overlay) overlay.classList.remove('opacity-0');
+                    setTimeout(function() {
+                        if (nav) nav.classList.remove('translate-x-full');
+                    }, 10);
+                }
             }
 
             if(btn) btn.addEventListener('click', toggleMenu);
@@ -285,33 +303,33 @@
             </a>
 
             <!-- Mobile Menu Button -->
-            <button id="mobile-menu-btn" aria-label="Open menu" class="md:hidden text-white p-2 focus:outline-none">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            <button id="mobile-menu-btn" aria-label="Open menu" class="md:hidden text-white p-3 -mr-2 focus:outline-none active:scale-90 transition-transform">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
             </button>
         </div>
     </header>
 
     <!-- Mobile Drawer Menu -->
-    <div id="mobile-menu" class="fixed inset-0 z-40 hidden" aria-hidden="true">
-        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
-        <nav class="absolute top-0 right-0 h-full w-72 bg-gray-900 border-l border-gray-700 flex flex-col p-8 pt-20">
-            <button id="mobile-menu-close" aria-label="Close menu" class="absolute top-5 right-5 text-white p-2 hover:text-brand-primary transition-colors">
-                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"></path></svg>
+    <div id="mobile-menu" class="fixed inset-0 z-[60] hidden" aria-hidden="true">
+        <div id="mobile-menu-overlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity duration-300 opacity-0"></div>
+        <nav class="absolute top-0 right-0 h-full w-72 bg-gray-900 border-l border-gray-700 flex flex-col p-8 pt-20 transform translate-x-full transition-transform duration-300 ease-in-out">
+            <button id="mobile-menu-close" aria-label="Close menu" class="absolute top-5 right-5 text-white p-3 hover:text-brand-primary transition-colors active:scale-90">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
             <div class="flex flex-col gap-6 text-lg font-semibold text-gray-200">
-                <a href="#meetup-events" class="hover:text-brand-accent transition-colors mobile-nav-link">Events</a>
+                <a href="#meetup-events" class="hover:text-brand-accent transition-colors mobile-nav-link active:bg-white/5 py-2 px-3 rounded-lg -ml-3">Events</a>
                 <div class="flex flex-col gap-4 pl-4 border-l border-gray-700">
                     <span class="text-xs text-gray-500 uppercase tracking-widest font-bold">Cities</span>
-                    <a href="brisbane" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link">Brisbane</a>
-                    <a href="sydney" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link">Sydney</a>
-                    <a href="melbourne" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link">Melbourne</a>
-                    <a href="tokyo" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link">Tokyo</a>
-                    <a href="bangkok" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link">Bangkok</a>
-                    <a href="hcmc" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link">HCMC</a>
+                    <a href="brisbane" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link py-1">Brisbane</a>
+                    <a href="sydney" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link py-1">Sydney</a>
+                    <a href="melbourne" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link py-1">Melbourne</a>
+                    <a href="tokyo" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link py-1">Tokyo</a>
+                    <a href="bangkok" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link py-1">Bangkok</a>
+                    <a href="hcmc" class="text-sm hover:text-brand-accent transition-colors mobile-nav-link py-1">HCMC</a>
                 </div>
-                <a href="#matcha-match" class="hover:text-brand-accent transition-colors mobile-nav-link">Matcha Match</a>
-                <a href="#leaders" class="hover:text-brand-accent transition-colors mobile-nav-link">Become a Leader</a>
-                <a href="#contact" class="hover:text-brand-accent transition-colors mobile-nav-link">Contact</a>
+                <a href="#matcha-match" class="hover:text-brand-accent transition-colors mobile-nav-link active:bg-white/5 py-2 px-3 rounded-lg -ml-3">Matcha Match</a>
+                <a href="#leaders" class="hover:text-brand-accent transition-colors mobile-nav-link active:bg-white/5 py-2 px-3 rounded-lg -ml-3">Become a Leader</a>
+                <a href="#contact" class="hover:text-brand-accent transition-colors mobile-nav-link active:bg-white/5 py-2 px-3 rounded-lg -ml-3">Contact</a>
             </div>
             <a href="https://www.meetup.com/ja-JP/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr" target="_blank" rel="noopener" class="mt-auto block text-center bg-brand-accent text-gray-900 font-bold py-4 px-6 rounded-2xl shadow-lg active:scale-95 transition-all">
                 👉 RSVP for Next Event
@@ -335,12 +353,12 @@
                         Meet amazing people across Sydney, Melbourne, Brisbane &amp; more.
                     </p>
                     <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-12 flex-wrap">
-                        <a id="hero-cta-primary" href="https://www.meetup.com/ja-JP/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr" target="_blank" rel="noopener" onclick="if(typeof gtag!=='undefined'){gtag('event','hero_cta_click',{event_label:'RSVP Next Event'})}" class="group relative px-6 py-3 font-bold text-white transition-all duration-300 transform hover:-translate-y-1">
+                        <a id="hero-cta-primary" href="https://www.meetup.com/ja-JP/lounge-asia-east-asian-community-mixer-jp-cn-tw-kr" target="_blank" rel="noopener" onclick="if(typeof gtag!=='undefined'){gtag('event','hero_cta_click',{event_label:'RSVP Next Event'})}" class="group relative px-6 py-3 font-bold text-white transition-all duration-300 transform active:scale-95">
                             <span class="relative block bg-brand-primary border border-brand-accent/30 py-3 px-8 rounded-full shadow-[0_0_20px_rgba(212,175,55,0.3)] group-hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] group-hover:border-brand-accent transition-all text-lg">
                                 Join our next event
                             </span>
                         </a>
-                        <a href="#" class="open-video-btn px-8 py-3.5 text-white font-bold transition-all duration-300 border border-white/30 hover:border-white hover:bg-white/10 backdrop-blur-sm rounded-full flex items-center gap-2">
+                        <a href="#" class="open-video-btn px-8 py-3.5 text-white font-bold transition-all duration-300 border border-white/30 hover:border-white hover:bg-white/10 backdrop-blur-sm rounded-full flex items-center gap-2 active:scale-95">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                             Watch Intro
                         </a>
@@ -373,7 +391,7 @@
         </section>
 
         <!-- ===== Venue & Atmosphere Gallery (Swipeable) ===== -->
-        <section id="venue-gallery" class="py-24 bg-gray-900 border-y border-gray-800">
+        <section id="meetup-events" class="py-24 bg-gray-900 border-y border-gray-800">
              <div class="container mx-auto px-6 mb-8 flex justify-between items-end">
                 <div>
                     <h2 class="text-2xl md:text-3xl font-bold text-white mb-2">Our Venues & Vibe</h2>
@@ -1230,38 +1248,7 @@
   }
 ]
     </script>
-    <!-- Mobile Menu JS -->
-    <script>
-    (function() {
-        'use strict';
-        var btn = document.getElementById('mobile-menu-btn');
-        var menu = document.getElementById('mobile-menu');
-        var overlay = document.getElementById('mobile-menu-overlay');
-        var closeBtn = document.getElementById('mobile-menu-close');
-        var navLinks = document.querySelectorAll('.mobile-nav-link');
-
-        if (!btn || !menu) { return; }
-
-        function openMenu() {
-            menu.classList.remove('hidden');
-            menu.setAttribute('aria-hidden', 'false');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeMenu() {
-            menu.classList.add('hidden');
-            menu.setAttribute('aria-hidden', 'true');
-            document.body.style.overflow = '';
-        }
-
-        btn.addEventListener('click', openMenu);
-        if (closeBtn) { closeBtn.addEventListener('click', closeMenu); }
-        if (overlay) { overlay.addEventListener('click', closeMenu); }
-        navLinks.forEach(function(link) {
-            link.addEventListener('click', closeMenu);
-        });
-    })();
-    </script>
+    
 
     <!-- Sticky Mobile CTA -->
     <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-30 md:hidden px-4 pb-4 pt-2 bg-gradient-to-t from-black/90 to-transparent">
